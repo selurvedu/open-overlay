@@ -1,6 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/vanilla-sources/vanilla-sources-3.15.10.ebuild,v 1.1 2015/02/03 22:49:50 mpagano Exp $
+# open-overlay 2015
 
 EAPI="5"
 K_NOUSENAME="yes"
