@@ -22,7 +22,7 @@ RDEPEND="
 	>=gnome-base/gnome-core-libs-${PV}[cups?]
 	>=gnome-base/gnome-core-apps-${PV}[cups?,bluetooth?,cdr?]
 
-	>=gnome-base/gdm-${PV}
+	>=gnome-base/gdm-3.14.1
 
 	>=x11-wm/mutter-${PV}
 	>=gnome-base/gnome-shell-${PV}[bluetooth?]
