@@ -1,4 +1,3 @@
-# open-overlay 2015
 
 EAPI="5"
 K_NOUSENAME="yes"
