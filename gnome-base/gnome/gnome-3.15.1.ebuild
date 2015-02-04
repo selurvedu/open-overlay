@@ -19,25 +19,25 @@ S=${WORKDIR}
 # TODO: check accessibility completeness
 # GDM-3.0 integrates very nicely with GNOME Shell
 RDEPEND="
-	>=gnome-base/gnome-core-libs-${PV}[cups?]
-	>=gnome-base/gnome-core-apps-${PV}[cups?,bluetooth?,cdr?]
+	>=gnome-base/gnome-core-libs-3.14.1[cups?]
+	>=gnome-base/gnome-core-apps-3.14.1[cups?,bluetooth?,cdr?]
 
 	>=gnome-base/gdm-3.14.1
 
-	>=x11-wm/mutter-${PV}
-	>=gnome-base/gnome-shell-${PV}[bluetooth?]
+	>=x11-wm/mutter-3.14.3
+	>=gnome-base/gnome-shell-3.14.2 [bluetooth?]
 
-	>=x11-themes/gnome-backgrounds-${PV}
+	>=x11-themes/gnome-backgrounds-3.14.1
 	x11-themes/sound-theme-freedesktop
 
 	accessibility? (
 		>=app-accessibility/at-spi2-atk-2.15.3
 		>=app-accessibility/at-spi2-core-2.15.1
 		>=app-accessibility/caribou-0.4.16
-		>=app-accessibility/orca-${PV}
+		>=app-accessibility/orca-3.14.3
 		>=gnome-extra/mousetweaks-3.12.0 )
-	classic? ( >=gnome-extra/gnome-shell-extensions-${PV} )
-	extras? ( >=gnome-base/gnome-extra-apps-${PV} )
+	classic? ( >=gnome-extra/gnome-shell-extensions-3.14.3 )
+	extras? ( >=gnome-base/gnome-extra-apps-3.14.0 )
 "
 
 DEPEND=""
