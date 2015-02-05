@@ -17,14 +17,14 @@ else
 	MY_PN=${PN}
 fi
 
-MY_P="${MY_PN/_current/-}"
+MY_P="${MY_PN}"
 
 SRC_URI="
 	amd64? (
-		http://dl.google.com/linux/direct/${MY_PN}_amd64.deb
+		http://dl.google.com/linux/direct/${MY_PN}_current_amd64.deb
 	)
 	x86? (
-		http://dl.google.com/linux/direct/${MY_PN}_i386.deb
+		http://dl.google.com/linux/direct/${MY_PN}_current_i386.deb
 	)
 "
 
