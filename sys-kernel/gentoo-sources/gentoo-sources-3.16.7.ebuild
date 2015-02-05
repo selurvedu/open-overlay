@@ -24,3 +24,4 @@ pkg_postinst() {
 
 pkg_postrm() {
 	kernel-2_pkg_postrm
+}
