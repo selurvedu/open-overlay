@@ -16,29 +16,29 @@ KEYWORDS="~amd64 ~arm ~x86"
 # This is a wrapper for the core apps tightly integrated with GNOME 3
 # gtk-engines:2 is still around because it's needed for gtk2 apps
 RDEPEND="
-	>=gnome-base/gnome-core-libs-${PV}[cups?]
+	>=gnome-base/gnome-core-libs-3.14.1[cups?]
 
-	>=gnome-base/gnome-session-${PV}
+	>=gnome-base/gnome-session-3.14.0
 	>=gnome-base/gnome-menus-3.13.3
-	>=gnome-base/gnome-settings-daemon-${PV}[cups?]
-	>=gnome-base/gnome-control-center-${PV}[cups?]
+	>=gnome-base/gnome-settings-daemon-3.14.2[cups?]
+	>=gnome-base/gnome-control-center-3.14.2[cups?]
 
-	>=app-crypt/gcr-${PV}
-	>=gnome-base/nautilus-${PV}
-	>=gnome-base/gnome-keyring-${PV}
+	>=app-crypt/gcr-3.13.91
+	>=gnome-base/nautilus-3.14.2
+	>=gnome-base/gnome-keyring-3.13.91
 	>=gnome-extra/evolution-data-server-3.13.10
 
-	>=app-crypt/seahorse-${PV}
-	>=app-editors/gedit-${PV}
-	>=app-text/evince-${PV}
-	>=gnome-extra/gnome-contacts-${PV}
+	>=app-crypt/seahorse-3.12.0
+	>=app-editors/gedit-3.14.0
+	>=app-text/evince-3.14.0
+	>=gnome-extra/gnome-contacts-3.14.0
 	>=media-gfx/eog-${PV}
-	>=media-video/totem-${PV}
-	>=net-im/empathy-3.15.1
-	>=x11-terms/gnome-terminal-${PV}
+	>=media-video/totem-3.14.0
+	>=net-im/empathy-3.12.7
+	>=x11-terms/gnome-terminal-3.14.0
 
-	>=gnome-extra/gnome-user-docs-${PV}
-	>=gnome-extra/yelp-${PV}
+	>=gnome-extra/gnome-user-docs-3.14.1
+	>=gnome-extra/yelp-3.14.0
 
 	>=x11-themes/gtk-engines-2.20.2:2
 	>=x11-themes/adwaita-icon-theme-${PV}
