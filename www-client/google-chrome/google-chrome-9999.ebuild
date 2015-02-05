@@ -30,7 +30,7 @@ SRC_URI="
 
 LICENSE="google-chrome"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+#KEYWORDS="-* ~amd64 ~x86"
 IUSE="+plugins"
 RESTRICT="bindist mirror strip"
 
