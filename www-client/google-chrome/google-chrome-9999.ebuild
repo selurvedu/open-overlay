@@ -17,7 +17,7 @@ else
 	MY_PN=${PN}
 fi
 
-MY_P="${MY_PN}"
+MY_P="${MY_PN}_current"
 
 SRC_URI="
 	amd64? (
