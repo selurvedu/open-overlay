@@ -13,7 +13,7 @@ te tr uk vi zh-CN zh-TW)
 
 # Convert the ebuild version to the upstream mozilla version, used by mozlinguas
 MOZ_PV="${PV/_beta/b}" # Handle beta for SRC_URI
-MOZ_P="${MOZ_PN}-${MOZ_PV}"
+MOZ_P="${MOZ_PV}"
 
 # Upstream ftp release URI that's used by mozlinguas.eclass
 # We don't use the http mirror because it deletes old tarballs.
@@ -24,8 +24,8 @@ inherit eutils multilib pax-utils fdo-mime gnome2-utils mozlinguas nsplugins
 DESCRIPTION="Firefox Web Browser"
 MOZ_FTP_URI="ftp://ftp.mozilla.org/pub/mozilla.org/${MOZ_PN}/releases"
 SRC_URI="${SRC_URI}
-	amd64? ( ${MOZ_FTP_URI}/${MOZ_PV}/linux-x86_64/en-US/${MOZ_P}.tar.bz2 -> ${PN}_x86_64-${PV}.tar.bz2 )
-	x86? ( ${MOZ_FTP_URI}/${MOZ_PV}/linux-i686/en-US/${MOZ_P}.tar.bz2 -> ${PN}_i686-${PV}.tar.bz2 )"
+	amd64? ( ${MOZ_FTP_URI}/${MOZ_PV}/linux-x86_64/en-US/${MOZ_P}.tar.bz2 -> ${P}_x86_64-${PV}.tar.bz2 )
+	x86? ( ${MOZ_FTP_URI}/${MOZ_PV}/linux-i686/en-US/${MOZ_P}.tar.bz2 -> ${P}_i686-${PV}.tar.bz2 )"
 HOMEPAGE="http://www.mozilla.com/firefox"
 RESTRICT="strip mirror"
 
