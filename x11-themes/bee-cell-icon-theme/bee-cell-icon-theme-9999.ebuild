@@ -21,6 +21,6 @@ src_unpack() {
 
 src_install() {
 	insinto /usr/share/icons
-	doins -r bee-cells
+	doins -r bee-cell-icon-theme
 	dodoc README.md
 }
