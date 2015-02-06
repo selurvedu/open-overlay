@@ -28,7 +28,7 @@ src_unpack() {
 
 
 src_install() {
-        insinto /usr/share/icons
+        insinto /opt
         doins -r gis-weather
         dodoc README.md
 }
