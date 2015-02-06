@@ -5,7 +5,7 @@ EAPI=5
 DESCRIPTION="Fork dalisha icon theme."
 HOMEPAGE="https://gnome-look.org"
 
-SRC_URI="https://github.com/manson9/${PN}/tar.gz/master -> ${P}.tar.gz"
+SRC_URI="https://github.com/manson9/${PN}/archive/master.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3.0+"
 SLOT="0"
