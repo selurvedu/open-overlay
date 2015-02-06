@@ -5,7 +5,7 @@ EAPI=5
 DESCRIPTION="Official icon theme from the Numix project."
 HOMEPAGE="https://gnome-look.org"
 
-SRC_URI="https:.github.com/pantera31752/bee-cell-icon-theme/archive/master.tar.gz -> ${P}.tar.gz"
+SRC_URI="https:.github.com/pantera31752/${PN}/archive/master.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3.0+"
 SLOT="0"
