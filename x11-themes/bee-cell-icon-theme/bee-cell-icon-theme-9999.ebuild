@@ -2,7 +2,7 @@
 
 EAPI=5
 
-DESCRIPTION="Official icon theme from the Numix project."
+DESCRIPTION="Fork dalisha icon theme."
 HOMEPAGE="https://gnome-look.org"
 
 SRC_URI="https://codeload.github.com/pantera31752/${PN}/tar.gz/master -> ${P}.tar.gz"
