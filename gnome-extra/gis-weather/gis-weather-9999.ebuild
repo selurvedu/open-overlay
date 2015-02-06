@@ -21,14 +21,13 @@ DEPEND="dev-python/pygobject:3
 
 RDEPEND="${DEPEND}"
 
+S=${WORKDIR}
+
 src_unpack() {
-        unpack "${A}"
-	mv "${PN}-master" "${P}"	
+        unpack "${WORKDIR}"
 }
 
 
 src_install() {
-        insinto /opt
-        doins -r gis-weather
-        dodoc README.md
+        cp -R "${WORKDIR}"/usr "${D}/"
 }
