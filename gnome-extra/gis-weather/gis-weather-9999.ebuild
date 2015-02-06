@@ -26,11 +26,19 @@ src_unpack() {
 	mv "${PN}-master" "${P}"	
 }
 
+S=${WORKDIR}/${PN}
+
 src_install() {
-  insinto /usr/bin/share
-  doins -r gis-weather
-  dodoc README.md
+  local dir="/opt/${PN}"
+
+	insinto "${dir}"
+	doins -r *
+	fperms 755 "${dir}/bin/studio.sh" "${dir}/bin/fsnotifier" "${dir}/bin/fsnotifier64"
+
+	newicon "gis-weather/icon.png" icon.png"
+	make_wrapper ${PN} ${dir}/gis-weather/gis-weather.py
+	make_desktop_entry ${PN} "Gis-Weather" ${PN} "Other;Widget"
 }
 
-pkg_postinst() { gtk-update-icon-cache; }
-pkg_postrm() { gtk-update-icon-cache; }
+#pkg_postinst() { gtk-update-icon-cache; }
+#pkg_postrm() { gtk-update-icon-cache; }
