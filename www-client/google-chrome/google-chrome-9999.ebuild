@@ -21,10 +21,10 @@ MY_P="${MY_PN}"
 
 SRC_URI="
 	amd64? (
-		http://dl.google.com/linux/direct/${MY_PN}_current_amd64.deb -> ${P}.deb
+		http://dl.google.com/linux/direct/${MY_PN}_current_amd64.deb -> ${P}_amd64.deb
 	)
 	x86? (
-		http://dl.google.com/linux/direct/${MY_PN}_current_i386.deb -> ${P}.deb
+		http://dl.google.com/linux/direct/${MY_PN}_current_i386.deb -> ${P}_i386.deb
 	)
 "
 
