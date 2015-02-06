@@ -5,7 +5,7 @@ EAPI=5
 DESCRIPTION="Official icon theme from the Numix project."
 HOMEPAGE="https://gnome-look.org"
 
-SRC_URI="https://codeload.github.com/pantera31752/${PN}/tar.gz/master -> ${P}.tar.gz"
+SRC_URI="https://codeload.github.com/pantera31752/${P}/tar.gz/master -> ${PN}.tar.gz"
 
 LICENSE="GPL-3.0+"
 SLOT="0"
