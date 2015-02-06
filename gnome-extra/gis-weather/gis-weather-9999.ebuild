@@ -22,7 +22,7 @@ DEPEND="dev-python/pygobject:3
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-        unpack ""
+        unpack "${A}"
 	mv "${PN}-master" "${P}"	
 }
 
