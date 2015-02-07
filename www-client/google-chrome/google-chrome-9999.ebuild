@@ -11,12 +11,20 @@ inherit readme.gentoo chromium eutils multilib pax-utils unpacker
 DESCRIPTION="The web browser from Google"
 HOMEPAGE="http://www.google.com/chrome"
 
+if [[ ${PN} == google-chrome ]]; then
+	MY_PN=${PN}-stable
+else
+	MY_PN=${PN}
+fi
+
+MY_P="${MY_PN}_${PV/_p/-}"
+
 SRC_URI="
 	amd64? (
-		https://mega.co.nz/#!JVU2nKjB!n9o6ZqiIw3CpXaASFXJe6FTodgKdzAKs18awDy09kO8 -> ${P}_amd64.deb
+		https://dl.google.com/linux/direct/${MY_PN}_current_amd64.deb -> ${}_amd64.deb
 	)
 	x86? (
-		https://mega.co.nz/#!gVNw3YiD!KUWPs94SJqC9gb8WYWjSiyrTs4zdQ_ej92WFYPCO2Wo -> ${P}_i386.deb
+		https://dl.google.com/linux/direct/${MY_PN}_current_i386.deb -> ${P}_i386.deb
 	)
 "
 
