@@ -1,3 +1,3 @@
 # open-overlay 2015 by Alex
 
-email: a.xarlanov29@gmail.com
+Please report bugs gentoo ebuilds for this my email: a.xarlanov29@gmail.com Thanks.
