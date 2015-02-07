@@ -1,4 +1,4 @@
- Copyright open-overlay 2015 by Alex
+# Copyright open-overlay 2015 by Alex
 
 EAPI=5
 
