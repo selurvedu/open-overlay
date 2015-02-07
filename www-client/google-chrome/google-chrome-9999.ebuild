@@ -21,7 +21,7 @@ MY_P="${MY_PN}_${PV/_p/-}"
 
 SRC_URI="
 	amd64? (
-		https://dl.google.com/linux/direct/${MY_PN}_current_amd64.deb -> ${}_amd64.deb
+		https://dl.google.com/linux/direct/${MY_PN}_current_amd64.deb -> ${P}_amd64.deb
 	)
 	x86? (
 		https://dl.google.com/linux/direct/${MY_PN}_current_i386.deb -> ${P}_i386.deb
