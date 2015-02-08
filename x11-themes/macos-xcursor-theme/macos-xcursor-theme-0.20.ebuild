@@ -2,7 +2,7 @@
 
 EAPI=5
 
-DESCRIPTION="Official icon theme vibrancy."
+DESCRIPTION="Official icon xcursor theme MacOSX."
 HOMEPAGE="http://kde-look.org"
 SRC_URI="https://github.com/manson9/${PN}/archive/master.tar.gz -> ${P}.tar.gz"
 
