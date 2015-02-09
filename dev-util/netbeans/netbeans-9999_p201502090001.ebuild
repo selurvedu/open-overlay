@@ -262,7 +262,7 @@ pkg_postinst() {
         echo
         elog "Please report bugs compile netbeans of ebuild on my email:a.xarlanov@gmail.com"
         elog "or http://vk.com/mm05_01_1969"
-        elog "Thaks (open-overlay 2015 by Alex)"
+        elog "Thanks (open-overlay 2015 by Alex)"
         echo
 }
 
