@@ -1,8 +1,6 @@
-# Copyright 1999-2011 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# Copyright open-overlay 2015 by Alex
 
-EAPI=3
+EAPI=5
 
 inherit eutils games
 
@@ -45,4 +43,12 @@ src_install() {
 	make_desktop_entry ${PN} swars ${PN}.ico
 
 	prepgamesdirs
+}
+pkg_postinst() {
+        echo 
+        elog "This port game Syndicate Wars only i386 processors"
+        elog "Please report bugs compile swars of ebuild on my email:a.xarlanov@gmail.com"
+        elog "or http://vk.com/mm05_01_1969"
+        elog "Thanks (open-overlay 2015 by Alex)"
+        echo 
 }
