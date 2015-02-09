@@ -6,7 +6,7 @@ inherit eutils java-pkg-2 java-ant-2
 DESCRIPTION="Netbeans IDE"
 HOMEPAGE="http://netbeans.org/"
 SLOT="9999"
-SOURCE_URL="http://bits.netbeans.org/download/trunk/nightly/2015-02-09_00-01-28/zip/netbeans-trunk-nightly-201502090001-src.zip -> ${P}.zip"
+SOURCE_URL="http://bits.netbeans.org/download/trunk/nightly/2015-02-09_00-01-28/zip/netbeans-trunk-nightly-201502090001-src.zip"
 PATCHES_URL="http://dev.gentoo.org/~fordfrog/distfiles/netbeans-9999-r14-build.xml.patch.bz2"
 L10N_URL="http://dev.gentoo.org/~fordfrog/distfiles/netbeans-l10n-9999-20131010.tar.bz2"
 ALL_URLS="${SOURCE_URL} ${PATCHES_URL} ${L10N_URL}"
@@ -265,5 +265,6 @@ pkg_postinst() {
         elog "Thanks (open-overlay 2015 by Alex)"
         echo
 }
+
 
 
