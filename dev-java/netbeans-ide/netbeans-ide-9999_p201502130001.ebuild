@@ -6,7 +6,7 @@ inherit eutils java-pkg-2 java-ant-2
 DESCRIPTION="Netbeans IDE Cluster"
 HOMEPAGE="http://netbeans.org/projects/ide"
 SLOT="9999"
-SOURCE_URL="bits.netbeans.org/download/trunk/nightly/2015-02-11_00-01-28/zip/netbeans-trunk-nightly-201502110001-src.zip"
+SOURCE_URL="bits.netbeans.org/download/trunk/nightly/2015-02-13_00-01-28/zip/netbeans-trunk-nightly-201502130001-src.zip"
 SRC_URI="${SOURCE_URL}
 	http://dev.gentoo.org/~fordfrog/distfiles/netbeans-9999-r14-build.xml.patch.bz2
 	http://hg.netbeans.org/binaries/4E74C6BE42FE89871A878C7C4D6158F21A6D8010-antlr-runtime-3.4.jar
