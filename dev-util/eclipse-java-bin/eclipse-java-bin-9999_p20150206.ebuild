@@ -1,3 +1,5 @@
+# Copyright open-overlay 2015 by Alex
+
 EAPI=5
 
 inherit eutils versionator
@@ -14,7 +16,7 @@ HOMEPAGE="http://www.eclipse.org"
 
 LICENSE="EPL-1.0"
 SLOT="9999"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="

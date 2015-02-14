@@ -4,8 +4,8 @@ EAPI=5
 
 inherit eutils versionator
 
-SR="M4"
-RNAME="mars"
+SR="SR2"
+RNAME="indigo"
 
 SRC_URI="
 	amd64? ( http://mirror.tspu.ru/eclipse/technology/epp/downloads/release/${RNAME}/${SR}/eclipse-jee-${RNAME}-${SR}-linux-gtk-x86_64.tar.gz -> eclipse-jee-${RNAME}-${SR}-linux-gtk-x86_64-${PV}.tar.gz )
@@ -15,7 +15,7 @@ DESCRIPTION="Eclipse IDE for Java EE Developers"
 HOMEPAGE="http://www.eclipse.org"
 
 LICENSE="EPL-1.0"
-SLOT="9999"
+SLOT="3.7"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 

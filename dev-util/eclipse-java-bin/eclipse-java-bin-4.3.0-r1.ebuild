@@ -4,23 +4,23 @@ EAPI=5
 
 inherit eutils versionator
 
-SR="M4"
-RNAME="mars"
+SR="SR2-with-Java8-patches"
+RNAME="kepler"
 
 SRC_URI="
-	amd64? ( http://mirror.tspu.ru/eclipse/technology/epp/downloads/release/${RNAME}/${SR}/eclipse-jee-${RNAME}-${SR}-linux-gtk-x86_64.tar.gz -> eclipse-jee-${RNAME}-${SR}-linux-gtk-x86_64-${PV}.tar.gz )
-	x86? ( http://mirror.tspu.ru/eclipse/technology/epp/downloads/release/${RNAME}/${SR}/eclipse-jee-${RNAME}-${SR}-linux-gtk.tar.gz -> eclipse-jee-${RNAME}-${SR}-linux-gtk-${PV}.tar.gz )
+	amd64? ( http://mirror.tspu.ru/eclipse/technology/epp/downloads/release/${RNAME}/${SR}/eclipse-jee-${RNAME}-SR2-Java8-linux-gtk-x86_64.tar.gz -> eclipse-jee-${RNAME}-${SR}-linux-gtk-x86_64-${PV}.tar.gz )
+	x86? ( http://mirror.tspu.ru/eclipse/technology/epp/downloads/release/${RNAME}/${SR}/eclipse-jee-${RNAME}-SR2-Java8-linux-gtk.tar.gz -> eclipse-jee-${RNAME}-${SR}-linux-gtk-${PV}.tar.gz )
 "
 DESCRIPTION="Eclipse IDE for Java EE Developers"
 HOMEPAGE="http://www.eclipse.org"
 
 LICENSE="EPL-1.0"
-SLOT="9999"
+SLOT="3.7"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	>=virtual/jdk-1.6
+	>=virtual/jdk-1.8
 	x11-libs/gtk+:2"
 
 S=${WORKDIR}/eclipse
@@ -46,4 +46,5 @@ src_install() {
 	newbin "${T}"/eclipse-bin eclipse-bin-${SLOT}
 	make_desktop_entry "eclipse-bin-${SLOT}" "Eclipse ${PV} (bin)" "${dest}/icon.xpm"
 }
+
 
