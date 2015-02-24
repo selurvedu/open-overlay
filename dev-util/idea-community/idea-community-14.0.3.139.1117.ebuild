@@ -1,28 +1,34 @@
 # Copyright open-overlay 2015 by Alex
 
-EAPI="5"
+EAPI=5
 inherit eutils versionator
 
-SLOT="0"
-RDEPEND=">=virtual/jdk-1.7"
+SLOT="$(get_major_version)"
+RDEPEND=">=virtual/jdk-1.6"
+
 MY_PN="idea"
+MY_PV="$(get_version_component_range 4-6)"
+
+RESTRICT="strip"
+QA_TEXTRELS="opt/${P}/bin/libbreakgen.so"
 
 DESCRIPTION="IntelliJ IDEA is an intelligent Java IDE (Community Edition)"
-HOMEPAGE="http://www.jetbrains.com/idea"
-SRC_URI="http://download-cf.jetbrains.com/${MY_PN}/${MY_PN}IC-14.0.3.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="http://jetbrains.com/idea/"
+SRC_URI="http://download.jetbrains.com/${MY_PN}/${MY_PN}IC-$(get_version_component_range 1-3).tar.gz"
 LICENSE="Apache-2.0"
 IUSE=""
-KEYWORDS="~x86 amd64"
-S="${WORKDIR}/${P}"
+KEYWORDS="amd64 x86"
+S="${WORKDIR}/${MY_PN}-IC-${MY_PV}.2"
 
 src_install() {
-local dir="/opt/${P}"
+	local dir="/opt/${P}"
+	local exe="${PN}-${SLOT}"
 
-insinto "${dir}"
-doins -r *
-fperms 755 "{dir}/bin/${MY_PN}".sh "${dir}/bin/fsontifier" "${dir}/bin/fsontifier64"
+	insinto "${dir}"
+	doins -r *
+	fperms 755 "${dir}/bin/${MY_PN}.sh" "${dir}/bin/fsnotifier" "${dir}/bin/fsnotifier64"
 
-newicon "bin/${MY_PN}.png" "idea-community.png"
-make_wrapper "idea-community" "/opt/${P}/bin/${MY_PN}.sh"
-make_desktop_entry "idea-community" "IntelliJ IDEA(Community Edition)" "idea-community" "Development;IDE"
+	newicon "bin/${MY_PN}.png" "${exe}.png"
+	make_wrapper "${exe}" "/opt/${P}/bin/${MY_PN}.sh"
+	make_desktop_entry ${exe} "IntelliJ IDEA $(get_version_component_range 1-3)	(Community Edition)" "${exe}" "Development;IDE"
 }
