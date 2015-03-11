@@ -19,7 +19,7 @@ mv "${PN}-master" "${P}"
 }
 
 src_install() {
-insinto /usr/share/cursors/xorg-X11
+insinto /usr/share/cursors/xorg-x11
 doins -r MacOSX
 dodoc README.md
 }
