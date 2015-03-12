@@ -9,6 +9,9 @@ LICENSE="Genymotion"
 SLOT="0"
 KEYWORDS="amd64"
 RDEPEND="|| ( >=app-emulation/virtualbox-4.3.18 >=app-emulation/virtualbox-bin-4.3.18 )"
+ 
+DEPEND=${RDEPEND}
+      >=dev-qt/qtwebkit:4        
 
 src_unpack() {
 unpack "${A}"
