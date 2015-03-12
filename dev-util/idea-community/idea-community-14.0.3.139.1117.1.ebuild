@@ -27,6 +27,6 @@ src_install() {
 	fperms 755 "${dir}/bin/${MY_PN}.sh" "${dir}/bin/fsnotifier" "${dir}/bin/fsnotifier64"
 
 	newicon "bin/idea.png" "${PN}.png"
-	make_wrapper ${PN} /opt/${P}/bin/${MY_PN}.sh
+	make_wrapper ${PN} ${dir}/bin/${MY_PN}.sh
 	make_desktop_entry ${PN} "IntelliJ IDEA(Community Edition)" ${PN} "Development;IDE"
 }
