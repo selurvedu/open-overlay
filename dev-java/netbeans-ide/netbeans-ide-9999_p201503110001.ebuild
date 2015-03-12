@@ -6,7 +6,7 @@ inherit eutils java-pkg-2 java-ant-2
 DESCRIPTION="Netbeans IDE Cluster"
 HOMEPAGE="http://netbeans.org/projects/ide"
 SLOT="9999"
-SOURCE_URL="bits.netbeans.org/download/trunk/nightly/2015-03-11_00-01-28/zip/netbeans-trunk-nightly-201503110001-src.zip"
+SOURCE_URL="http://bits.netbeans.org/download/trunk/nightly/2015-03-11_00-01-28/zip/netbeans-trunk-nightly-201503110001-src.zip"
 SRC_URI="${SOURCE_URL}
 	http://dev.gentoo.org/~fordfrog/distfiles/netbeans-9999-r14-build.xml.patch.bz2
 	http://hg.netbeans.org/binaries/4E74C6BE42FE89871A878C7C4D6158F21A6D8010-antlr-runtime-3.4.jar
@@ -19,7 +19,6 @@ SRC_URI="${SOURCE_URL}
 	http://hg.netbeans.org/binaries/C9A6304FAA121C97CB2458B93D30B1FD6F0F7691-derbysampledb.zip
 	http://hg.netbeans.org/binaries/D19F70E8CC5D326509B1BF8C1A8FC87BD258E990-exechlp-1.0.zip
 	http://hg.netbeans.org/binaries/5EEAAC41164FEBCB79C73BEBD678A7B6C10C3E80-freemarker-2.3.19.jar
-	http://hg.netbeans.org/binaries/75C30C488AD2A18A82C7FE3829F4A33FC7841643-glassfish-tooling-sdk-0.3-b054-246345.jar
 	http://hg.netbeans.org/binaries/23123BB29025254556B6E573023FCDF0F6715A66-html-4.01.zip
 	http://hg.netbeans.org/binaries/F4A1696661E6233F8C27EE323CAEF9CB052666F1-html5-datatypes.jar
 	http://hg.netbeans.org/binaries/4388C34B9F085A42FBEA06C5B00FDF0A251171EC-html5doc.zip
@@ -36,9 +35,9 @@ SRC_URI="${SOURCE_URL}
 	http://hg.netbeans.org/binaries/F4DB465F207907A2406B0BF5C8FFEE22A5C3E4E3-jaxb1-impl.jar
 	http://hg.netbeans.org/binaries/5E40984A55F6FFF704F05D511A119CA5B456DDB1-jfxrt.jar
 	http://hg.netbeans.org/binaries/483A61B688B13C62BB201A683D98A6688B5373B6-jing.jar
-	http://hg.netbeans.org/binaries/DA6CE3C2EB334DB61EFA99CD66134619867368FA-js-corestubs.zip
-	http://hg.netbeans.org/binaries/997BF4A93B8A99E37AB51C9016D1D18CF5FF4B60-js-domstubs.zip
-	http://hg.netbeans.org/binaries/291540295937BAC426A5A5BDDB6D86604075F4C0-js-reststubs.zip
+	http://hg.netbeans.org/binaries/3699DFFE17089F9B9C73857EDA9B8669AAD657D3-js-corestubs.zip
+	http://hg.netbeans.org/binaries/2AA13ACCC4059C930C4AD3B6ABD8E1C0FC06235C-js-domstubs.zip
+	http://hg.netbeans.org/binaries/7B737C0556FD692D8F072EF375FDD4FCA717DF9B-js-reststubs.zip
 	http://hg.netbeans.org/binaries/036FA0032B44AD06A1F13504D97B3685B1C88961-jsch.agentproxy.core-0.0.7.jar
 	http://hg.netbeans.org/binaries/9F31964104D71855DF6B73F0C761CDEB3FA3C49C-jsch.agentproxy.sshagent-0.0.7.jar
 	http://hg.netbeans.org/binaries/3FA59A536F3DC2197826DC7F224C0823C1534203-jsch.agentproxy.pageant-0.0.7.jar
@@ -46,29 +45,29 @@ SRC_URI="${SOURCE_URL}
 	http://hg.netbeans.org/binaries/2E07375E5CA3A452472F0E87FB33F243F7A5C08C-libpam4j-1.1.jar
 	http://hg.netbeans.org/binaries/76E901A1F432323E7E90FC86FDB2534A28952293-nashorn-02f810c26ff9-patched.jar
 	http://hg.netbeans.org/binaries/010FC8BD229B7F68C8C4D5BDE399475373096601-non-schema.jar
-	http://hg.netbeans.org/binaries/7052E115041D04410A4519A61307502FB7C138E6-org.eclipse.core.contenttype_3.4.100.v20110423-0524.jar
-	http://hg.netbeans.org/binaries/B19A4D998C76FE7A30830C96B9E3A47682F320FC-org.eclipse.core.jobs-3.5.101.jar
-	http://hg.netbeans.org/binaries/E64EF6A3FC5DB01AD95632B843706CCE56614C90-org.eclipse.core.net_1.2.100.I20110511-0800.jar
-	http://hg.netbeans.org/binaries/6658C235056134F7E86295E751129508802D71F2-org.eclipse.core.runtime-3.7.0.jar
-	http://hg.netbeans.org/binaries/0CA9B9DF8A8E4C6805C60A5761C470FCE8AE828F-org.eclipse.core.runtime.compatibility.auth_3.2.200.v20110110.jar
-	http://hg.netbeans.org/binaries/9C74D245214DB08E7EB9BC07A951B41CFE3E3648-org.eclipse.equinox.app-1.3.100.jar
-	http://hg.netbeans.org/binaries/78E5D0B8516B042495660DA36CE5114650F8F156-org.eclipse.equinox.common_3.6.0.v20110523.jar
-	http://hg.netbeans.org/binaries/FD94003A1BCE42008753522BFED68E5A84B92644-org.eclipse.equinox.preferences-3.4.2.jar
-	http://hg.netbeans.org/binaries/54AE046B40C9095C2637F8D21664C5CD76E34485-org.eclipse.equinox.registry_3.5.200.v20120522-1841.jar
-	http://hg.netbeans.org/binaries/0FFB9B1D7CD992CE6C8AAEEC2F6F98DFBB1D2F91-org.eclipse.equinox.security-1.1.1.jar
-	http://hg.netbeans.org/binaries/B005B69D9F5B4DBA636A95403D5CB62BAD5C486D-org.eclipse.jgit-3.6.0.201412230720-r.jar
-	http://hg.netbeans.org/binaries/0F81EBAFB75BE1C3A972B7563078897958724E1A-org.eclipse.jgit.java7-3.6.0.201412230720-r.jar
-	http://hg.netbeans.org/binaries/A94F8F805202B28236FFBC03C1CA149129DAEA1C-org.eclipse.mylyn.bugzilla.core_3.10.0.20131024-1218.jar
-	http://hg.netbeans.org/binaries/19D64C17A692D2023E22B16AD515118DF6427790-org.eclipse.mylyn.commons.core_3.10.0.20130926-1710.jar
-	http://hg.netbeans.org/binaries/A1BF01D1DD09274446738C3F83360314B8881CD5-org.eclipse.mylyn.commons.net_3.10.0.20131018-1210.jar
-	http://hg.netbeans.org/binaries/136A7EB3BB9B2559C5F9184B438F108C959B3C03-org.eclipse.mylyn.commons.repositories.core_1.2.0.20130704-2116.jar
-	http://hg.netbeans.org/binaries/531746EBE57071AB7F8CCC7ACB0E806F25893916-org.eclipse.mylyn.commons.xmlrpc_3.10.0.20130704-2116.jar
-	http://hg.netbeans.org/binaries/D3ED088A49DE9E5163457E9279181DD4185BFBE6-org.eclipse.mylyn.tasks.core_3.10.0.20131010-2023.jar
-	http://hg.netbeans.org/binaries/8D4278A9F47D17A104182E59CF06D682B3DE0B3E-org.eclipse.mylyn.wikitext.confluence.core_1.9.0.20131007-2055.jar
-	http://hg.netbeans.org/binaries/1FC011B8A350B70950B3F1D722D7F2890C6E76D8-org.eclipse.mylyn.wikitext.core_1.9.0.20131007-2055.jar
-	http://hg.netbeans.org/binaries/6E914CA3075C8FDF7652F04A02868CF32F2EDCE3-org.eclipse.mylyn.wikitext.textile.core_1.9.0.20131007-2055.jar
+	http://hg.netbeans.org/binaries/F27BF427BE72709F3094BF76ECA8C5A2B9AC6DA9-org.eclipse.core.contenttype_3.4.100.v20110423-0524_nosignature.jar
+	http://hg.netbeans.org/binaries/9BC512C5BB9A9F5276B9E8672F6B30AD0BD97D88-org.eclipse.core.jobs-3.5.101_nosignature.jar
+	http://hg.netbeans.org/binaries/105DC9A1A93E6EA9A6CD368AD12897B1F247D6AE-org.eclipse.core.net_1.2.100.I20110511-0800_nosignature.jar
+	http://hg.netbeans.org/binaries/E99C3C29A90F8AB29078A38CF8EBC3860249640C-org.eclipse.core.runtime-3.7.0_nosignature.jar
+	http://hg.netbeans.org/binaries/84FC6D443CD0816FA87093B6B7AD6876ADFC4207-org.eclipse.core.runtime.compatibility.auth_3.2.200.v20110110_nosignature.jar
+	http://hg.netbeans.org/binaries/74069BFD03B2C66A9EBB4370C0B8064E3F5B6594-org.eclipse.equinox.app-1.3.100_nosignature.jar
+	http://hg.netbeans.org/binaries/A7953EEE9D4D7CD896C7D0AD6D21902E6259979B-org.eclipse.equinox.common_3.6.0.v20110523_nosignature.jar
+	http://hg.netbeans.org/binaries/3FB169C95F095B70F05B96BE9496DA63FAE7F707-org.eclipse.equinox.preferences-3.4.2_nosignature.jar
+	http://hg.netbeans.org/binaries/CD5919A707EB6B5C1FC29964C8EF5E2CF3F5A3D4-org.eclipse.equinox.registry_3.5.200.v20120522-1841_nosignature.jar
+	http://hg.netbeans.org/binaries/A4634373DC60650C49CC98AEA2090889F7ADC68F-org.eclipse.equinox.security-1.1.1_nosignature.jar
+	http://hg.netbeans.org/binaries/278049664FFA5447191BD5FE96B0B62B0CFD15D1-org.eclipse.jgit-3.6.2.201501210735-r_nosignature.jar
+	http://hg.netbeans.org/binaries/9039A0C1FA0E56CB56A1A192908814478FA747C5-org.eclipse.jgit.java7-3.6.2.201501210735-r_nosignature.jar
+	http://hg.netbeans.org/binaries/44086BF29F5F984C82C7E1073F647F5263689FBE-org.eclipse.mylyn.bugzilla.core_3.10.0.20131024-1218_nosignature.jar
+	http://hg.netbeans.org/binaries/F5AC8FBA216A8C52F319EC2CB455B44FFD734B38-org.eclipse.mylyn.commons.core_3.10.0.20130926-1710_nosignature.jar
+	http://hg.netbeans.org/binaries/B43E7CE55F0DECA3BE1A6E695A3E3ABC6D62567F-org.eclipse.mylyn.commons.net_3.10.0.20131018-1210_nosignature.jar
+	http://hg.netbeans.org/binaries/1B9CBEC0FCB47C279519E52D360199C24EC99B01-org.eclipse.mylyn.commons.repositories.core_1.2.0.20130704-2116_nosignature.jar
+	http://hg.netbeans.org/binaries/6B0A6E9F9179E314944E4ADB831A9D6FCADED3DC-org.eclipse.mylyn.commons.xmlrpc_3.10.0.20130704-2116_nosignature.jar
+	http://hg.netbeans.org/binaries/B28B8EE777232102471EA5334FD70E20851845DD-org.eclipse.mylyn.tasks.core_3.10.0.20131010-2023_nosignature.jar
+	http://hg.netbeans.org/binaries/24A15BD37950663933CC4975EE6E518BEB2C28A3-org.eclipse.mylyn.wikitext.confluence.core_1.9.0.20131007-2055_nosignature.jar
+	http://hg.netbeans.org/binaries/01CD242F06F6F7E4E61C9E05ABBE07318E501D51-org.eclipse.mylyn.wikitext.core_1.9.0.20131007-2055_nosignature.jar
+	http://hg.netbeans.org/binaries/75928E4368CA748131A6767BA1A97D9DA643C306-org.eclipse.mylyn.wikitext.textile.core_1.9.0.20131007-2055_nosignature.jar
 	http://hg.netbeans.org/binaries/934DCAB9534B8FE12FD9C90759B26B6B0D442837-org.tmatesoft.svnkit_1.8.7.r10376_v20141223_2131.jar
-	http://hg.netbeans.org/binaries/820FD32B3FB7F885996B15474F220BDCCACD6D27-processtreekiller-1.0.2.jar
+	http://hg.netbeans.org/binaries/688C11A84F86005448120D4F8E6347DF38117A56-processtreekiller-1.0.3.jar
 	http://hg.netbeans.org/binaries/B0D0FCBAC68826D2AFA3C7C89FC4D57B95A000C3-resolver-1.2.jar
 	http://hg.netbeans.org/binaries/D08E473A4D0510FB329D64E4CC4F2963D000699C-svnClientAdapter-javahl-1.10.3.jar
 	http://hg.netbeans.org/binaries/2CD487DCDE4C4FC38D1C9EBCD45418A1B5EF188D-svnClientAdapter-main-1.10.3.jar
@@ -159,7 +158,6 @@ src_unpack() {
 	ln -s "${DISTDIR}"/C9A6304FAA121C97CB2458B93D30B1FD6F0F7691-derbysampledb.zip derby/external/derbysampledb.zip || die
 	ln -s "${DISTDIR}"/D19F70E8CC5D326509B1BF8C1A8FC87BD258E990-exechlp-1.0.zip dlight.nativeexecution/external/exechlp-1.0.zip || die
 	ln -s "${DISTDIR}"/5EEAAC41164FEBCB79C73BEBD678A7B6C10C3E80-freemarker-2.3.19.jar libs.freemarker/external/freemarker-2.3.19.jar || die
-	ln -s "${DISTDIR}"/75C30C488AD2A18A82C7FE3829F4A33FC7841643-glassfish-tooling-sdk-0.3-b054-246345.jar libs.glassfish.sdk/external/glassfish-tooling-sdk-0.3-b054-246345.jar || die
 	ln -s "${DISTDIR}"/23123BB29025254556B6E573023FCDF0F6715A66-html-4.01.zip html.editor/external/html-4.01.zip || die
 	ln -s "${DISTDIR}"/F4A1696661E6233F8C27EE323CAEF9CB052666F1-html5-datatypes.jar html.validation/external/html5-datatypes.jar || die
 	ln -s "${DISTDIR}"/4388C34B9F085A42FBEA06C5B00FDF0A251171EC-html5doc.zip html.parser/external/html5doc.zip || die
@@ -176,9 +174,9 @@ src_unpack() {
 	ln -s "${DISTDIR}"/F4DB465F207907A2406B0BF5C8FFEE22A5C3E4E3-jaxb1-impl.jar libs.jaxb/external/jaxb1-impl.jar || die
 	ln -s "${DISTDIR}"/5E40984A55F6FFF704F05D511A119CA5B456DDB1-jfxrt.jar libs.javafx/external/jfxrt.jar || die
 	ln -s "${DISTDIR}"/483A61B688B13C62BB201A683D98A6688B5373B6-jing.jar html.validation/external/jing.jar || die
-	ln -s "${DISTDIR}"/DA6CE3C2EB334DB61EFA99CD66134619867368FA-js-corestubs.zip javascript2.editor/external/js-corestubs.zip || die
-	ln -s "${DISTDIR}"/997BF4A93B8A99E37AB51C9016D1D18CF5FF4B60-js-domstubs.zip javascript2.editor/external/js-domstubs.zip || die
-	ln -s "${DISTDIR}"/291540295937BAC426A5A5BDDB6D86604075F4C0-js-reststubs.zip javascript2.editor/external/js-reststubs.zip || die
+	ln -s "${DISTDIR}"/3699DFFE17089F9B9C73857EDA9B8669AAD657D3-js-corestubs.zip javascript2.editor/external/js-corestubs.zip || die
+	ln -s "${DISTDIR}"/2AA13ACCC4059C930C4AD3B6ABD8E1C0FC06235C-js-domstubs.zip javascript2.editor/external/js-domstubs.zip || die
+	ln -s "${DISTDIR}"/7B737C0556FD692D8F072EF375FDD4FCA717DF9B-js-reststubs.zip javascript2.editor/external/js-reststubs.zip || die
 	ln -s "${DISTDIR}"/036FA0032B44AD06A1F13504D97B3685B1C88961-jsch.agentproxy.core-0.0.7.jar libs.jsch.agentproxy/external/jsch.agentproxy.core-0.0.7.jar || die
 	ln -s "${DISTDIR}"/9F31964104D71855DF6B73F0C761CDEB3FA3C49C-jsch.agentproxy.sshagent-0.0.7.jar libs.jsch.agentproxy/external/jsch.agentproxy.sshagent-0.0.7.jar || die
 	ln -s "${DISTDIR}"/3FA59A536F3DC2197826DC7F224C0823C1534203-jsch.agentproxy.pageant-0.0.7.jar libs.jsch.agentproxy/external/jsch.agentproxy.pageant-0.0.7.jar || die
@@ -186,29 +184,29 @@ src_unpack() {
 	ln -s "${DISTDIR}"/2E07375E5CA3A452472F0E87FB33F243F7A5C08C-libpam4j-1.1.jar extexecution.process/external/libpam4j-1.1.jar || die
 	ln -s "${DISTDIR}"/76E901A1F432323E7E90FC86FDB2534A28952293-nashorn-02f810c26ff9-patched.jar libs.nashorn/external/nashorn-02f810c26ff9-patched.jar || die
 	ln -s "${DISTDIR}"/010FC8BD229B7F68C8C4D5BDE399475373096601-non-schema.jar html.validation/external/non-schema.jar || die
-	ln -s "${DISTDIR}"/7052E115041D04410A4519A61307502FB7C138E6-org.eclipse.core.contenttype_3.4.100.v20110423-0524.jar o.eclipse.core.contenttype/external/org.eclipse.core.contenttype_3.4.100.v20110423-0524.jar || die
-	ln -s "${DISTDIR}"/B19A4D998C76FE7A30830C96B9E3A47682F320FC-org.eclipse.core.jobs-3.5.101.jar o.eclipse.core.jobs/external/org.eclipse.core.jobs-3.5.101.jar || die
-	ln -s "${DISTDIR}"/E64EF6A3FC5DB01AD95632B843706CCE56614C90-org.eclipse.core.net_1.2.100.I20110511-0800.jar o.eclipse.core.net/external/org.eclipse.core.net_1.2.100.I20110511-0800.jar || die
-	ln -s "${DISTDIR}"/6658C235056134F7E86295E751129508802D71F2-org.eclipse.core.runtime-3.7.0.jar o.eclipse.core.runtime/external/org.eclipse.core.runtime-3.7.0.jar || die
-	ln -s "${DISTDIR}"/0CA9B9DF8A8E4C6805C60A5761C470FCE8AE828F-org.eclipse.core.runtime.compatibility.auth_3.2.200.v20110110.jar o.eclipse.core.runtime.compatibility.auth/external/org.eclipse.core.runtime.compatibility.auth_3.2.200.v20110110.jar || die
-	ln -s "${DISTDIR}"/9C74D245214DB08E7EB9BC07A951B41CFE3E3648-org.eclipse.equinox.app-1.3.100.jar o.eclipse.equinox.app/external/org.eclipse.equinox.app-1.3.100.jar || die
-	ln -s "${DISTDIR}"/78E5D0B8516B042495660DA36CE5114650F8F156-org.eclipse.equinox.common_3.6.0.v20110523.jar o.eclipse.equinox.common/external/org.eclipse.equinox.common_3.6.0.v20110523.jar || die
-	ln -s "${DISTDIR}"/FD94003A1BCE42008753522BFED68E5A84B92644-org.eclipse.equinox.preferences-3.4.2.jar o.eclipse.equinox.preferences/external/org.eclipse.equinox.preferences-3.4.2.jar || die
-	ln -s "${DISTDIR}"/54AE046B40C9095C2637F8D21664C5CD76E34485-org.eclipse.equinox.registry_3.5.200.v20120522-1841.jar o.eclipse.equinox.registry/external/org.eclipse.equinox.registry_3.5.200.v20120522-1841.jar || die
-	ln -s "${DISTDIR}"/0FFB9B1D7CD992CE6C8AAEEC2F6F98DFBB1D2F91-org.eclipse.equinox.security-1.1.1.jar o.eclipse.equinox.security/external/org.eclipse.equinox.security-1.1.1.jar || die
-	ln -s "${DISTDIR}"/B005B69D9F5B4DBA636A95403D5CB62BAD5C486D-org.eclipse.jgit-3.6.0.201412230720-r.jar o.eclipse.jgit/external/org.eclipse.jgit-3.6.0.201412230720-r.jar || die
-	ln -s "${DISTDIR}"/0F81EBAFB75BE1C3A972B7563078897958724E1A-org.eclipse.jgit.java7-3.6.0.201412230720-r.jar o.eclipse.jgit.java7/external/org.eclipse.jgit.java7-3.6.0.201412230720-r.jar || die
-	ln -s "${DISTDIR}"/A94F8F805202B28236FFBC03C1CA149129DAEA1C-org.eclipse.mylyn.bugzilla.core_3.10.0.20131024-1218.jar o.eclipse.mylyn.bugzilla.core/external/org.eclipse.mylyn.bugzilla.core_3.10.0.20131024-1218.jar || die
-	ln -s "${DISTDIR}"/19D64C17A692D2023E22B16AD515118DF6427790-org.eclipse.mylyn.commons.core_3.10.0.20130926-1710.jar o.eclipse.mylyn.commons.core/external/org.eclipse.mylyn.commons.core_3.10.0.20130926-1710.jar || die
-	ln -s "${DISTDIR}"/A1BF01D1DD09274446738C3F83360314B8881CD5-org.eclipse.mylyn.commons.net_3.10.0.20131018-1210.jar o.eclipse.mylyn.commons.net/external/org.eclipse.mylyn.commons.net_3.10.0.20131018-1210.jar || die
-	ln -s "${DISTDIR}"/136A7EB3BB9B2559C5F9184B438F108C959B3C03-org.eclipse.mylyn.commons.repositories.core_1.2.0.20130704-2116.jar o.eclipse.mylyn.commons.repositories.core/external/org.eclipse.mylyn.commons.repositories.core_1.2.0.20130704-2116.jar || die
-	ln -s "${DISTDIR}"/531746EBE57071AB7F8CCC7ACB0E806F25893916-org.eclipse.mylyn.commons.xmlrpc_3.10.0.20130704-2116.jar o.eclipse.mylyn.commons.xmlrpc/external/org.eclipse.mylyn.commons.xmlrpc_3.10.0.20130704-2116.jar || die
-	ln -s "${DISTDIR}"/D3ED088A49DE9E5163457E9279181DD4185BFBE6-org.eclipse.mylyn.tasks.core_3.10.0.20131010-2023.jar o.eclipse.mylyn.tasks.core/external/org.eclipse.mylyn.tasks.core_3.10.0.20131010-2023.jar || die
-	ln -s "${DISTDIR}"/8D4278A9F47D17A104182E59CF06D682B3DE0B3E-org.eclipse.mylyn.wikitext.confluence.core_1.9.0.20131007-2055.jar o.eclipse.mylyn.wikitext.confluence.core/external/org.eclipse.mylyn.wikitext.confluence.core_1.9.0.20131007-2055.jar || die
-	ln -s "${DISTDIR}"/1FC011B8A350B70950B3F1D722D7F2890C6E76D8-org.eclipse.mylyn.wikitext.core_1.9.0.20131007-2055.jar o.eclipse.mylyn.wikitext.core/external/org.eclipse.mylyn.wikitext.core_1.9.0.20131007-2055.jar || die
-	ln -s "${DISTDIR}"/6E914CA3075C8FDF7652F04A02868CF32F2EDCE3-org.eclipse.mylyn.wikitext.textile.core_1.9.0.20131007-2055.jar o.eclipse.mylyn.wikitext.textile.core/external/org.eclipse.mylyn.wikitext.textile.core_1.9.0.20131007-2055.jar  || die
+	ln -s "${DISTDIR}"/F27BF427BE72709F3094BF76ECA8C5A2B9AC6DA9-org.eclipse.core.contenttype_3.4.100.v20110423-0524_nosignature.jar o.eclipse.core.contenttype/external/org.eclipse.core.contenttype_3.4.100.v20110423-0524_nosignature.jar || die
+	ln -s "${DISTDIR}"/9BC512C5BB9A9F5276B9E8672F6B30AD0BD97D88-org.eclipse.core.jobs-3.5.101_nosignature.jar o.eclipse.core.jobs/external/org.eclipse.core.jobs-3.5.101_nosignature.jar || die
+	ln -s "${DISTDIR}"/105DC9A1A93E6EA9A6CD368AD12897B1F247D6AE-org.eclipse.core.net_1.2.100.I20110511-0800_nosignature.jar o.eclipse.core.net/external/org.eclipse.core.net_1.2.100.I20110511-0800_nosignature.jar || die
+	ln -s "${DISTDIR}"/E99C3C29A90F8AB29078A38CF8EBC3860249640C-org.eclipse.core.runtime-3.7.0_nosignature.jar o.eclipse.core.runtime/external/org.eclipse.core.runtime-3.7.0_nosignature.jar || die
+	ln -s "${DISTDIR}"/84FC6D443CD0816FA87093B6B7AD6876ADFC4207-org.eclipse.core.runtime.compatibility.auth_3.2.200.v20110110_nosignature.jar o.eclipse.core.runtime.compatibility.auth/external/org.eclipse.core.runtime.compatibility.auth_3.2.200.v20110110_nosignature.jar || die
+	ln -s "${DISTDIR}"/74069BFD03B2C66A9EBB4370C0B8064E3F5B6594-org.eclipse.equinox.app-1.3.100_nosignature.jar o.eclipse.equinox.app/external/org.eclipse.equinox.app-1.3.100_nosignature.jar || die
+	ln -s "${DISTDIR}"/A7953EEE9D4D7CD896C7D0AD6D21902E6259979B-org.eclipse.equinox.common_3.6.0.v20110523_nosignature.jar o.eclipse.equinox.common/external/org.eclipse.equinox.common_3.6.0.v20110523_nosignature.jar || die
+	ln -s "${DISTDIR}"/3FB169C95F095B70F05B96BE9496DA63FAE7F707-org.eclipse.equinox.preferences-3.4.2_nosignature.jar o.eclipse.equinox.preferences/external/org.eclipse.equinox.preferences-3.4.2_nosignature.jar || die
+	ln -s "${DISTDIR}"/CD5919A707EB6B5C1FC29964C8EF5E2CF3F5A3D4-org.eclipse.equinox.registry_3.5.200.v20120522-1841_nosignature.jar o.eclipse.equinox.registry/external/org.eclipse.equinox.registry_3.5.200.v20120522-1841_nosignature.jar || die
+	ln -s "${DISTDIR}"/A4634373DC60650C49CC98AEA2090889F7ADC68F-org.eclipse.equinox.security-1.1.1_nosignature.jar o.eclipse.equinox.security/external/org.eclipse.equinox.security-1.1.1_nosignature.jar || die
+	ln -s "${DISTDIR}"/278049664FFA5447191BD5FE96B0B62B0CFD15D1-org.eclipse.jgit-3.6.2.201501210735-r_nosignature.jar o.eclipse.jgit/external/org.eclipse.jgit-3.6.2.201501210735-r_nosignature.jar || die
+	ln -s "${DISTDIR}"/9039A0C1FA0E56CB56A1A192908814478FA747C5-org.eclipse.jgit.java7-3.6.2.201501210735-r_nosignature.jar o.eclipse.jgit.java7/external/org.eclipse.jgit.java7-3.6.2.201501210735-r_nosignature.jar || die
+	ln -s "${DISTDIR}"/44086BF29F5F984C82C7E1073F647F5263689FBE-org.eclipse.mylyn.bugzilla.core_3.10.0.20131024-1218_nosignature.jar o.eclipse.mylyn.bugzilla.core/external/org.eclipse.mylyn.bugzilla.core_3.10.0.20131024-1218_nosignature.jar || die
+	ln -s "${DISTDIR}"/F5AC8FBA216A8C52F319EC2CB455B44FFD734B38-org.eclipse.mylyn.commons.core_3.10.0.20130926-1710_nosignature.jar o.eclipse.mylyn.commons.core/external/org.eclipse.mylyn.commons.core_3.10.0.20130926-1710_nosignature.jar || die
+	ln -s "${DISTDIR}"/B43E7CE55F0DECA3BE1A6E695A3E3ABC6D62567F-org.eclipse.mylyn.commons.net_3.10.0.20131018-1210_nosignature.jar o.eclipse.mylyn.commons.net/external/org.eclipse.mylyn.commons.net_3.10.0.20131018-1210_nosignature.jar || die
+	ln -s "${DISTDIR}"/1B9CBEC0FCB47C279519E52D360199C24EC99B01-org.eclipse.mylyn.commons.repositories.core_1.2.0.20130704-2116_nosignature.jar o.eclipse.mylyn.commons.repositories.core/external/org.eclipse.mylyn.commons.repositories.core_1.2.0.20130704-2116_nosignature.jar || die
+	ln -s "${DISTDIR}"/6B0A6E9F9179E314944E4ADB831A9D6FCADED3DC-org.eclipse.mylyn.commons.xmlrpc_3.10.0.20130704-2116_nosignature.jar o.eclipse.mylyn.commons.xmlrpc/external/org.eclipse.mylyn.commons.xmlrpc_3.10.0.20130704-2116_nosignature.jar || die
+	ln -s "${DISTDIR}"/B28B8EE777232102471EA5334FD70E20851845DD-org.eclipse.mylyn.tasks.core_3.10.0.20131010-2023_nosignature.jar o.eclipse.mylyn.tasks.core/external/org.eclipse.mylyn.tasks.core_3.10.0.20131010-2023_nosignature.jar || die
+	ln -s "${DISTDIR}"/24A15BD37950663933CC4975EE6E518BEB2C28A3-org.eclipse.mylyn.wikitext.confluence.core_1.9.0.20131007-2055_nosignature.jar o.eclipse.mylyn.wikitext.confluence.core/external/org.eclipse.mylyn.wikitext.confluence.core_1.9.0.20131007-2055_nosignature.jar || die
+	ln -s "${DISTDIR}"/01CD242F06F6F7E4E61C9E05ABBE07318E501D51-org.eclipse.mylyn.wikitext.core_1.9.0.20131007-2055_nosignature.jar o.eclipse.mylyn.wikitext.core/external/org.eclipse.mylyn.wikitext.core_1.9.0.20131007-2055_nosignature.jar || die
+	ln -s "${DISTDIR}"/75928E4368CA748131A6767BA1A97D9DA643C306-org.eclipse.mylyn.wikitext.textile.core_1.9.0.20131007-2055_nosignature.jar o.eclipse.mylyn.wikitext.textile.core/external/org.eclipse.mylyn.wikitext.textile.core_1.9.0.20131007-2055_nosignature.jar  || die
 	ln -s "${DISTDIR}"/934DCAB9534B8FE12FD9C90759B26B6B0D442837-org.tmatesoft.svnkit_1.8.7.r10376_v20141223_2131.jar libs.svnClientAdapter.svnkit/external/org.tmatesoft.svnkit_1.8.7.r10376_v20141223_2131.jar || die
-	ln -s "${DISTDIR}"/820FD32B3FB7F885996B15474F220BDCCACD6D27-processtreekiller-1.0.2.jar extexecution.process/external/processtreekiller-1.0.2.jar || die
+	ln -s "${DISTDIR}"/688C11A84F86005448120D4F8E6347DF38117A56-processtreekiller-1.0.3.jar extexecution.process/external/processtreekiller-1.0.3.jar || die
 	ln -s "${DISTDIR}"/4F94E5B4F14B4571A1D8E37885A3037C91F7C02C-svnkit_1.7.8.r9538_v20130107_2001.jar libs.svnClientAdapter.svnkit/external/svnkit_1.7.8.r9538_v20130107_2001.jar || die
 	ln -s "${DISTDIR}"/B0D0FCBAC68826D2AFA3C7C89FC4D57B95A000C3-resolver-1.2.jar o.apache.xml.resolver/external/resolver-1.2.jar || die
 	ln -s "${DISTDIR}"/EDE7FBABD4C96D34E48FDA0E8FECED24C98CEDCA-sqljet-1.1.10.jar libs.svnClientAdapter.svnkit/external/sqljet-1.1.10.jar || die
@@ -369,4 +367,3 @@ src_install() {
 
 	dosym ${INSTALL_DIR} /usr/share/netbeans-nb-${SLOT}/ide
 }
-
