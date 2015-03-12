@@ -8,10 +8,8 @@ SRC_URI="https://github.com/manson9/${PN}/archive/master.tar.gz -> ${P}.tar.gz"
 LICENSE="Genymotion"
 SLOT="0"
 KEYWORDS="amd64"
-RDEPEND="|| ( >=app-emulation/virtualbox-4.3.18 >=app-emulation/virtualbox-bin-4.3.18 )"
- 
-DEPEND=${RDEPEND}
-      >=dev-qt/qtwebkit:4        
+RDEPEND="|| ( >=app-emulation/virtualbox-4.3.18 >=app-emulation/virtualbox-bin-4.3.18 )
+        >=dev-qt/qtwebkit-4.8.5"      
 
 src_unpack() {
 unpack "${A}"
