@@ -36,12 +36,12 @@ COMMON_DEPEND="app-text/rarian:0
 	x11-libs/libXrandr:0
 	>=x11-libs/libnotify-0.7:0
 	x11-libs/pango:0
-	applet? ( >=mate-base/mate-panel-1.9.90 )
+	applet? ( >=mate-base/mate-panel-1.8:0 )
 	gnome-keyring? ( >=gnome-base/libgnome-keyring-3:0 )
 	unique? ( >=dev-libs/libunique-0.9.4:1 )"
 
 RDEPEND="${COMMON_DEPEND}
-	policykit? ( >=mate-extra/mate-polkit-1.9.90 )"
+	policykit? ( >=mate-extra/mate-polkit-1.8:0 )"
 
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3
