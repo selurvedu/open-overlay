@@ -53,7 +53,7 @@ RDEPEND="app-text/rarian:0
 	>=x11-libs/libxklavier-4:0
 	x11-libs/pango:0
 	|| (
-		>=x11-wm/marco-1.9.90
+		>=x11-wm/marco-1.8.2
 		>=x11-wm/mate-window-manager-1.6:0
 	)
 	virtual/libintl:0"
