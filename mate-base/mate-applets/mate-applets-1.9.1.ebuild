@@ -25,13 +25,13 @@ RDEPEND="${PYTHON_DEPS}
 	dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.74:0
 	>=dev-libs/glib-2.22:2
-	>=dev-libs/libmateweather-1.9.90
+	>=dev-libs/libmateweather-1.8:0
 	>=dev-libs/libxml2-2.5:2
 	dev-python/pygobject:3
 	>=gnome-base/libgtop-2.11.92:2=
-	>=mate-base/mate-desktop-1.9.90
-	>=mate-base/mate-panel-1.9.90
-	>=mate-base/mate-settings-daemon-1.9.90
+	>=mate-base/mate-desktop-1.8:0
+	>=mate-base/mate-panel-1.8:0
+	>=mate-base/mate-settings-daemon-1.8:0
 	>=sys-apps/dbus-1.1.2:0
 	sys-power/cpupower
 	upower? ( || ( >=sys-power/upower-0.9.23 >=sys-power/upower-pm-utils-0.9.23 ) )
@@ -42,7 +42,7 @@ RDEPEND="${PYTHON_DEPS}
 	>=x11-libs/libxklavier-4:0
 	>=x11-libs/libwnck-2.30:1
 	x11-libs/pango:0
-	>=x11-themes/mate-icon-theme-1.9.90
+	>=x11-themes/mate-icon-theme-1.8:0
 	virtual/libintl:0
 	networkmanager? ( >=net-misc/networkmanager-0.7:0 )
 	policykit? ( >=sys-auth/polkit-0.92:0 )"
