@@ -23,8 +23,8 @@ COMMON_DEPEND="app-text/rarian:0
 	dev-libs/libxml2:2
 	>=dev-libs/glib-2.18.2:2
 	>=x11-libs/gtk+-2.24:2
-	>=mate-base/mate-panel-1.9.90
-	>=mate-base/mate-desktop-1.9.90
+	>=mate-base/mate-panel-1.8:0
+	>=mate-base/mate-desktop-1.8:0
 	>=media-libs/gstreamer-0.10.23:0.10
 	>=media-libs/gst-plugins-base-0.10.23:0.10
 	>=media-libs/gst-plugins-good-0.10:0.10
