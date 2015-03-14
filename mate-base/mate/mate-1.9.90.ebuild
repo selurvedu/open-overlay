@@ -26,7 +26,7 @@ RDEPEND="
 	base? (
 		>=mate-base/caja-1.9.90
 		>=mate-base/mate-applets-1.9.1
-		>=mate-base/mate-control-center-1.9.90
+		>=mate-base/mate-control-center-1.8.3
 		>=mate-extra/mate-media-1.9.2
 		>=x11-misc/mozo-1.8:0
 		>=x11-terms/mate-terminal-1.9.1
