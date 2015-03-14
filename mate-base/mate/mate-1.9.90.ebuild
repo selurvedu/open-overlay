@@ -22,7 +22,7 @@ RDEPEND="
 	>=mate-base/mate-panel-1.9.90
 	>=mate-base/mate-session-manager-1.9.90
 	>=mate-base/mate-settings-daemon-1.9.90
-	>=x11-wm/marco-1.9.90
+	>=x11-wm/marco-1.8.2
 	base? (
 		>=mate-base/caja-1.9.90
 		>=mate-base/mate-applets-1.9.1
