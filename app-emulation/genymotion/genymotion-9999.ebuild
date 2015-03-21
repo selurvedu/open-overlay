@@ -8,9 +8,17 @@ SRC_URI="https://github.com/manson9/${PN}/archive/master.tar.gz -> ${P}.tar.gz"
 LICENSE="Genymotion"
 SLOT="0"
 KEYWORDS="amd64"
-RDEPEND="|| ( >=app-emulation/virtualbox-4.3.18 >=app-emulation/virtualbox-bin-4.3.18 )
+RDEPEND="|| ( >=app-emulation/virtualbox-4.3.12 >=app-emulation/virtualbox-bin-4.3.12 )
         >=dev-qt/qtwebkit-4.8.5"      
 
+pkg_postinst() {
+               echo 
+               elog "Welcome to Genymotion Emulator"
+               elog "To run Genymotion virtual devices, you must install Oracle VM VirtualBox 4.1 or above."
+               elog "However, for performance reasons, we recommend using version 4.3.12."
+               elog "Thanks open-overlay 2015 by Alex"
+               echo 
+}
 src_unpack() {
 unpack "${A}"
 mv "${PN}-master" "${P}"
