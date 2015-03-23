@@ -42,7 +42,7 @@ src_install() {
 
         newicon  "icon.xpm" "${PN}.xpm"
         make_wrapper ${PN} "${dest}/eclipse"
-        make_desktop_entry ${PN} "Eclipse Cpp" ${PN} "Development;IDE"
+        make_desktop_entry ${PN} "Eclipse Cpp ${PV}" ${PN} "Development;IDE"
 }
 
 
