@@ -1,3 +1,5 @@
+# Copyright open-overlay 2015 by Alex
+
 EAPI="5"
 
 inherit eutils
