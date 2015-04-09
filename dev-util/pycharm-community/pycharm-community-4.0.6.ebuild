@@ -8,6 +8,7 @@ DESCRIPTION="PyCharm"
 HOMEPAGE="www.jetbrains.com/pycharm/"
 SRC_URI="http://download-cf.jetbrains.com/python/${P}.tar.gz"
 
+LICENSE="Apache-2.0 BSD CDDL MIT-with-advertising"
 KEYWORDS="~x86 ~amd64"
 
 DEPEND=">=virtual/jre-1.6"
