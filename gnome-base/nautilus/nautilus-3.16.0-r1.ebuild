@@ -14,7 +14,7 @@ SLOT="0"
 
 # profiling?
 IUSE="debug exif gnome +introspection packagekit +previewer sendto tracker xmp"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86 ~x86-fbsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sh ~sparc x86 ~x86-fbsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux"
 
 # FIXME: tests fails under Xvfb, but pass when building manually
 # "FAIL: check failed in nautilus-file.c, line 8307"
@@ -24,7 +24,7 @@ RESTRICT="test"
 # Require {glib,gdbus-codegen}-2.30.0 due to GDBus API changes between 2.29.92
 # and 2.30.0
 COMMON_DEPEND="
-	>=dev-libs/glib-2.35.3:2
+	>=dev-libs/glib-2.35.3:2[dbus]
 	>=x11-libs/pango-1.28.3
 	>=x11-libs/gtk+-3.13.2:3[introspection?]
 	>=dev-libs/libxml2-2.7.8:2
@@ -80,11 +80,21 @@ src_prepare() {
 
 	# Restore the nautilus-2.x Delete shortcut (Ctrl+Delete will still work);
 	# bug #393663
-	# epatch "${FILESDIR}/${PN}-3.5.91-delete.patch"
+	#epatch "${FILESDIR}/${PN}-3.5.91-delete.patch"
+
+	# nautilus-application: Parse force-desktop before exiting (from '3.14')
+	#epatch "${FILESDIR}/${P}-parse-force-desktop.patch"
+
+	# nautilus-window: make sure active slot is closed last (from '3.14')
+	#epatch "${FILESDIR}/${P}-active-slot.patch"
+
+	# nautilus-list-view: Avoid unreadable names (from '3.14')
+	#epatch "${FILESDIR}/${P}-unreadable-names.patch"
 
 	# Remove -D*DEPRECATED flags. Don't leave this for eclass! (bug #448822)
 	sed -e 's/DISABLE_DEPRECATED_CFLAGS=.*/DISABLE_DEPRECATED_CFLAGS=/' \
 		-i configure || die "sed failed"
+
 	gnome2_src_prepare
 }
 
