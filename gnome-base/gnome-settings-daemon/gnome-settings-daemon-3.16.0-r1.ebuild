@@ -1,4 +1,6 @@
-# Copyright open-overlay 2015 by Alex
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header:  $
 
 EAPI="5"
 GCONF_DEBUG="no"
@@ -12,16 +14,17 @@ HOMEPAGE="https://git.gnome.org/browse/gnome-settings-daemon"
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="+colord +cups debug input_devices_wacom -openrc-force networkmanager policykit +short-touchpad-timeout smartcard test +udev wayland"
+IUSE="+colord +cups debug +input_devices_wacom -openrc-force networkmanager policykit +short-touchpad-timeout smartcard test +udev wayland"
 REQUIRED_USE="
 	input_devices_wacom? ( udev )
 	smartcard? ( udev )
 	test? ( ${PYTHON_REQUIRED_USE} )
 "
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~x86-solaris"
+KEYWORDS="~alpha amd64 ~arm ~ia64 ~ppc ~ppc64 ~sparc x86 ~x86-fbsd ~x86-freebsd ~amd64-linux 
+~x86-linux ~x86-solaris"
 
 COMMON_DEPEND="
-	>=dev-libs/glib-2.37.7:2[dbus]
+	>=dev-libs/glib-2.37.7:2
 	>=x11-libs/gtk+-3.7.8:3
 	>=gnome-base/gnome-desktop-3.11.1:3=
 	>=gnome-base/gsettings-desktop-schemas-3.9.91.1
@@ -99,7 +102,7 @@ src_prepare() {
 		epatch "${FILESDIR}"/${PN}-3.7.90-short-touchpad-timeout.patch
 
 	# Make colord and wacom optional; requires eautoreconf
-	# epatch "${FILESDIR}"/${PN}-3.14.0-optional.patch
+	#epatch "${FILESDIR}"/${PN}-3.14.0-optional.patch
 
 	epatch_user
 	eautoreconf
