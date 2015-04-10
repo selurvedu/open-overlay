@@ -23,7 +23,7 @@ RDEPEND="
 	>=gnome-base/gnome-settings-daemon-${PV}[cups?]
 	>=gnome-base/gnome-control-center-${PV}[cups?]
 
-	>=app-crypt/gcr-3.15.92
+	>=app-crypt/gcr-3.14.0
 	>=gnome-base/nautilus-${PV}
 	>=gnome-base/gnome-keyring-${PV}
 	>=gnome-extra/evolution-data-server-3.12.9
