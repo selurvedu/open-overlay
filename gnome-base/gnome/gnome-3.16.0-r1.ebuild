@@ -25,7 +25,7 @@ RDEPEND="
 	>=gnome-base/gdm-${PV}
 
 	>=x11-wm/mutter-3.14.3
-	>=gnome-base/gnome-shell-${PV}[bluetooth?]
+	>=gnome-base/gnome-shell-3.14.3[bluetooth?]
 
 	>=x11-themes/gnome-backgrounds-${PV}
 	x11-themes/sound-theme-freedesktop
