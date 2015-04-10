@@ -29,7 +29,7 @@ RDEPEND="
 	>=gnome-extra/evolution-data-server-3.12.9
 
 	>=app-crypt/seahorse-3.15.92
-	>=app-editors/gedit-${PV}
+	>=app-editors/gedit-3.14.3
 	>=app-text/evince-${PV}
 	>=gnome-extra/gnome-contacts-${PV}
 	>=media-gfx/eog-${PV}
