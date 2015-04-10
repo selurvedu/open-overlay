@@ -40,7 +40,7 @@ DOC_CONTENTS="${P} saves screenshots in ~/Pictures/ and defaults to
 
 src_prepare() {
 	# filename-builder: use dash for time format separator (from 'master')
-	epatch "${FILESDIR}"/${PN}-3.14.0-use-dash.patch
+	# epatch "${FILESDIR}"/${PN}-3.14.0-use-dash.patch
 	gnome2_src_prepare
 }
 
