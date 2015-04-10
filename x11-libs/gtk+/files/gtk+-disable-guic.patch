@@ -1,0 +1,10 @@
+--- a/gtk/Makefile.am
++++ b/gtk/Makefile.am
+@@ -1377,7 +1377,6 @@
+ #
+ bin_PROGRAMS = \
+ 	gtk-query-immodules-3.0	\
+-	gtk-update-icon-cache \
+ 	gtk-encode-symbolic-svg \
+ 	gtk-launch
+ 
