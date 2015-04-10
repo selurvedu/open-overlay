@@ -20,7 +20,7 @@ RDEPEND="
 
 	>=gnome-base/gnome-session-${PV}
 	>=gnome-base/gnome-menus-3.10.1:3
-	>=gnome-base/gnome-settings-daemon-${PV}[cups?]
+	>=gnome-base/gnome-settings-daemon-3.14.2[cups?]
 	>=gnome-base/gnome-control-center-${PV}[cups?]
 
 	>=app-crypt/gcr-3.14.0
