@@ -45,7 +45,7 @@ RDEPEND="
 	>=www-client/epiphany-3.12
 
 	games? (
-		>=games-arcade/gnome-nibbles-${PV}
+		>=games-arcade/gnome-nibbles-3.14.1
 		>=games-arcade/gnome-robots-${PV}
 		>=games-board/four-in-a-row-${PV}
 		>=games-board/gnome-chess-${PV}
