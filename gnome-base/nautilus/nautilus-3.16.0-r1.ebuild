@@ -80,7 +80,7 @@ src_prepare() {
 
 	# Restore the nautilus-2.x Delete shortcut (Ctrl+Delete will still work);
 	# bug #393663
-	epatch "${FILESDIR}/${PN}-3.5.91-delete.patch"
+	# epatch "${FILESDIR}/${PN}-3.5.91-delete.patch"
 
 	# Remove -D*DEPRECATED flags. Don't leave this for eclass! (bug #448822)
 	sed -e 's/DISABLE_DEPRECATED_CFLAGS=.*/DISABLE_DEPRECATED_CFLAGS=/' \
