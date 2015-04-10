@@ -1,4 +1,4 @@
-# Copyright open-overlay by Alex
+# Copyright open-overlay 2015 by Alex
 
 EAPI="5"
 GCONF_DEBUG="yes"
@@ -17,7 +17,8 @@ REQUIRED_USE="
 	xinerama? ( X )
 "
 
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd ~x86-freebsd ~x86-interix 
+~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 # FIXME: introspection data is built against system installation of gtk+:3
 # NOTE: cairo[svg] dep is due to bug 291283 (not patched to avoid eautoreconf)
@@ -37,7 +38,7 @@ COMMON_DEPEND="
 		>=dev-libs/json-glib-1.0[${MULTILIB_USEDEP}] )
 	colord? ( >=x11-misc/colord-0.1.9:0=[${MULTILIB_USEDEP}] )
 	cups? ( >=net-print/cups-1.2[${MULTILIB_USEDEP}] )
-	introspection? ( >=dev-libs/gobject-introspection-1.39:= )
+	introspection? ( >=dev-libs/gobject-introspection-1.39 )
 	wayland? (
 		>=dev-libs/wayland-1.5.91[${MULTILIB_USEDEP}]
 		media-libs/mesa[wayland,${MULTILIB_USEDEP}]
@@ -108,17 +109,13 @@ strip_builddir() {
 
 src_prepare() {
 	# https://bugzilla.gnome.org/show_bug.cgi?id=738835
-	# epatch "${FILESDIR}"/${PN}-non-bash-support.patch
+	#epatch "${FILESDIR}"/${PN}-non-bash-support.patch
+        epatch "${FILESDIR}"/${PN}-disable-guic.patch
 
 	# -O3 and company cause random crashes in applications. Bug #133469
 	replace-flags -O3 -O2
 	strip-flags
 
-	if ! use test ; then
-		# don't waste time building tests
-		strip_builddir SRC_SUBDIRS testsuite Makefile.{am,in}
-		strip_builddir SRC_SUBDIRS tests Makefile.{am,in}
-	fi
 
 	if ! use examples; then
 		# don't waste time building demos
