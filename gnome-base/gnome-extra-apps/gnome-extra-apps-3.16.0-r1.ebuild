@@ -46,7 +46,7 @@ RDEPEND="
 
 	games? (
 		>=games-arcade/gnome-nibbles-3.14.1
-		>=games-arcade/gnome-robots-${PV}
+		>=games-arcade/gnome-robots-3.14.2
 		>=games-board/four-in-a-row-${PV}
 		>=games-board/gnome-chess-${PV}
 		>=games-board/gnome-mahjongg-${PV}
