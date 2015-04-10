@@ -78,10 +78,10 @@ RDEPEND="${COMMON_DEPEND}
 
 src_prepare() {
 	# Compat with Ubuntu metacity themes (e.g. x11-themes/light-themes)
-	epatch "${FILESDIR}"/${PN}-3.2.1-ignore-shadow-and-padding.patch
+	# epatch "${FILESDIR}"/${PN}-3.2.1-ignore-shadow-and-padding.patch
 
 	# Automagic fixes, upstream bug #746929
-	epatch "${FILESDIR}"/${PN}-3.14.2-automagic.patch
+	# epatch "${FILESDIR}"/${PN}-3.14.2-automagic.patch
 
 	eautoreconf
 	gnome2_src_prepare
