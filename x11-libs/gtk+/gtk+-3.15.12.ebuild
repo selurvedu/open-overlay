@@ -110,7 +110,7 @@ strip_builddir() {
 
 src_prepare() {
 	# https://bugzilla.gnome.org/show_bug.cgi?id=738835
-	epatch "${FILESDIR}"/${PN}-non-bash-support.patch
+	# epatch "${FILESDIR}"/${PN}-non-bash-support.patch
 
 	# -O3 and company cause random crashes in applications. Bug #133469
 	replace-flags -O3 -O2
