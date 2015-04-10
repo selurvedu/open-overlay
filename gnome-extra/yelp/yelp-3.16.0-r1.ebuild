@@ -38,7 +38,7 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	# Fix compatibility with Gentoo's sys-apps/man
 	# https://bugzilla.gnome.org/show_bug.cgi?id=648854
-	epatch "${FILESDIR}/${PN}-3.0.3-man-compatibility.patch"
+	# epatch "${FILESDIR}/${PN}-3.0.3-man-compatibility.patch"
 	eautoreconf
 	gnome2_src_prepare
 }
