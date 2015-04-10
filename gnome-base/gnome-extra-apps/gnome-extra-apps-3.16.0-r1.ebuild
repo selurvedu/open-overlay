@@ -64,7 +64,7 @@ RDEPEND="
 	shotwell? ( >=media-gfx/shotwell-0.20 )
 	tracker? (
 		>=app-misc/tracker-1.2
-		>=gnome-extra/gnome-documents-${PV}
+		>=gnome-extra/gnome-documents-3.14.2
 		>=media-gfx/gnome-photos-3.14.2
 		>=media-sound/gnome-music-3.14.3.1 )
 "
