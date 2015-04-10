@@ -24,7 +24,7 @@ RDEPEND="
 	>=gnome-base/gnome-control-center-${PV}[cups?]
 
 	>=app-crypt/gcr-3.14.0
-	>=gnome-base/nautilus-${PV}
+	>=gnome-base/nautilus-3.14.2-r1
 	>=gnome-base/gnome-keyring-${PV}
 	>=gnome-extra/evolution-data-server-3.12.9
 
