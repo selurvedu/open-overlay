@@ -33,7 +33,7 @@ RDEPEND="
 	>=app-text/evince-3.14.2
 	>=gnome-extra/gnome-contacts-3.14.2
 	>=media-gfx/eog-${PV}
-	>=media-video/totem-${PV}
+	>=media-video/totem-3.14.2
 	>=net-im/empathy-3.12.7
 	>=x11-terms/gnome-terminal-${PV}
 
