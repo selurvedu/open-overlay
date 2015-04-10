@@ -66,7 +66,7 @@ RDEPEND="
 		>=app-misc/tracker-1.2
 		>=gnome-extra/gnome-documents-${PV}
 		>=media-gfx/gnome-photos-3.14.2
-		>=media-sound/gnome-music-${PV} )
+		>=media-sound/gnome-music-3.14.3.1 )
 "
 DEPEND=""
 S=${WORKDIR}
