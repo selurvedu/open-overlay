@@ -30,7 +30,7 @@ RDEPEND="
 
 	>=app-crypt/seahorse-3.15.92
 	>=app-editors/gedit-3.14.3
-	>=app-text/evince-${PV}
+	>=app-text/evince-3.14.2
 	>=gnome-extra/gnome-contacts-3.14.2
 	>=media-gfx/eog-${PV}
 	>=media-video/totem-${PV}
