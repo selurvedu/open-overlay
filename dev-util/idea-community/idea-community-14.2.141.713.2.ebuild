@@ -13,11 +13,11 @@ QA_TEXTRELS="opt/${P}/bin/libbreakgen.so"
 
 DESCRIPTION="IntelliJ IDEA is an intelligent Java IDE (Community Edition)"
 HOMEPAGE="http://jetbrains.com/idea/"
-SRC_URI="http://download-cf.jetbrains.com/${MY_PN}/${MY_PN}IC-141.104.1.tar.gz"
+SRC_URI="http://download-cf.jetbrains.com/${MY_PN}/${MY_PN}IC-14.1.2.tar.gz"
 LICENSE="Apache-2.0"
 IUSE=""
 KEYWORDS="~amd64 ~x86"
-S="${WORKDIR}/${MY_PN}-IC-141.104.1"
+S="${WORKDIR}/${MY_PN}-IC-141.713.2"
 
 src_install() {
 	local dir="/opt/${PN}"
