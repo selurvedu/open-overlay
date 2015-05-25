@@ -10,7 +10,7 @@ inherit kernel-2
 detect_version
 
 DESCRIPTION="Full sources including the Grsecurity patchset for the ${KV_MAJOR}.${KV_MINOR} kernel tree"
-HOMEPAGE="http://www.gsecurity.net"
+HOMEPAGE="http://www.grsecurity.net"
 SRC_URI="${KERNEL_URI}"
 
 RDEPEND=""
