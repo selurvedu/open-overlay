@@ -17,7 +17,7 @@ DESCRIPTION="Live -git version of the Linux kernel"
 HOMEPAGE="https://github.com/torvalds/linux"
 EGIT_REPO_URI="git://github.com/torvalds/linux.git"
 
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS=""
 IUSE=""
 
 K_EXTRAEINFO="This kernel is not supported by Gentoo due to its unstable and
