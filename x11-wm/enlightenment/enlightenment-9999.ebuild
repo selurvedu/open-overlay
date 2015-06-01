@@ -2,7 +2,7 @@
 
 EAPI="5"
 
-inherit enlightenment git-r3
+inherit enlightenment git-2
 
 DESCRIPTION="Live ebuild for Enlightenment window manager"
 
