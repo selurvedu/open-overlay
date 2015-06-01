@@ -6,7 +6,7 @@ inherit git-2 grub2-theme
 
 DESCRIPTION="Stylish Dark Grub2 Theme"
 HOMEPAGE="http://gnome-look.org/content/show.php/Grub-themes-stylishdark?content=169955"
-EGIT_REPO_URI="git://github.com/pantera31752/stylish-dark.git"
+EGIT_REPO_URI="git://github.com/pantera31752/stylish-dark-theme.git"
 
 LICENSE="GPL"  
 SLOT="9999"
