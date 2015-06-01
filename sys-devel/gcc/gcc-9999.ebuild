@@ -3,7 +3,7 @@
 EAPI="5"
 GCC_FILESDIR="${PORTDIR}/sys-devel/gcc/files"
 
-inherit eutils toolchain git-r3
+inherit eutils toolchain git-2
 
 DESCRIPTION="Live ebuild for gcc"
 HOMEPAGE="https://gcc.gnu.org/"
