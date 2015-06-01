@@ -45,7 +45,7 @@ RDEPEND="
 	x11-libs/xcb-util-keysyms"
 DEPEND="${RDEPEND}"
 
-S=${WORKDIR}/${MY_P}
+S=${WORKDIR}/${PV}
 
 src_prepare() {
 	epatch "${FILESDIR}"/quickstart.diff
