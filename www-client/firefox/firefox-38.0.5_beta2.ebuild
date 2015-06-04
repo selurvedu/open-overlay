@@ -23,7 +23,7 @@ if [[ ${MOZ_ESR} == 1 ]]; then
 fi
 
 # Patch version
-PATCH="${PN}-36.0-patches-01"
+PATCH="${PN}-38.0-patches-0.1"
 # Upstream ftp release URI that's used by mozlinguas.eclass
 # We don't use the http mirror because it deletes old tarballs.
 MOZ_FTP_URI="ftp://ftp.mozilla.org/pub/${PN}/releases/"
