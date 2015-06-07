@@ -153,7 +153,6 @@ multilib_src_configure() {
 		$(use_enable xinerama) \
 		--disable-papi \
 		--enable-man \
-		--enable-gtk2-dependency \
 		--with-xml-catalog="${EPREFIX}"/etc/xml/catalog \
 		--libdir="${EPREFIX}"/usr/$(get_libdir) \
 		CUPS_CONFIG="${EPREFIX}/usr/bin/${CHOST}-cups-config"
