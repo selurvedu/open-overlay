@@ -1,0 +1,27 @@
+--- a/test/gjs-tests.cpp	2015-06-07 16:54:00.682460959 +0000
++++ b/test/gjs-tests.cpp	2015-06-07 16:57:26.431452307 +0000
+@@ -340,11 +340,11 @@
+ 
+     g_test_init(&argc, &argv, NULL);
+ 
+-    g_test_add_func("/gjs/context/construct/destroy", gjstest_test_func_gjs_context_construct_destroy);
++    /* g_test_add_func("/gjs/context/construct/destroy", gjstest_test_func_gjs_context_construct_destroy); */
+     g_test_add_func("/gjs/context/construct/eval", gjstest_test_func_gjs_context_construct_eval);
+-    g_test_add_func("/gjs/jsapi/util/array", gjstest_test_func_gjs_jsapi_util_array);
+-    g_test_add_func("/gjs/jsapi/util/error/throw", gjstest_test_func_gjs_jsapi_util_error_throw);
+-    g_test_add_func("/gjs/jsapi/util/string/js/string/utf8", gjstest_test_func_gjs_jsapi_util_string_js_string_utf8);
++    /* g_test_add_func("/gjs/jsapi/util/array", gjstest_test_func_gjs_jsapi_util_array); */
++    /* g_test_add_func("/gjs/jsapi/util/error/throw", gjstest_test_func_gjs_jsapi_util_error_throw); */
++    /* g_test_add_func("/gjs/jsapi/util/string/js/string/utf8", gjstest_test_func_gjs_jsapi_util_string_js_string_utf8); */
+     g_test_add_func("/gjs/jsutil/strip_shebang/no_shebang", gjstest_test_strip_shebang_no_advance_for_no_shebang);
+     g_test_add_func("/gjs/jsutil/strip_shebang/have_shebang", gjstest_test_strip_shebang_advance_for_shebang);
+     g_test_add_func("/gjs/jsutil/strip_shebang/only_shebang", gjstest_test_strip_shebang_return_null_for_just_shebang);
+@@ -352,7 +352,7 @@
+     g_test_add_func("/util/glib/strv/concat/null", gjstest_test_func_util_glib_strv_concat_null);
+     g_test_add_func("/util/glib/strv/concat/pointers", gjstest_test_func_util_glib_strv_concat_pointers);
+ 
+-    gjs_test_add_tests_for_coverage ();
++    /* gjs_test_add_tests_for_coverage (); */
+ 
+     g_test_run();
+ 
