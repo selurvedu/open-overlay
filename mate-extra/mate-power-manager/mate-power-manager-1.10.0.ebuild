@@ -41,7 +41,7 @@ COMMON_DEPEND="app-text/rarian:0
 	unique? ( >=dev-libs/libunique-0.9.4:1 )"
 
 RDEPEND="${COMMON_DEPEND}
-	policykit? ( >=mate-extra/mate-polkit-1.6:0 )"
+	policykit? ( >=mate-extra/mate-polkit-1.10:0 )"
 
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3
