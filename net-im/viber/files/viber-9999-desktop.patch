@@ -1,0 +1,10 @@
+--- a/viber.desktop	2015-06-17 20:59:40.314657820 +0000
++++ b/viber.desktop	2015-06-17 21:02:53.042649715 +0000
+@@ -6,5 +6,5 @@
+ Terminal=false
+ Type=Application
+ Encoding=UTF-8
+-Categories=Network;Application;
+-Path=
++Categories=Network;InstantMessaging;Telephony;
++Path=/opt/viber
