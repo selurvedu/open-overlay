@@ -64,6 +64,9 @@ pkg_postinst() {
 	elog "For support with mate-conf-import see the following MATE forum topic:"
 	elog "http://forums.mate-desktop.org/viewtopic.php?f=16&t=1650"
         elog ""
+        elog "For more information to emerge mate-user-guide-1.10.0"
+        elog ""
+        elog ""
         elog "Thanks open-overlay 2015 by Alex"
         elog ""
 }
