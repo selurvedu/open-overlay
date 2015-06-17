@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright open-overlay 2015 by Alex
 
 EAPI="5"
 
@@ -23,7 +23,7 @@ RDEPEND="virtual/libintl:0"
 DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.40:*
 	app-text/yelp-tools
-	>=mate-base/mate-common-1.8:0
+	>=mate-base/mate-common-1.10:0
 	sys-devel/gettext:*
 	virtual/pkgconfig:*"
 
