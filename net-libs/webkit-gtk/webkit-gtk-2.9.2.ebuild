@@ -128,6 +128,7 @@ pkg_setup() {
 }
 
 src_prepare() {
+        autoreconf -fi
 	# Debian patches to fix support for some arches
 	# https://bugs.webkit.org/show_bug.cgi?id=129540
 	epatch "${FILESDIR}"/${PN}-2.6.0-{hppa,ia64}-platform.patch
@@ -137,9 +138,6 @@ src_prepare() {
 	gnome2_src_prepare
 }
 
-src_prepare(){
-autoreconf -fi 
-}
 src_configure() {
 	# Respect CC, otherwise fails on prefix #395875
 	tc-export CC
