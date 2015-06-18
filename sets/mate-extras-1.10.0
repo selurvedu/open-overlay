@@ -1,0 +1,11 @@
+>=app-arch/engrampa-1.10:0
+>=app-editors/pluma-1.10:0
+>=app-text/atril-1.10:0
+>=mate-extra/mate-calc-1.8:0
+>=mate-extra/mate-power-manager-1.10:0
+>=mate-extra/mate-screensaver-1.10:0
+>=mate-extra/mate-system-monitor-1.10:0
+>=mate-extra/mate-utils-1.10:0
+>=media-gfx/eom-1.10:0
+>=mate-extra/mate-user-guide-1.10:0
+>=mate-extra/mate-user-share-1.10:0
