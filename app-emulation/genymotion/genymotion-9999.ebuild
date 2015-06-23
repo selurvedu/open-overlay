@@ -29,7 +29,7 @@ src_install() {
 local dir="/opt/${PN}"
 insinto ${dir}
 doins -r *
-fperms 755 "${dir}/genymotion/genymotion" "${dir}/genymotion/player" "{$dir}/genymotion/genymotion/gmtool"   
+fperms 755 "${dir}/genymotion/genymotion" "${dir}/genymotion/player" "{$dir}/genymotion/gmtool"   
 newicon "genymotion/icons/icon.png" "genymotion.png" 
 make_wrapper ${PN} ${dir}/genymotion/genymotion 
 make_desktop_entry ${PN} "Genymotion" ${PN} "System;Emulator"
