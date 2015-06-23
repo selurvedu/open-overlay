@@ -1,0 +1,38 @@
+                                        OPEN-OVERLAY
+  Name: open-overlay - overlay for Gentoo or based on Gentoo distributions used by Alexander Kharlanov.
+  
+  Description: This overlay is used for personal use in the Gentoo Linux: additional my ebuilds and create new ebuilds for mate and other.
+  
+  At this unofficial place I will add unofficial ebuilds and some Gentoo ebuilds with my patches and patches other Gentoo developers,
+  that may(or may not) be insteresting other users Gentoo Linux or users based on Gentoo Linux distributions.
+  
+  Installation via layman
+  
+  You will need app-portage/layman installed
+  emerge -a layman 
+  and add my overlay: layman -a open-overlay 
+  and add string 'source /var/lib/layman/make.conf' in the /etc/portage/make.conf 
+  
+  You can clone git repository:
+  git clone git://github.com/pantera31752/open-overlay.git 
+  
+   Thanks. Your open-overlay 2015 by Alex
+                                     
+                                     Translate for the russian users(перевод для русских пользователей)
+                                     
+  Имя: open-overlay - оверлей для Gentoo или основанных на Gentoo дистрибутивов,используемый Александром Харлановым.
+  Описание: Этот оверлей используется для персонального пользования в Gentoo Linux: добавление моих ебилдов и создание новых ебилдов для mate и других.
+  
+  В этом неоффициальном оверлее я буду добавлять неоффициальные ебилды и некоторые ебилды Gentoo с моими патчами и патчами других разработчиков Gentoo.
+  что может (или не может) быть интересным другим пользователям Gentoo Linux или пользователям основанных на Gentoo Linux дистрибутивов.
+  
+  Установка с помощью layman 
+  Вам необходимо будет установить app-portage/layman
+  emerge -a layman 
+  и добавить мой оверлей: layman -a open-overlay 
+  и добавить строку 'source /var/lib/layman/make.conf' в /etc/portage/make.conf 
+  
+  Вы можете клонировать репозиторий:
+  git clone git://github.com/pantera31752/open-overlay.git 
+  
+  Спасибо. Ваш open-overlay 2015 от Алекса
