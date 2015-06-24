@@ -17,22 +17,4 @@
   git clone git://github.com/pantera31752/open-overlay.git 
   
    Thanks. Your open-overlay 2015 by Alex
-                                     
-                                     Translate for the russian users(перевод для русских пользователей)
-                                     
-  Имя: open-overlay - оверлей для Gentoo или основанных на Gentoo дистрибутивов,используемый Александром Харлановым.
-  Описание: Этот оверлей используется для персонального пользования в Gentoo Linux: добавление моих ебилдов и создание новых ебилдов для mate и других.
   
-  В этом неоффициальном оверлее я буду добавлять неоффициальные ебилды и некоторые ебилды с моими патчами и патчами разработчиков Gentoo.
-  что может (или не может) быть интересным другим пользователям Gentoo Linux или пользователям основанных на Gentoo Linux дистрибутивов.
-  
-  Установка с помощью layman 
-  Вам необходимо будет установить app-portage/layman
-  emerge -a layman 
-  и добавить мой оверлей: layman -a open-overlay 
-  и добавить строку 'source /var/lib/layman/make.conf' в /etc/portage/make.conf 
-  
-  Вы можете клонировать репозиторий:
-  git clone git://github.com/pantera31752/open-overlay.git 
-  
-  Спасибо. Ваш open-overlay 2015 от Алекса
