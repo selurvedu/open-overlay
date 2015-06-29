@@ -18,8 +18,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="www-client/firefox-bin"
-RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/firefox"
 
