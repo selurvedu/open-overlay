@@ -4,15 +4,16 @@ EAPI="5"
 
 inherit cmake-utils
 
+
 DESCRIPTION="Qt4-based audio player with winamp/xmms skins support"
 HOMEPAGE="http://qmmp.ylsoftware.com"
-
 SRC_URI="http://qmmp.ylsoftware.com/files/${P}.tar.bz2"
 KEYWORDS="~amd64 ~ppc ~x86"
 
 
 LICENSE="GPL-2"
 SLOT="0"
+# KEYWORDS further up
 IUSE="aac +alsa +dbus bs2b cdda cover crossfade enca ffmpeg flac jack game kde ladspa
 libsamplerate lyrics +mad midi mms modplug mplayer mpris musepack notifier opus oss
 projectm pulseaudio scrobbler sndfile stereo tray udisks +vorbis wavpack"
