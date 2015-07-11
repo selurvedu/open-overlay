@@ -18,7 +18,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="caja dbus debug djvu dvi +introspection gnome-keyring +ps t1lib tiff xps"
+IUSE="caja dbus debug djvu dvi +introspection gnome-keyring +ps t1lib tiff xps epub"
 
 RDEPEND=">=app-text/poppler-0.14:0=[cairo]
 	app-text/rarian:0
@@ -49,7 +49,8 @@ RDEPEND=">=app-text/poppler-0.14:0=[cairo]
 	ps? ( >=app-text/libspectre-0.2:0 )
 	tiff? ( >=media-libs/tiff-3.6:0 )
 	xps? ( >=app-text/libgxps-0.0.1:0 )
-	!!app-text/mate-document-viewer"
+	epub? ( >=app-text/libebook-0.1.2 )
+        !!app-text/mate-document-viewer"
 
 DEPEND="${RDEPEND}
 	app-text/docbook-xml-dtd:4.1.2
@@ -93,7 +94,8 @@ src_configure() {
 		$(use_enable ps) \
 		$(use_enable t1lib) \
 		$(use_enable tiff) \
-		$(use_enable xps)
+		$(use_enable xps) \
+                $(use_enable epub)
 }
 
 DOCS="AUTHORS NEWS README TODO"
