@@ -49,7 +49,7 @@ RDEPEND=">=app-text/poppler-0.14:0=[cairo]
 	ps? ( >=app-text/libspectre-0.2:0 )
 	tiff? ( >=media-libs/tiff-3.6:0 )
 	xps? ( >=app-text/libgxps-0.0.1:0 )
-        epub? ( >=app-text/libebook-0.1.2 )
+        epub? ( >=app-text/libebook-0.1.2 net-libs/webkit-gtk:2 )
 	!!app-text/mate-document-viewer"
 
 DEPEND="${RDEPEND}
