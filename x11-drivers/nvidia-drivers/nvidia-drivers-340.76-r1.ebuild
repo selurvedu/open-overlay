@@ -87,7 +87,7 @@ pkg_pretend() {
 		ewarn ""
 		ewarn "Do not file a bug report about this."
        fi
-       else if kernel_is ge 4 0 ; then
+       if use kernel_is ge 4 0 ; then
                 ewarn "Gentoo supports kernels which are supported by NVIDIA"
                 ewarn "which are limited to the following kernels:"
                 ewarn "<sys-kernel/gentoo-sources-4.1"
@@ -168,8 +168,8 @@ src_prepare() {
 		if kernel_is lt 2 6 9 ; then
 			eerror "You must build this against 2.6.9 or higher kernels."
 		fi
-        else if kernel_is ge 4 0 ; then 
-        epatch "${FILESDIR}"/${P}-for-linux-4.0.patch
+        if kernel_is ge 4 0 ; then 
+        epatch "${FILESDIR}"/${PN}-for-linux-4.0.patch
         fi
 		# If greater than 2.6.5 use M= instead of SUBDIR=
 #		convert_to_m "${NV_SRC}"/Makefile.kbuild
