@@ -25,7 +25,7 @@ RDEPEND=">=app-text/poppler-0.14:0=[cairo]
 	dev-libs/atk:0
 	>=dev-libs/glib-2.32:2
 	>=dev-libs/libxml2-2.5:2
-	>=mate-base/mate-desktop-1.6:0
+	>=mate-base/mate-desktop-1.6[gtk3?]
 	sys-libs/zlib:0
 	x11-libs/libICE:0
 	>=x11-libs/libSM-1:0
@@ -47,7 +47,7 @@ RDEPEND=">=app-text/poppler-0.14:0=[cairo]
 	ps? ( >=app-text/libspectre-0.2:0 )
 	tiff? ( >=media-libs/tiff-3.6:0 )
 	xps? ( >=app-text/libgxps-0.0.1:0 )
-        !gtk3? (x11-libs/gdk-pixbuf:2
+	!gtk3? ( x11-libs/gdk-pixbuf:2
         epub? ( >=app-text/libebook-0.1.2 net-libs/webkit-gtk:2 )
         >=x11-libs/gtk+-2.21.5:2[introspection?] )
 	gtk3? ( >=x11-libs/gtk+-3.0:3 
@@ -79,10 +79,10 @@ src_prepare() {
 src_configure() {
 	# Passing --disable-help would drop offline help, that would be inconsistent
 	# with helps of the most of GNOME apps that doesn't require network for that.
-	        local myconf 
-                use gtk3 && myconf="${myconf} --with-gtk=3.0"
-                use !gtk3 && myconf="${myconf} --with-gtk=2.0"
-                gnome2_src_configure \
+	    local myconf
+        use gtk3 && myconf="${myconf} --with-gtk=3.0"
+        use !gtk3 && myconf="${myconf} --with-gtk=2.0"
+        gnome2_src_configure \
 		--disable-tests \
 		--enable-comics \
 		--enable-pdf \
@@ -90,7 +90,6 @@ src_configure() {
 		--enable-thumbnailer \
 		--with-smclient=xsmp \
 		--with-platform=mate \
-		--with-gtk=2.0 \
 		$(use_enable dbus) \
 		$(use_enable djvu) \
 		$(use_enable dvi) \
