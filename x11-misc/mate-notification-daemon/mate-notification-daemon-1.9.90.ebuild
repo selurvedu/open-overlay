@@ -15,19 +15,25 @@ HOMEPAGE="http://mate-desktop.org"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="gtk3"
 
 RDEPEND="
 	dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.78:0
 	>=dev-libs/glib-2.18:2
-	>=media-libs/libcanberra-0.4:0[gtk]
 	>=sys-apps/dbus-1:0
 	x11-libs/cairo:0
-	x11-libs/gdk-pixbuf:2
+	!gtk3? ( x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.18:2
+	>=x11-libs/libwnck-1:1
+	>=media-libs/libcanberra-0.4:0[gtk]
+        )
+        gtk3? ( >=x11-libs/gtk+-3.0:3 
+        >=x11-libs/libwnck-3:3
+        >=media-libs/libcanberra-0.4:0[gtk3]
+        )
 	>=x11-libs/libnotify-0.7:0
 	x11-libs/libX11:0
-	>=x11-libs/libwnck-1:1
 	virtual/libintl:0
 	!x11-misc/notify-osd:*
 	!x11-misc/qtnotifydaemon:*
@@ -42,6 +48,14 @@ DEPEND="${RDEPEND}
 
 DOCS=( AUTHORS ChangeLog NEWS )
 
+src_configure() {
+	local myconf
+
+	use gtk3 && myconf="${myconf} --with-gtk=3.0"
+	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
+
+	gnome2_src_configure ${myconf}
+}
 src_install() {
 	gnome2_src_install
 
