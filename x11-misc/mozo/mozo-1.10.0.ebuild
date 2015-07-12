@@ -13,10 +13,11 @@ MATE_BRANCH="$(get_version_component_range 1-2)"
 SRC_URI="http://pub.mate-desktop.org/releases/${MATE_BRANCH}/${P}.tar.xz"
 DESCRIPTION="Mozo menu editor for MATE"
 HOMEPAGE="http://mate-desktop.org"
+IUSE="gtk3"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 COMMON_DEPEND=">=dev-python/pygobject-2.15.1:2[${PYTHON_USEDEP}]
 	>=dev-python/pygtk-2.13:2[${PYTHON_USEDEP}]
@@ -24,9 +25,11 @@ COMMON_DEPEND=">=dev-python/pygobject-2.15.1:2[${PYTHON_USEDEP}]
 
 RDEPEND="${COMMON_DEPEND}
 	${PYTHON_DEPS}
-	>=mate-base/mate-panel-1.6:0
-	x11-libs/gdk-pixbuf:2[introspection]
+	>=mate-base/mate-panel-1.6:0[gtk3?]
+	!gtk3? ( x11-libs/gdk-pixbuf:2[introspection]
 	x11-libs/gtk+:2[introspection]
+        )
+        gtk3? ( >=x11-libs/gtk+-3.0:3 )
 	virtual/libintl:0
 	!!x11-misc/mate-menu-editor"
 
