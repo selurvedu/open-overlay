@@ -28,7 +28,7 @@ RDEPEND=">=dev-libs/glib-2.13:2[${PYTHON_USEDEP}]
 	>=sys-libs/timezone-data-2010k:0
 	!gtk3? ( x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.11:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0:3 )
+        gtk3? ( >=x11-libs/gtk+-3.0:3 )
 	virtual/libintl:0
 
 	python? (
@@ -61,14 +61,14 @@ src_prepare() {
 }
 
 src_configure() {
-	local myconf
-	use gtk3 && myconf="${myconf} --with-gtk=3.0"
-	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
-	my_command gnome2_src_configure \
+	        local myconf
+                use gtk3 && myconf="${myconf} --with-gtk=3.0"
+                use !gtk3 && myconf="${myconf} --with-gtk=2.0"
+                my_command gnome2_src_configure \
 		--enable-locations-compression \
 		--disable-all-translations-in-one-xml \
 		${myconf} \
-		$(use_enable python)
+                $(use_enable python)
 }
 
 src_compile() {

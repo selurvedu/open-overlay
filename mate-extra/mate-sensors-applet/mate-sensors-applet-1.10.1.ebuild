@@ -15,18 +15,19 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-IUSE="+dbus gtk3 hddtemp libnotify lm_sensors video_cards_fglrx video_cards_nvidia"
+IUSE="+dbus hddtemp libnotify lm_sensors video_cards_fglrx video_cards_nvidia gtk3"
 
 RDEPEND="app-text/rarian:0
 	>=dev-libs/glib-2.26:2
-	>=mate-base/mate-panel-1.8:0
+	>=mate-base/mate-panel-1.8:0[gtk3?]
 	>=x11-libs/cairo-1.0.4:0
 	!gtk3? ( x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.14:2 )
-	gtk3? ( x11-libs/gtk+:3 )
-	virtual/libintl:0
+	>=x11-libs/gtk+-2.14:2
+	)
+        gtk3? ( >=x11-libs/gtk+-3.0:3 )
+        virtual/libintl:0
 	hddtemp? (
 		dbus? (
 			>=dev-libs/dbus-glib-0.80:0
@@ -52,7 +53,7 @@ PDEPEND="hddtemp? ( dbus? ( sys-fs/udisks:0 ) )"
 
 src_configure() {
 	local myconf
-	use gtk3 && myconf="${myconf} --with-gtk=3.0"
+        use gtk3 && myconf="${myconf} --with-gtk=3.0"
 	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	if use hddtemp && use dbus; then
 		myconf="${myconf} $(use_enable dbus udisks)"

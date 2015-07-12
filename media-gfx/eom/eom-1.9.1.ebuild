@@ -17,7 +17,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 
-IUSE="X dbus exif jpeg lcms python svg tiff xmp"
+IUSE="X dbus exif jpeg lcms python svg tiff xmp gtk3"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -26,11 +26,13 @@ RDEPEND="
 	>=dev-libs/glib-2.25.9:2
 	>=dev-libs/libxml2-2:2
 	gnome-base/dconf:0
-	>=mate-base/mate-desktop-1.6:0
+	>=mate-base/mate-desktop-1.6:0[gtk3?]
 	sys-libs/zlib:0
 	x11-libs/cairo:0
-	>=x11-libs/gdk-pixbuf-2.4:2[jpeg?,tiff?]
+	!gtk3? ( >=x11-libs/gdk-pixbuf-2.4:2[jpeg?,tiff?]
 	>=x11-libs/gtk+-2.18:2
+        )
+        gtk3? ( >=x11-libs/gtk+-3.0:3 )
 	x11-libs/libX11:0
 	>=x11-misc/shared-mime-info-0.20:0
 	>=x11-themes/mate-icon-theme-1.6:0
@@ -60,6 +62,9 @@ pkg_setup() {
 }
 
 src_configure() {
+        local myconf
+        use gtk3 && myconf="${myconf} --with-gtk=3.0"
+        use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
 		$(use_enable python) \
 		$(use_with jpeg libjpeg) \
@@ -69,7 +74,8 @@ src_configure() {
 		$(use_with xmp) \
 		$(use_with svg librsvg) \
 		$(use_with X x) \
-		--without-cms
+		--without-cms \
+                ${myconf}
 }
 
 DOCS="AUTHORS ChangeLog HACKING NEWS README THANKS TODO"

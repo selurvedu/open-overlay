@@ -15,16 +15,15 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-IUSE="caja gtk3"
+IUSE="gtk3 caja"
 
 # GLib-GIO-ERROR **: Settings schema 'org.mate.caja.preferences' is not installed
 #
 # ... thus we depend on Caja regardless of the Caja USE flag. Patches welcome.
-RDEPEND="
-	!gtk3? ( >=x11-libs/gtk+-2.21.4:2 x11-libs/gdk-pixbuf:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0:3 )
+RDEPEND="!gtk3? ( >=x11-libs/gtk+-2.21.4:2 x11-libs/gdk-pixbuf:2 )
+          gtk3? ( >=x11-libs/gtk+-3.0:3 )
 	>=dev-libs/glib-2.25.5:2
 	>=dev-libs/json-glib-0.14:0
 	x11-libs/pango:0
@@ -48,14 +47,14 @@ src_prepare() {
 }
 
 src_configure() {
-	local myconf
-	use gtk3 && myconf="${myconf} --with-gtk=3.0"
-	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
-	gnome2_src_configure \
+	        local myconf 
+                use gtk3 && myconf="${myconf} --with-gtk=3.0"
+                use !gtk3 && myconf="${myconf} --with-gtk=2.0"
+                gnome2_src_configure \
 		--disable-run-in-place \
 		--disable-packagekit \
 		--disable-deprecations \
-		${myconf} \
+                ${myconf} \
 		$(use_enable caja caja-actions)
 }
 

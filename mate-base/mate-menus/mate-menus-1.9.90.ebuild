@@ -16,9 +16,9 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-IUSE="debug +introspection python"
+IUSE="gtk3 debug +introspection python"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 

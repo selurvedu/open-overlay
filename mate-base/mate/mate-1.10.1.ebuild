@@ -11,22 +11,21 @@ HOMEPAGE="http://mate-desktop.org"
 LICENSE="metapackage"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="+base -bluetooth gtk3 +themes +extras"
+KEYWORDS="amd64 x86"
+IUSE="+base -bluetooth +themes +extras gtk3"
 
 S="${WORKDIR}"
 
 RDEPEND="
 	>=mate-base/mate-desktop-1.10:0[gtk3?]
-	>=mate-base/mate-menus-1.10:0	
+	>=mate-base/mate-menus-1.10:0
 	>=mate-base/mate-panel-1.10:0[gtk3?]
 	>=mate-base/mate-session-manager-1.10:0[gtk3?]
 	>=mate-base/mate-settings-daemon-1.10:0[gtk3?]
 	>=x11-wm/marco-1.10:0[gtk3?]
-	>=dev-libs/libmateweather-1.10.0[gtk3?]
 	base? (
 		>=mate-base/caja-1.10:0[gtk3?]
-		>=mate-base/mate-applets-1.10:0
+		>=mate-base/mate-applets-1.10:0[gtk3?]
 		>=mate-base/mate-control-center-1.10:0[gtk3?]
 		>=mate-extra/mate-media-1.10:0
 		>=x11-misc/mozo-1.10:0
@@ -44,7 +43,7 @@ RDEPEND="
 		>=app-text/atril-1.10:0[gtk3?]
 		!gtk3? ( >=mate-extra/mate-calc-1.8:0 )
 		gtk3? ( sci-calculators/galculator )
-		>=mate-extra/mate-power-manager-1.10:0[gtk3?]
+                >=mate-extra/mate-power-manager-1.10:0[gtk3?]
 		>=mate-extra/mate-screensaver-1.10:0
 		>=mate-extra/mate-system-monitor-1.8:0[gtk3?]
 		>=mate-extra/mate-utils-1.10:0

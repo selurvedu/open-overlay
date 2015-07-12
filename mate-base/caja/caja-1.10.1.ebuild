@@ -17,7 +17,7 @@ LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-IUSE="X gtk3 +mate +introspection +unique xmp"
+IUSE="X +mate +introspection xmp +unique gtk3"
 
 RDEPEND="dev-libs/atk:0
 	>=dev-libs/glib-2.28:2
@@ -26,13 +26,6 @@ RDEPEND="dev-libs/atk:0
 	>=gnome-base/gvfs-1.10.1:0[udisks]
 	>=mate-base/mate-desktop-1.9:0[gtk3?]
 	>=media-libs/libexif-0.5.12:0
-	!gtk3? ( >=x11-libs/gtk+-2.24:2[introspection?]
-		x11-libs/gdk-pixbuf:2
-		unique? ( dev-libs/libunique:1 )
-	)
-	gtk3? ( x11-libs/gtk+:3 
-		unique? ( dev-libs/libunique:3 )
-	)
 	x11-libs/cairo:0
 	x11-libs/libICE:0
 	x11-libs/libSM:0
@@ -43,8 +36,14 @@ RDEPEND="dev-libs/atk:0
 	>=x11-libs/pango-1.1.2:0
 	virtual/libintl:0
 	introspection? ( >=dev-libs/gobject-introspection-0.6.4:0 )
-	xmp? ( >=media-libs/exempi-1.99.2:2 )"
-
+        xmp? ( >=media-libs/exempi-1.99.2:2 )
+        !gtk3? ( >=x11-libs/gtk+-2.24:2[introspection?]
+        x11-libs/gdk-pixbuf:2
+        unique? ( >=dev-libs/libunique-1:1 )
+        )
+        gtk3? ( >=x11-libs/gtk+-3.0:3 
+        unique? ( >=dev-libs/libunique-3:3 ) 
+        )"
 DEPEND="${RDEPEND}
 	!!mate-base/mate-file-manager
 	>=dev-lang/perl-5:0=
@@ -69,18 +68,18 @@ src_prepare() {
 }
 
 src_configure() {
-	local myconf
-	use gtk3 && myconf="${myconf} --with-gtk=3.0"
-	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
-	gnome2_src_configure \
+                local myconf
+                use gtk3 && myconf="${myconf} --with-gtk=3.0"
+                use !gtk3 && myconf="${myconf} --with-gtk=2.0" 
+          	gnome2_src_configure \
 		--enable-unique \
 		--disable-packagekit \
 		--disable-update-mimedb \
-		${myconf} \
 		$(use_enable introspection) \
-		$(use_enable unique) \
 		$(use_enable xmp) \
-		$(use_with X x)
+                ${myconf} \
+                $(use_enable unique) \
+                $(use_with X x)
 }
 
 DOCS="AUTHORS ChangeLog* HACKING MAINTAINERS NEWS README THANKS TODO"

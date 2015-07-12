@@ -15,9 +15,9 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-IUSE="X gtk3 ipv6 networkmanager policykit +upower"
+IUSE="X ipv6 networkmanager policykit +upower gtk3"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
@@ -34,16 +34,16 @@ RDEPEND="${PYTHON_DEPS}
 	>=mate-base/mate-settings-daemon-1.6:0[gtk3?]
 	>=sys-apps/dbus-1.1.2:0
 	sys-power/cpupower
+        !gtk3? ( x11-libs/gdk-pixbuf:2
+	>=x11-libs/gtk+-2.24:2
+	>=x11-libs/libwnck-2.30:1
+        x11-libs/gtksourceview:2.0
+        )
+        gtk3? ( >=x11-libs/gtk+-3.0:3
+        x11-libs/gtksourceview:3.0
+        >=x11-libs/libwnck-3.4:3
+        )
         upower?  ( || ( >=sys-power/upower-0.9.23 >=sys-power/upower-pm-utils-0.9.23 ) )
-	!gtk3? ( x11-libs/gdk-pixbuf:2
-		>=x11-libs/libwnck-2.30:1
-		x11-libs/gtksourceview:2.0
-		>=x11-libs/gtk+-2.24:2 )
-	gtk3? (
-		x11-libs/gtk+:3
-		x11-libs/libwnck:3
-		x11-libs/gtksourceview:3.0
-	)
 	>=x11-libs/libnotify-0.7:0
 	x11-libs/libX11:0
 	>=x11-libs/libxklavier-4:0
@@ -70,18 +70,18 @@ src_prepare() {
 }
 
 src_configure() {
-	local myconf
-	use gtk3 && myconf="${myconf} --with-gtk=3.0"
-	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
+        local myconf
+        use gtk3 && myconf="${myconf} --with-gtk=3.0"
+        use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
 		--libexecdir=/usr/libexec/mate-applets \
 		--without-hal \
-		${myconf} \
 		$(use_enable ipv6) \
 		$(use_enable networkmanager) \
 		$(use_enable policykit polkit) \
 		$(use_with upower) \
-		$(use_with X x)
+	        ${myconf} \
+         	$(use_with X x)
 }
 
 src_test() {

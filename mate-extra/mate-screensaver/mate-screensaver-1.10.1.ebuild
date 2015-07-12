@@ -13,9 +13,9 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-IUSE="X consolekit gtk3 kernel_linux libnotify opengl pam systemd"
+IUSE="X consolekit kernel_linux libnotify opengl pam systemd gtk3"
 
 DOC_CONTENTS="
 	Information for converting screensavers is located in
@@ -26,13 +26,14 @@ RDEPEND="
 	>=dev-libs/dbus-glib-0.71:0
 	>=dev-libs/glib-2.26:2
 	gnome-base/dconf:0
-	>=mate-base/libmatekbd-1.9[gtk3?]
-	>=mate-base/mate-desktop-1.9[gtk3?]
+	>=mate-base/libmatekbd-1.9:0[gtk3?]
+	>=mate-base/mate-desktop-1.9:0[gtk3?]
 	>=mate-base/mate-menus-1.9:0
 	>=sys-apps/dbus-0.30:0
 	!gtk3? ( >=x11-libs/gdk-pixbuf-2.14:2
-	>=x11-libs/gtk+-2.14:2 )
-	gtk3? ( x11-libs/gtk+:3 )
+	>=x11-libs/gtk+-2.14:2
+        )
+        gtk3? ( >=x11-libs/gtk+-3.0:3 )
 	>=x11-libs/libX11-1:0
 	x11-libs/cairo:0
 	x11-libs/libXext:0
@@ -63,9 +64,9 @@ DEPEND="${RDEPEND}
 	systemd? ( sys-apps/systemd:0= )"
 
 src_configure() {
-	local myconf
-	use gtk3 && myconf="${myconf} --with-gtk=3.0"
-	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
+        local myconf
+        use gtk3 && myconf="${myconf} --with-gtk=3.0"
+        use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
 		$(use_with consolekit console-kit) \
 		$(use_enable debug) \
@@ -74,12 +75,12 @@ src_configure() {
 		$(use_enable pam) \
 		$(use_with systemd) \
 		$(use_with X x) \
-		${myconf} \
 		--enable-locking \
 		--with-kbd-layout-indicator \
 		--with-xf86gamma-ext \
 		--with-xscreensaverdir=/usr/share/xscreensaver/config \
-		--with-xscreensaverhackdir=/usr/$(get_libdir)/misc/xscreensaver
+		--with-xscreensaverhackdir=/usr/$(get_libdir)/misc/xscreensaver \
+                ${myconf}
 }
 
 src_install() {

@@ -15,23 +15,22 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="gtk3"
 
 RDEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.73:0
 	>=dev-libs/glib-2.28:2
-	!gtk3? ( dev-libs/libunique:1
-		x11-libs/gdk-pixbuf:2
-		>=x11-libs/gtk+-2.24:2
-		media-libs/libcanberra[gtk]
-	 )
-	gtk3? ( 
-		x11-libs/gtk+:3
-		dev-libs/libunique:3
-		media-libs/libcanberra[gtk3]
-	 )
+	!gtk3? ( >=dev-libs/libunique-1:1
+	x11-libs/gdk-pixbuf:2
+	>=x11-libs/gtk+-2.24:2
+	media-libs/libcanberra[gtk]
+        )
+        gtk3? ( >=dev-libs/libunique-3:3
+        >=x11-libs/gtk+-3.0:3
+	media-libs/libcanberra[gtk]
+        )
 	dev-libs/libxml2:2
 	>=gnome-base/dconf-0.13.4:0
 	>=gnome-base/librsvg-2.0:2
@@ -82,11 +81,11 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig:*"
 
 src_configure() {
-	local myconf
-	use gtk3 && myconf="${myconf} --with-gtk=3.0"
-	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
-	gnome2_src_configure \
-		${myconf} \
+	        local myconf 
+                use gtk3 && myconf="${myconf} --with-gtk=3.0"
+                use !gtk3 && myconf="${myconf} --with-gtk=2.0"
+                gnome2_src_configure \
+                ${myconf} \
 		--disable-update-mimedb \
 		--disable-appindicator
 }

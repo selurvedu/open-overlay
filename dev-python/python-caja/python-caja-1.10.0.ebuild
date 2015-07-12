@@ -17,9 +17,9 @@ HOMEPAGE="http://www.mate-desktop.org"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-IUSE="doc gtk3"
+IUSE="gtk3 doc"
 
 RDEPEND="dev-libs/glib:2
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
@@ -28,7 +28,7 @@ RDEPEND="dev-libs/glib:2
 		>=mate-base/mate-file-manager-1.6:0[introspection]
 	)
 	!gtk3? ( x11-libs/gtk+:2 )
-	gtk3? ( x11-libs/gtk+:3 )
+         gtk3? ( >=x11-libs/gtk+-3.0:3 )
 	${PYTHON_DEPS}"
 
 DEPEND="${RDEPEND}

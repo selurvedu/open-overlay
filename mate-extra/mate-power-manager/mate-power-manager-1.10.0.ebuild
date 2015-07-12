@@ -14,9 +14,9 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-IUSE="+applet gnome-keyring gtk3 man policykit test unique"
+IUSE="+applet gnome-keyring man policykit test unique gtk3"
 
 # Interactive testsuite.
 RESTRICT="test"
@@ -30,13 +30,13 @@ COMMON_DEPEND="app-text/rarian:0
 	>=x11-libs/cairo-1:0
 	!gtk3? ( >=x11-libs/gdk-pixbuf-2.11:2
 	>=x11-libs/gtk+-2.17.7:2
-	>=media-libs/libcanberra-0.10[gtk]
-	unique? ( dev-libs/libunique:1 ) )
-	gtk3? (
-	x11-libs/gtk+:3
-	>=media-libs/libcanberra-0.10[gtk3]
-	unique? ( dev-libs/libunique:3 )
-	)
+	unique? ( >=dev-libs/libunique-0.9.4:1 )
+	>=media-libs/libcanberra-0.10:0[gtk]
+        )
+        gtk3? ( >=x11-libs/gtk+-3.0:3 
+        >=media-libs/libcanderra-0.10:0[gtk3]
+        unique? ( dev-libs/libunique:3 ) 
+        )
 	x11-libs/libX11:0
 	x11-libs/libXext:0
 	x11-libs/libXrandr:0
@@ -46,7 +46,7 @@ COMMON_DEPEND="app-text/rarian:0
 	gnome-keyring? ( >=gnome-base/libgnome-keyring-3:0 )"
 
 RDEPEND="${COMMON_DEPEND}
-	policykit? ( >=mate-extra/mate-polkit-1.10[gtk3?] )"
+	policykit? ( >=mate-extra/mate-polkit-1.10:0[gtk3?] )"
 
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3
@@ -75,16 +75,16 @@ src_prepare() {
 }
 
 src_configure() {
-	local myconf
-	use gtk3 && myconf="${myconf} --with-gtk=3.0"
-	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
+        local myconf
+        use gtk3 && myconf="${myconf} --with-gtk=3.0"
+        use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
 		$(use_enable applet applets) \
 		$(use_enable test tests) \
 		$(use_enable unique) \
 		$(use_with gnome-keyring keyring) \
 		--enable-compile-warnings=minimum \
-		${myconf}
+                ${myconf}
 }
 
 DOCS="AUTHORS HACKING NEWS README TODO"
