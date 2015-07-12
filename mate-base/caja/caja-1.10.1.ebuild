@@ -35,15 +35,15 @@ RDEPEND="dev-libs/atk:0
 	x11-libs/libXrender:0
 	>=x11-libs/pango-1.1.2:0
 	virtual/libintl:0
+    x11-libs/gdk-pixbuf:2
 	introspection? ( >=dev-libs/gobject-introspection-0.6.4:0 )
-        xmp? ( >=media-libs/exempi-1.99.2:2 )
-        !gtk3? ( >=x11-libs/gtk+-2.24:2[introspection?]
-        x11-libs/gdk-pixbuf:2
+    xmp? ( >=media-libs/exempi-1.99.2:2 )
+    !gtk3? ( >=x11-libs/gtk+-2.24:2[introspection?]
         unique? ( >=dev-libs/libunique-1:1 )
-        )
-        gtk3? ( >=x11-libs/gtk+-3.0:3 
+    )
+    gtk3? ( >=x11-libs/gtk+-3.0:3 
         unique? ( >=dev-libs/libunique-3:3 ) 
-        )"
+    )"
 DEPEND="${RDEPEND}
 	!!mate-base/mate-file-manager
 	>=dev-lang/perl-5:0=
