@@ -25,7 +25,7 @@ RDEPEND=">=app-text/poppler-0.14:0=[cairo]
 	dev-libs/atk:0
 	>=dev-libs/glib-2.32:2
 	>=dev-libs/libxml2-2.5:2
-	>=mate-base/mate-desktop-1.6:0
+	>=mate-base/mate-desktop-1.6:0[gtk3?]
 	sys-libs/zlib:0
         x11-libs/libICE:0
 	>=x11-libs/libSM-1:0
