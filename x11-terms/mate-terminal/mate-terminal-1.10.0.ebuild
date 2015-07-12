@@ -11,23 +11,26 @@ MATE_BRANCH="$(get_version_component_range 1-2)"
 SRC_URI="http://pub.mate-desktop.org/releases/${MATE_BRANCH}/${P}.tar.xz"
 DESCRIPTION="The MATE Terminal"
 HOMEPAGE="http://mate-desktop.org"
+IUSE="gtk3"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 ~arm x86"
 
 RDEPEND="app-text/rarian:0
 	dev-libs/atk:0
 	>=dev-libs/glib-2.25:2
 	>=gnome-base/dconf-0.10:0
-	>=mate-base/mate-desktop-1.9:0
-	x11-libs/gdk-pixbuf:2
+	>=mate-base/mate-desktop-1.10:0[gtk3?]
+	!gtk3? ( x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.18:2
+	>=x11-libs/vte-0.27.1:0
+        )
+        gtk3? ( >=x11-libs/gtk+-3.0:3 x11-libs/vte:2.90 )
 	x11-libs/libICE:0
 	x11-libs/libSM:0
 	x11-libs/libX11:0
-	x11-libs/pango:0
-	>=x11-libs/vte-0.27.1:0"
+	x11-libs/pango:0"
 
 DEPEND="${RDEPEND}
 	>=app-text/scrollkeeper-dtd-1:1.0
@@ -37,3 +40,12 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig:*"
 
 DOCS="AUTHORS ChangeLog HACKING NEWS README"
+
+src_configure() {
+	local myconf
+
+	use gtk3 && myconf="${myconf} --with-gtk=3.0"
+	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
+
+	gnome2_src_configure ${myconf}
+}
