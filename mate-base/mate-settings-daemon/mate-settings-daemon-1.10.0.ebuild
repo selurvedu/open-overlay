@@ -17,17 +17,28 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="X debug libnotify policykit pulseaudio smartcard"
+IUSE="X debug gtk3 libnotify policykit pulseaudio smartcard"
 
 RDEPEND=">=dev-libs/dbus-glib-0.74:0
 	>=dev-libs/glib-2.17.3:2
-	>=mate-base/libmatekbd-1.9:0
-	>=mate-base/mate-desktop-1.9:0
+	>=mate-base/libmatekbd-1.9:0[gtk3?]
+	>=mate-base/mate-desktop-1.9:0[gtk3?]
 	media-libs/fontconfig:1.0
 	>=gnome-base/dconf-0.13.4:0
 	x11-libs/cairo:0
-	x11-libs/gdk-pixbuf:2
+	!gtk3? ( x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.24:2
+		pulseaudio? (
+		media-libs/libcanberra[gtk]
+		>=media-sound/pulseaudio-0.9.15:0
+		)
+	)
+	gtk3? ( x11-libs/gtk+:3
+		pulseaudio? (
+		media-libs/libcanberra[gtk3]
+		>=media-sound/pulseaudio-0.9.15:0
+		) 
+	)
 	x11-libs/libX11:0
 	x11-libs/libXi:0
 	x11-libs/libXext:0
@@ -39,10 +50,6 @@ RDEPEND=">=dev-libs/dbus-glib-0.74:0
 		>=dev-libs/dbus-glib-0.71:0
 		>=sys-apps/dbus-1.1.2:0
 		>=sys-auth/polkit-0.97:0
-	)
-	pulseaudio? (
-		media-libs/libcanberra:0[gtk]
-		>=media-sound/pulseaudio-0.9.15:0
 	)
 	!pulseaudio? (
 		>=media-libs/gstreamer-0.10.1.2:0.10
@@ -68,7 +75,11 @@ src_prepare() {
 }
 
 src_configure() {
+	local myconf
+	use gtk3 && myconf="${myconf} --with-gtk=3.0"
+	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
+		${myconf} \
 		$(use_with libnotify) \
 		$(use_enable debug) \
 		$(use_enable policykit polkit) \

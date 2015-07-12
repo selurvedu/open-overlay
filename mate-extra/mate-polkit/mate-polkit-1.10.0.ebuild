@@ -16,12 +16,13 @@ LICENSE="LGPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="+introspection"
+IUSE="gtk3 +introspection"
 
 RDEPEND=">=dev-libs/glib-2.28:2
 	>=sys-auth/polkit-0.102:0[introspection?]
-	>=x11-libs/gtk+-2.24:2[introspection?]
-	x11-libs/gdk-pixbuf:2[introspection?]
+	!gtk3? ( >=x11-libs/gtk+-2.24:2[introspection?]
+	x11-libs/gdk-pixbuf:2[introspection?] )
+	gtk3? ( x11-libs/gtk+:3[introspection?] )
 	virtual/libintl:0
 	introspection? ( >=dev-libs/gobject-introspection-0.6.2:0 )"
 
@@ -38,8 +39,12 @@ DEPEND="${RDEPEND}
 ENTROPY_RDEPEND="!lxde-base/lxpolkit"
 
 src_configure() {
+	local myconf
+	use gtk3 && myconf="${myconf} --with-gtk=3.0"
+	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
 		--disable-static \
+		${myconf} \
 		$(use_enable introspection)
 }
 

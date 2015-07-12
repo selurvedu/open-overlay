@@ -17,18 +17,23 @@ LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-IUSE="X +mate +introspection +unique xmp"
+IUSE="X gtk3 +mate +introspection +unique xmp"
 
 RDEPEND="dev-libs/atk:0
 	>=dev-libs/glib-2.28:2
 	>=dev-libs/libxml2-2.4.7:2
 	gnome-base/dconf:0
 	>=gnome-base/gvfs-1.10.1:0[udisks]
-	>=mate-base/mate-desktop-1.9:0
+	>=mate-base/mate-desktop-1.9:0[gtk3?]
 	>=media-libs/libexif-0.5.12:0
-	>=x11-libs/gtk+-2.24:2[introspection?]
+	!gtk3? ( >=x11-libs/gtk+-2.24:2[introspection?]
+		x11-libs/gdk-pixbuf:2
+		unique? ( dev-libs/libunique:1 )
+	)
+	gtk3? ( x11-libs/gtk+:3 
+		unique? ( dev-libs/libunique:3 )
+	)
 	x11-libs/cairo:0
-	x11-libs/gdk-pixbuf:2
 	x11-libs/libICE:0
 	x11-libs/libSM:0
 	x11-libs/libX11:0
@@ -38,7 +43,6 @@ RDEPEND="dev-libs/atk:0
 	>=x11-libs/pango-1.1.2:0
 	virtual/libintl:0
 	introspection? ( >=dev-libs/gobject-introspection-0.6.4:0 )
-	unique? ( >=dev-libs/libunique-1:1 )
 	xmp? ( >=media-libs/exempi-1.99.2:2 )"
 
 DEPEND="${RDEPEND}
@@ -65,11 +69,14 @@ src_prepare() {
 }
 
 src_configure() {
+	local myconf
+	use gtk3 && myconf="${myconf} --with-gtk=3.0"
+	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
 		--enable-unique \
 		--disable-packagekit \
 		--disable-update-mimedb \
-		--with-gtk=2.0 \
+		${myconf} \
 		$(use_enable introspection) \
 		$(use_enable unique) \
 		$(use_enable xmp) \

@@ -17,7 +17,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 
-IUSE="X dbus exif jpeg lcms python svg tiff xmp"
+IUSE="X dbus exif gtk3 jpeg lcms python svg tiff xmp"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -30,7 +30,8 @@ RDEPEND="
 	sys-libs/zlib:0
 	x11-libs/cairo:0
 	>=x11-libs/gdk-pixbuf-2.4:2[jpeg?,tiff?]
-	>=x11-libs/gtk+-2.18:2
+	!gtk3? ( >=x11-libs/gtk+-2.18:2 )
+	gtk3? ( x11-libs/gtk+:3 )
 	x11-libs/libX11:0
 	>=x11-misc/shared-mime-info-0.20:0
 	>=x11-themes/mate-icon-theme-1.6:0
@@ -60,7 +61,11 @@ pkg_setup() {
 }
 
 src_configure() {
+	local myconf
+	use gtk3 && myconf="${myconf} --with-gtk=3.0"
+	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
+		${myconf}  \
 		$(use_enable python) \
 		$(use_with jpeg libjpeg) \
 		$(use_with exif libexif) \

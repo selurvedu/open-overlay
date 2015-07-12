@@ -17,19 +17,25 @@ HOMEPAGE="http://mate-desktop.org"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="startup-notification test xinerama"
+IUSE="gtk3 startup-notification test xinerama"
 
 RDEPEND="
         gnome-extra/zenity
 	dev-libs/atk:0
 	>=dev-libs/glib-2.25.10:2
 	!>=mate-extra/mate-dialogs-1.6:0
-	media-libs/libcanberra:0[gtk]
 	>=gnome-base/libgtop-2:2=
 	x11-libs/cairo:0
 	>=x11-libs/pango-1.2:0[X]
-	x11-libs/gdk-pixbuf:2
+	!gtk3? (
 	>=x11-libs/gtk+-2.20:2
+	media-libs/libcanberra[gtk]
+	)
+	gtk3? (
+	x11-libs/gtk+:3
+	media-libs/libcanberra[gtk3]
+	)
+	x11-libs/gdk-pixbuf:2
 	x11-libs/libICE:0
 	x11-libs/libSM:0
 	x11-libs/libX11:0
@@ -56,13 +62,16 @@ DEPEND="${RDEPEND}
 	xinerama? ( x11-proto/xineramaproto:0 )"
 
 src_configure() {
+	local myconf
+	use gtk3 && myconf="${myconf} --with-gtk=3.0"
+	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
 		--enable-compositor \
 		--enable-render \
 		--enable-shape \
 		--enable-sm \
 		--enable-xsync \
-		--with-gtk=2.0 \
+		${myconf} \
 		$(use_enable startup-notification) \
 		$(use_enable xinerama)
 }

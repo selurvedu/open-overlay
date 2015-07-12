@@ -17,6 +17,7 @@ HOMEPAGE="http://mate-desktop.org"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="gtk3"
 
 COMMON_DEPEND=">=dev-python/pygobject-2.15.1:2[${PYTHON_USEDEP}]
 	>=dev-python/pygtk-2.13:2[${PYTHON_USEDEP}]
@@ -24,9 +25,10 @@ COMMON_DEPEND=">=dev-python/pygobject-2.15.1:2[${PYTHON_USEDEP}]
 
 RDEPEND="${COMMON_DEPEND}
 	${PYTHON_DEPS}
-	>=mate-base/mate-panel-1.6:0
+	>=mate-base/mate-panel-1.6:0[gtk3?]
 	x11-libs/gdk-pixbuf:2[introspection]
-	x11-libs/gtk+:2[introspection]
+	!gtk3? ( x11-libs/gtk+:2[introspection] )
+	gtk3? ( x11-libs/gtk+:3[introspection] )
 	virtual/libintl:0
 	!!x11-misc/mate-menu-editor"
 

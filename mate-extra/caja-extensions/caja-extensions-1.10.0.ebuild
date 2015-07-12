@@ -18,11 +18,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 SENDTO="cdr gajim +mail pidgin upnp"
-IUSE="image-converter +open-terminal share ${SENDTO}"
+IUSE="gtk3 image-converter +open-terminal share ${SENDTO}"
 
-RDEPEND=">=x11-libs/gtk+-2.18:2
+RDEPEND="
+	!gtk3? ( >=x11-libs/gtk+-2.18:2 )
+	gtk3? ( x11-libs/gtk+:3 )
 	>=dev-libs/glib-2.26:2
-	>=mate-base/caja-1.8:0
+	>=mate-base/caja-1.8:0[gtk3?]
 	virtual/libintl:0
 	x11-libs/gdk-pixbuf:2
 	open-terminal? ( >=mate-base/mate-desktop-1.8:0 )
@@ -66,7 +68,10 @@ src_configure() {
 	else
 		MYCONF="${MY_CONF} --disable-sendto"
 	fi
-
+	
+	use gtk3 && MY_CONF="${MY_CONF} --with-gtk=3.0"
+	use !gtk3 && MY_CONF="${MY_CONF} --with-gtk=2.0"
+	
 	gnome2_src_configure ${MY_CONF} \
 		--disable-gksu \
 		$(use_enable image-converter) \

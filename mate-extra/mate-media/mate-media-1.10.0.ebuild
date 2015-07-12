@@ -16,22 +16,28 @@ LICENSE="LGPL-2 GPL-2 FDL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="aac flac mp3 pulseaudio speex twolame vorbis"
+IUSE="aac flac gtk3 mp3 pulseaudio speex twolame vorbis"
 
 # FIXME: automagic dev-util/glade:3 support
 COMMON_DEPEND="app-text/rarian:0
 	dev-libs/libxml2:2
 	>=dev-libs/glib-2.18.2:2
-	>=x11-libs/gtk+-2.24:2
-	>=mate-base/mate-panel-1.8:0
-	>=mate-base/mate-desktop-1.9:0
+	!gtk3? ( >=x11-libs/gtk+-2.24:2 
+	dev-libs/libunique:1
+	>=media-libs/libcanberra-0.13:0[gtk]
+	)
+	gtk3? (
+	x11-libs/gtk+:3
+	dev-libs/libunique:3
+	>=media-libs/libcanberra-0.13:0[gtk3]
+	)
+	>=mate-base/mate-panel-1.8:0[gtk3?]
+	>=mate-base/mate-desktop-1.9:0[gtk3?]
 	>=media-libs/gstreamer-0.10.23:0.10
 	>=media-libs/gst-plugins-base-0.10.23:0.10
 	>=media-libs/gst-plugins-good-0.10:0.10
-	>=media-libs/libcanberra-0.13:0[gtk]
 	>=media-plugins/gst-plugins-meta-0.10-r2:0.10
 	>=media-plugins/gst-plugins-gconf-0.10.1:0.10
-	>=dev-libs/libunique-1:1
 	x11-libs/cairo:0
 	x11-libs/pango:0
 	virtual/libintl:0
@@ -69,7 +75,11 @@ DEPEND="${COMMON_DEPEND}
 	!!<mate-base/mate-applets-1.6:*"
 
 src_configure() {
+	local myconf
+	use gtk3 && myconf="${myconf} --with-gtk=3.0"
+	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
+		${myconf} \
 		$(use_enable pulseaudio) \
 		$(use_enable !pulseaudio gstmix) \
 		$(use_enable !pulseaudio gst-mixer-applet)
