@@ -17,18 +17,22 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 ~arm x86"
 
-IUSE="X startup-notification"
+IUSE="X startup-notification gtk3"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	>=dev-libs/glib-2.34:2
-	>=dev-libs/libunique-1:1
 	x11-libs/cairo:0
-	>=x11-libs/gdk-pixbuf-2.4:2
+	!gtk3? ( >=x11-libs/gdk-pixbuf-2.4:2
 	>=x11-libs/gtk+-2.24:2
-	x11-libs/libX11:0
+	>=dev-libs/libunique-1:1
+        )
+        gtk3? ( >=x11-libs/gtk+-3.0:3
+        >=x11-libs/libunique-3:3
+        ) 	
+        x11-libs/libX11:0
 	>=x11-libs/libXrandr-1.2:0
 	virtual/libintl:0
 	startup-notification? ( >=x11-libs/startup-notification-0.5:0 )"
@@ -44,13 +48,16 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig:*"
 
 src_configure() {
-	gnome2_src_configure \
+        local myconf
+        use gtk3 && myconf="${myconf} --with-gtk=3.0"
+        use !gtk3 && myconf="${myconf} --with-gtk=2.0"
+ 	gnome2_src_configure \
 		--enable-mate-about \
 		--enable-mate-conf-import \
 		--disable-desktop-docs \
-		--with-gtk=2.0 \
 		$(use_with X x) \
-		$(use_enable startup-notification)
+		$(use_enable startup-notification) \
+                ${myconf}
 }
 
 DOCS="AUTHORS ChangeLog HACKING NEWS README"

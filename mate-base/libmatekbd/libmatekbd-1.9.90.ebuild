@@ -15,14 +15,15 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-IUSE="X test"
+IUSE="X test gtk3"
 
 RDEPEND=">=dev-libs/glib-2.18:2
 	x11-libs/cairo:0
-	>=x11-libs/gdk-pixbuf-2.18:2
-	>=x11-libs/gtk+-2.18:2
+	!gtk3? ( >=x11-libs/gdk-pixbuf-2.18:2
+	>=x11-libs/gtk+-2.18:2 )
+        gtk3? ( >=x11-libs/gtk+-3.0:3 )
 	x11-libs/libX11:0
 	>=x11-libs/libxklavier-5.0:0
 	x11-libs/pango:0
@@ -34,9 +35,12 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig:*"
 
 src_configure() {
-	gnome2_src_configure \
-		--with-gtk=2.0 \
+                local myconf
+                use gtk3 && myconf="${myconf} --with-gtk=3.0"
+                use !gtk3 && myconf="${myconf} --with-gtk=2.0"
+ 	        gnome2_src_configure \
 		$(use_enable test tests) \
+                ${myconf} \
 		$(use_with X x)
 }
 

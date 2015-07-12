@@ -15,9 +15,9 @@ HOMEPAGE="http://mate-desktop.org"
 
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-IUSE="X ipv6 networkmanager policykit +upower"
+IUSE="X ipv6 networkmanager policykit +upower gtk3"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
@@ -25,22 +25,28 @@ RDEPEND="${PYTHON_DEPS}
 	dev-libs/atk:0
 	>=dev-libs/dbus-glib-0.74:0
 	>=dev-libs/glib-2.22:2
-	>=dev-libs/libmateweather-1.6.1:0
+	>=dev-libs/libmateweather-1.6.1:0[gtk3?]
 	>=dev-libs/libxml2-2.5:2
 	dev-python/pygobject:3
 	>=gnome-base/libgtop-2.11.92:2=
-	>=mate-base/mate-desktop-1.6:0
-	>=mate-base/mate-panel-1.8:0
-	>=mate-base/mate-settings-daemon-1.6:0
+	>=mate-base/mate-desktop-1.6:0[gtk3?]
+	>=mate-base/mate-panel-1.8:0[gtk3?]
+	>=mate-base/mate-settings-daemon-1.6:0[gtk3?]
 	>=sys-apps/dbus-1.1.2:0
 	sys-power/cpupower
-        upower?  ( || ( >=sys-power/upower-0.9.23 >=sys-power/upower-pm-utils-0.9.23 ) )
-	x11-libs/gdk-pixbuf:2
+        !gtk3? ( x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.24:2
+	>=x11-libs/libwnck-2.30:1
+        x11-libs/gtksourceview:2.0        
+        )
+        gtk3? ( >=x11-libs/gtk+-3.0:3 
+        x11-libs/gtksourceview:3.0
+        >=x11-libs/libwnck-3.4:3
+        )
+        upower?  ( || ( >=sys-power/upower-0.9.23 >=sys-power/upower-pm-utils-0.9.23 ) )
 	>=x11-libs/libnotify-0.7:0
 	x11-libs/libX11:0
 	>=x11-libs/libxklavier-4:0
-	>=x11-libs/libwnck-2.30:1
 	x11-libs/pango:0
 	>=x11-themes/mate-icon-theme-1.6:0
 	virtual/libintl:0
@@ -64,7 +70,9 @@ src_prepare() {
 }
 
 src_configure() {
-
+        local myconf 
+        use gtk3 && myconf="${myconf} --with-gtk=3.0"
+        use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
 		--libexecdir=/usr/libexec/mate-applets \
 		--without-hal \
@@ -72,7 +80,8 @@ src_configure() {
 		$(use_enable networkmanager) \
 		$(use_enable policykit polkit) \
 		$(use_with upower) \
-		$(use_with X x)
+		${myconf} \
+                $(use_with X x)
 }
 
 src_test() {

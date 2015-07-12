@@ -14,9 +14,9 @@ HOMEPAGE="http://mate-desktop.org/"
 
 LICENSE="GPL-2 LGPL-2 FDL-1.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
-IUSE="ipv6 elibc_FreeBSD gnome-keyring systemd upower"
+IUSE="ipv6 elibc_FreeBSD gnome-keyring systemd upower gtk3"
 
 # x11-misc/xdg-user-dirs{,-gtk} are needed to create the various XDG_*_DIRs, and
 # create .config/user-dirs.dirs which is read by glib to get G_USER_DIRECTORY_*
@@ -28,8 +28,6 @@ RDEPEND=">=mate-base/mate-desktop-1.9:0
 	dev-libs/libxslt
 	sys-apps/dbus
 	x11-apps/xdpyinfo
-	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.14:2
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
@@ -45,7 +43,11 @@ RDEPEND=">=mate-base/mate-desktop-1.9:0
 	elibc_FreeBSD? ( dev-libs/libexecinfo )
 	gnome-keyring? ( gnome-base/gnome-keyring )
 	systemd? ( sys-apps/systemd )
-	upower? ( >=sys-power/upower-pm-utils-0.9.23 )"
+	upower? ( >=sys-power/upower-pm-utils-0.9.23 )
+        !gtk3? ( x11-libs/gdk-pixbuf:2
+        >=x11-libs/gtk+-2.14:2
+        )
+        gtk3? ( >=x11-libs/gtk+-3.0:3 )"
 
 DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.40:*
@@ -65,13 +67,16 @@ src_prepare() {
 }
 
 src_configure() {
+        local myconf
+        use gtk3 && myconf="${myconf} --with-gtk=3.0"
+        use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
 		--with-default-wm=mate-wm \
-		--with-gtk=2.0 \
 		$(use_enable ipv6) \
 		$(use_with systemd) \
-		$(use_enable upower)
+		$(use_enable upower) \
+                ${myconf}
 }
 
 DOCS="AUTHORS ChangeLog NEWS README"

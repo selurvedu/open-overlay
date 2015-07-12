@@ -18,7 +18,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-IUSE="python"
+IUSE="gtk3 python"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -26,8 +26,9 @@ RDEPEND=">=dev-libs/glib-2.13:2[${PYTHON_USEDEP}]
 	>=dev-libs/libxml2-2.6:2
 	>=net-libs/libsoup-2.34:2.4
 	>=sys-libs/timezone-data-2010k:0
-	x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.11:2
+	!gtk3? ( x11-libs/gdk-pixbuf:2
+	>=x11-libs/gtk+-2.11:2 )
+        gtk3? ( >=x11-libs/gtk+-3.0:3 )
 	virtual/libintl:0
 
 	python? (
@@ -60,10 +61,14 @@ src_prepare() {
 }
 
 src_configure() {
-	my_command gnome2_src_configure \
+	        local myconf
+                use gtk3 && myconf="${myconf} --with-gtk=3.0"
+                use !gtk3 && myconf="${myconf} --with-gtk=2.0"
+                my_command gnome2_src_configure \
 		--enable-locations-compression \
 		--disable-all-translations-in-one-xml \
-		$(use_enable python)
+		${myconf} \
+                $(use_enable python)
 }
 
 src_compile() {
