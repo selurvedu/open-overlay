@@ -36,12 +36,3 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig:*"
 
 DOCS="AUTHORS ChangeLog README"
-
-src_configure() {
-	local myconf
-
-	use gtk3 && myconf="${myconf} --with-gtk=3.0"
-	use !gtk3 && myconf="${myconf} --with-gtk=2.0"
-
-	gnome2_src_configure ${myconf}
-}

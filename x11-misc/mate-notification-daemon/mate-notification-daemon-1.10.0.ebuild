@@ -15,6 +15,7 @@ HOMEPAGE="http://mate-desktop.org"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
+IUSE="gtk3"
 
 RDEPEND="
 	dev-libs/atk:0
@@ -22,15 +23,13 @@ RDEPEND="
 	>=dev-libs/glib-2.18:2
 	>=sys-apps/dbus-1:0
 	x11-libs/cairo:0
-	!gtk3? ( x11-libs/gdk-pixbuf:2
-	>=x11-libs/gtk+-2.18:2
+	x11-libs/gdk-pixbuf:2
+	!gtk3? ( >=x11-libs/gtk+-2.18:2
 	>=media-libs/libcanberra-0.4:0[gtk]
-	>=x11-libs/libwnck-1:1
-        )
-        gtk3? ( >=x11-libs/gtk+-3.0:3 
+	>=x11-libs/libwnck-1:1 )
+    gtk3? ( >=x11-libs/gtk+-3.0:3 
 	>=media-libs/libcanberra-0.4:0[gtk3]
-	>=x11-libs/libwnck-3:3
-        )        
+	>=x11-libs/libwnck-3:3 )        
 	>=x11-libs/libnotify-0.7:0
 	x11-libs/libX11:0
 	virtual/libintl:0
