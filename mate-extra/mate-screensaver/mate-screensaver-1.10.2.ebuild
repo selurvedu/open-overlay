@@ -53,7 +53,7 @@ RDEPEND="
 # FIXME: Why is systemd and consolekit only a DEPEND? ConsoleKit can't be used build-time only.
 DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.35:*
-	>=mate-base/mate-common-1.9.90[gtk3?]
+	>=mate-base/mate-common-1.9.90
 	sys-devel/gettext:*
 	x11-proto/randrproto:0
 	x11-proto/scrnsaverproto:0
