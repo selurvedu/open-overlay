@@ -25,12 +25,28 @@ src_unpack() {
 unpack "${A}"
 mv "${PN}-master" "${P}"
 }
+QA_PREBUILT="
+   opt/${PN}/${PN}/*.so
+   opt/${PN}/${PN}/${PN}-tool
+   opt/${PN}/${PN}/libqca.so.2
+   opt/${PN}/${PN}/plugins/libvboxmanage.so.1.0.0
+   opt/${PN}/${PN}/tools/adb
+   opt/${PN}/${PN}/tools/aapt
+   opt/${PN}/${PN}/player
+   opt/${PN}/${PN}/genyshell
+   opt/${PN}/${PN}/${PN}
+   opt/${PN}/${PN}/device-upgrade
+   opt/${PN}/${PN}/libavutil.so.51
+   opt/${PN}/${PN}/libswscale.so.2
+   opt/${PN}/${PN}/libprotobuf.so.7
+"
+
 src_install() {
 local dir="/opt/${PN}"
 insinto ${dir}
 doins -r *
-fperms 755 "${dir}/genymotion/genymotion" "${dir}/genymotion/player" "${dir}/genymotion/gmtool"   
-newicon "genymotion/icons/icon.png" "genymotion.png" 
-make_wrapper ${PN} ${dir}/genymotion/genymotion 
+fperms 755 "${dir}/${PN}/${PN}" "${dir}/${PN}/player" "${dir}/${PN}/gmtool"   
+newicon "${PN}/icons/icon.png" "${PN}.png" 
+make_wrapper ${PN} ${dir}/${PN}/${PN} 
 make_desktop_entry ${PN} "Genymotion" ${PN} "System;Emulator"
 }
