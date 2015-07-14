@@ -16,6 +16,7 @@ DESCRIPTION="Full sources for the Linux kernel with my devil-linux-logo.patch"
 HOMEPAGE="https://github.com/pantera31752/open-overlay"
 SRC_URI="${KERNEL_URI}"
 
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 IUSE="deblob"
 
 src_prepare() {
