@@ -92,7 +92,7 @@ mozlinguas_export() {
 	if [[ ${PN} == seamonkey ]] ; then
 		[[ ${PV} =~ alpha ]] && return
 	else
-		[[ ${PV} =~ alpha|beta ]] && return
+		[[ ${PV} =~ alpha ]] && return
 	fi
 	local lingua
 	mozlinguas=()
