@@ -1,13 +1,13 @@
 # Copyright open-overlay 2015 
 
-EAPI="4"
+EAPI="5"
 inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="Netbeans IDE Branding"
 HOMEPAGE="http://netbeans.org/"
 SLOT="9999"
-MY_DATE="2015-07-12_04-11-34"
-SOURCE_URL="http://bits.netbeans.org/download/trunk/nightly/${MY_DATE}/zip/netbeans-trunk-nightly-201507120411-src.zip"
+MY_DATE="2015-07-14_00-01-56"
+SOURCE_URL="http://bits.netbeans.org/download/trunk/nightly/${MY_DATE}/zip/netbeans-trunk-nightly-201507140001-src.zip"
 SRC_URI="${SOURCE_URL}
 	http://dev.gentoo.org/~fordfrog/distfiles/netbeans-9999-r14-build.xml.patch.bz2
 	http://dev.gentoo.org/~fordfrog/distfiles/netbeans-7.0.png"
