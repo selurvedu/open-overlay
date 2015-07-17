@@ -36,6 +36,6 @@ x11-libs/gtk+:3[introspection]"
 S=${WORKDIR}/${PN}
 
 src_prepare() {
-	epatch ${FILESDIR}/variety-0.4.17-gexiv2.patch
+	epatch ${FILESDIR}/${P}-gexiv2.patch
 	distutils-r1_src_prepare
 }
