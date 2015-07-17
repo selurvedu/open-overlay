@@ -6,8 +6,8 @@ inherit eutils java-pkg-2 java-ant-2
 DESCRIPTION="Netbeans Platform"
 HOMEPAGE="http://netbeans.org/features/platform/"
 SLOT="9999"
-MY_DATE="2015-07-16_00-01-56"
-SOURCE_URL="http://bits.netbeans.org/download/trunk/nightly/${MY_DATE}/zip/netbeans-trunk-nightly-201507160001-src.zip"
+MY_DATE="2015-07-17_00-01-56"
+SOURCE_URL="http://bits.netbeans.org/download/trunk/nightly/${MY_DATE}/zip/netbeans-trunk-nightly-201507170001-src.zip"
 SRC_URI="${SOURCE_URL}
 	http://dev.gentoo.org/~fordfrog/distfiles/netbeans-9999-r14-build.xml.patch.bz2
 	http://hg.netbeans.org/binaries/2F7553F50B0D14ED811B849C282DA8C1FFC32AAE-asm-all-5.0.1.jar

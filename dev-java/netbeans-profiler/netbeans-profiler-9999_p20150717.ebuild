@@ -3,11 +3,11 @@
 EAPI="5"
 inherit eutils java-pkg-2 java-ant-2
 
-DESCRIPTION="Netbeans Web Services Common Cluster"
-HOMEPAGE="http://netbeans.org/"
+DESCRIPTION="Netbeans Profiler Cluster"
+HOMEPAGE="http://netbeans.org/projects/profiler"
 SLOT="9999"
-MY_DATE="2015-07-16_00-01-56"
-SOURCE_URL="http://bits.netbeans.org/download/trunk/nightly/${MY_DATE}/zip/netbeans-trunk-nightly-201507160001-src.zip"
+MY_DATE="2015-07-17_00-01-56"
+SOURCE_URL="http://bits.netbeans.org/download/trunk/nightly/${MY_DATE}/zip/netbeans-trunk-nightly-201507170001-src.zip"
 SRC_URI="${SOURCE_URL}
 	http://dev.gentoo.org/~fordfrog/distfiles/netbeans-9999-r14-build.xml.patch.bz2"
 LICENSE="|| ( CDDL GPL-2-with-linking-exception )"
@@ -15,8 +15,13 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 S="${WORKDIR}"
 
-CDEPEND="~dev-java/netbeans-platform-${PV}
-	~dev-java/netbeans-ide-${PV}"
+# Binary files needed for remote profiling
+QA_PREBUILT="usr/share/netbeans-profiler-${SLOT}/lib/deployed/*"
+
+CDEPEND="~dev-java/netbeans-extide-${PV}
+	~dev-java/netbeans-ide-${PV}
+	~dev-java/netbeans-java-${PV}
+	~dev-java/netbeans-platform-${PV}"
 DEPEND=">=virtual/jdk-1.7
 	app-arch/unzip
 	${CDEPEND}
@@ -28,7 +33,7 @@ INSTALL_DIR="/usr/share/${PN}-${SLOT}"
 
 EANT_BUILD_XML="nbbuild/build.xml"
 EANT_BUILD_TARGET="rebuild-cluster"
-EANT_EXTRA_ARGS="-Drebuild.cluster.name=nb.cluster.websvccommon -Dext.binaries.downloaded=true -Dpermit.jdk8.builds=true"
+EANT_EXTRA_ARGS="-Drebuild.cluster.name=nb.cluster.profiler -Dext.binaries.downloaded=true -Dpermit.jdk8.builds=true"
 EANT_FILTER_COMPILER="ecj-3.3 ecj-3.4 ecj-3.5 ecj-3.6 ecj-3.7"
 JAVA_PKG_BSFIX="off"
 
@@ -67,13 +72,21 @@ src_prepare() {
 	mkdir "${S}"/nbbuild/netbeans || die
 	pushd "${S}"/nbbuild/netbeans >/dev/null || die
 
-	ln -s /usr/share/netbeans-platform-${SLOT} platform || die
-	cat /usr/share/netbeans-platform-${SLOT}/moduleCluster.properties >> moduleCluster.properties || die
-	touch nb.cluster.platform.built
+	ln -s /usr/share/netbeans-extide-${SLOT} extide || die
+	cat /usr/share/netbeans-extide-${SLOT}/moduleCluster.properties >> moduleCluster.properties || die
+	touch nb.cluster.extide.built
 
 	ln -s /usr/share/netbeans-ide-${SLOT} ide || die
 	cat /usr/share/netbeans-ide-${SLOT}/moduleCluster.properties >> moduleCluster.properties || die
 	touch nb.cluster.ide.built
+
+	ln -s /usr/share/netbeans-java-${SLOT} java || die
+	cat /usr/share/netbeans-java-${SLOT}/moduleCluster.properties >> moduleCluster.properties || die
+	touch nb.cluster.java.built
+
+	ln -s /usr/share/netbeans-platform-${SLOT} platform || die
+	cat /usr/share/netbeans-platform-${SLOT}/moduleCluster.properties >> moduleCluster.properties || die
+	touch nb.cluster.platform.built
 
 	popd >/dev/null || die
 
@@ -81,13 +94,27 @@ src_prepare() {
 }
 
 src_install() {
-	pushd nbbuild/netbeans/websvccommon >/dev/null || die
+	pushd nbbuild/netbeans/profiler >/dev/null || die
 
 	insinto ${INSTALL_DIR}
-	grep -E "/websvccommon$" ../moduleCluster.properties > "${D}"/${INSTALL_DIR}/moduleCluster.properties || die
+
+	grep -E "/profiler$" ../moduleCluster.properties > "${D}"/${INSTALL_DIR}/moduleCluster.properties || die
+
 	doins -r *
+
+	for file in lib/deployed/cvm/linux/*.so ; do
+		fperms 755 ${file}
+	done
+
+	for file in lib/deployed/jdk*/linux*/*.so ; do
+		fperms 755 ${file}
+	done
+
+	for file in remote-pack-defs/*.sh ; do
+		fperms 755 ${file}
+	done
 
 	popd >/dev/null || die
 
-	dosym ${INSTALL_DIR} /usr/share/netbeans-nb-${SLOT}/websvccommon
+	dosym ${INSTALL_DIR} /usr/share/netbeans-nb-${SLOT}/profiler
 }
