@@ -22,7 +22,7 @@ IUSE="ipv6 elibc_FreeBSD gnome-keyring systemd upower gtk3"
 # create .config/user-dirs.dirs which is read by glib to get G_USER_DIRECTORY_*
 # xdg-user-dirs-update is run during login (see 10-user-dirs-update-gnome below).
 
-RDEPEND=">=mate-base/mate-desktop-1.9:0
+RDEPEND=">=mate-base/mate-desktop-1.9:0[gtk3?]
         >=dev-libs/dbus-glib-0.76
 	>=dev-libs/glib-2.25:2
 	dev-libs/libxslt

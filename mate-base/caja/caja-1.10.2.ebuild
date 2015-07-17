@@ -42,7 +42,7 @@ RDEPEND="dev-libs/atk:0
         unique? ( >=dev-libs/libunique-1:1 )
     )
     gtk3? ( >=x11-libs/gtk+-3.0:3 
-        unique? ( >=dev-libs/libunique-3:3 ) 
+        unique? ( dev-libs/libunique:3 ) 
     )"
 DEPEND="${RDEPEND}
 	!!mate-base/mate-file-manager

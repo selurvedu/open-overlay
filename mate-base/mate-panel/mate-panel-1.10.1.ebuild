@@ -47,7 +47,7 @@ RDEPEND="
         )
         gtk3? ( >=x11-libs/gtk+-3.0:3[introspection?]
         >=x11-libs/libwnck-3.4:3[introspection?]
-        media-libs/libcanderra[gtk3]
+        media-libs/libcanberra[gtk3]
         )"
 DEPEND="${RDEPEND}
 	app-text/docbook-xml-dtd:4.1.2
