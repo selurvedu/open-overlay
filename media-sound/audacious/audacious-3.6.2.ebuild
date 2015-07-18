@@ -3,7 +3,7 @@
 EAPI=5
 inherit eutils
 
-MY_PV=${P/_/-}
+MY_PV=${P/_/-}-gtk3
 
 S="${WORKDIR}/${MY_PV}"
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
