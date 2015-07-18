@@ -49,7 +49,7 @@ S=${WORKDIR}/${PN}
 
 pkg_postinst() { 
         echo 
-        elog "This is Android Studio 1.3 Preview version(rc1)"
+        elog "This is Android Studio 1.3 Preview version(rc3)"
         echo 
 }
 
