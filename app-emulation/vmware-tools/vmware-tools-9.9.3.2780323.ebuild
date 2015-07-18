@@ -3,7 +3,7 @@
 inherit versionator vmware-bundle
 
 MY_PV="$(replace_version_separator 3 - $PV)"
-BASE_URI="http://softwareupdate.vmware.com/cds/vmw-desktop/player/7.0.0/2305329/linux/packages/"
+BASE_URI="http://softwareupdate.vmware.com/cds/vmw-desktop/player/7.1.2/2780323/linux/packages/"
 
 DESCRIPTION="VMware Tools for guest operating systems"
 HOMEPAGE="http://www.vmware.com/products/player/"
@@ -30,7 +30,7 @@ done ; unset guest
 
 src_unpack() {
 	local arch
-	if use amd64 ; then arch='x86_64'
+	if use amd64 ; then arch='amd64'
 	fi
 	local guest ; for guest in ${IUSE_VMWARE_GUEST} ; do
 		if use "vmware_guest_${guest}" ; then
