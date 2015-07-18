@@ -3,7 +3,7 @@
 EAPI=5
 inherit eutils
 
-MY_P="${P/_/-}"
+MY_P="${P/_/-}-gtk3"
 S="${WORKDIR}/${MY_P}"
 DESCRIPTION="Audacious Player - Your music, your way, no exceptions"
 HOMEPAGE="http://audacious-media-player.org/"
@@ -19,7 +19,7 @@ RDEPEND="app-arch/unzip
 	>=dev-libs/dbus-glib-0.60
 	dev-libs/libxml2:2
 	media-libs/libmodplug
-	~media-sound/audacious-3.5.1
+	~media-sound/audacious-3.6.1
 	>=net-libs/neon-0.26.4
 	x11-libs/gtk+:3
 	( || ( >=dev-libs/glib-2.32.2[utils] dev-util/gdbus-codegen ) )
@@ -55,8 +55,6 @@ DEPEND="${RDEPEND}
 	nls? ( dev-util/intltool )
 	virtual/pkgconfig"
 
-DOCS="AUTHORS"
-
 mp3_warning() {
 	if ! use mp3 ; then
 		ewarn "MP3 support is optional, you may want to enable the mp3 USE-flag"
@@ -90,6 +88,7 @@ src_configure() {
 		--enable-modplug \
 		--disable-soxr \
 		--enable-neon \
+		--enable-statusicon \
 		$(use_enable adplug) \
 		$(use_enable aac) \
 		$(use_enable alsa) \
@@ -117,4 +116,3 @@ src_configure() {
 		$(use_enable vorbis) \
 		$(use_enable wavpack)
 }
-
