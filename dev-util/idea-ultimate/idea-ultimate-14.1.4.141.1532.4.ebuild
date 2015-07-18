@@ -14,7 +14,7 @@ HOMEPAGE="http://jetbrains.com/idea/"
 SRC_URI="http://download-cf.jetbrains.com/${MY_PN}/${MY_PN}IU-14.1.4.tar.gz"
 LICENSE="Apache-2.0"
 IUSE=""
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 S="${WORKDIR}/${MY_PN}-IU-141.1532.4"
 
 src_install() {
