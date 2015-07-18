@@ -32,7 +32,7 @@ COMMON_DEPEND="app-text/rarian:0
         >=x11-libs/gtk+-2.24:2
         )
         gtk3? ( >=dev-libs/gtk+-3.0:3 
-        >=dev-libs/libunique-3:3
+        dev-libs/libunique:3
         >=media-libs/libcanderra-0.13:0 )
         >=media-plugins/gst-plugins-meta-0.10-r2:0.10
 	>=media-plugins/gst-plugins-gconf-0.10.1:0.10
