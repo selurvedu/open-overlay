@@ -10,10 +10,10 @@ inherit chromium multilib unpacker toolchain-funcs
 
 DESCRIPTION="A new browser for our friends"
 HOMEPAGE="http://vivaldi.com/"
-RNAME=vivaldi-preview
+RNAME=vivaldi_TP4
 SRC_URI="
-	amd64? ( ${HOMEPAGE}/download/${RNAME}_1.0.118.19-1_amd64.deb -> ${P}-amd64.deb )
-	x86? ( ${HOMEPAGE}/download/${RNAME}_1.0.118.19-1_i386.deb -> ${P}-i386.deb )
+	amd64? ( ${HOMEPAGE}/download/${RNAME}.1.0.219.50-1_amd64.deb -> ${P}-amd64.deb )
+	x86? ( ${HOMEPAGE}/download/${RNAME}.1.0.219.50-1_i386.deb -> ${P}-i386.deb )
 "
 
 LICENSE="Vivaldi"
@@ -67,7 +67,7 @@ src_unpack() {
 src_prepare() {
 	sed -i \
 		-e 's|vivaldi-preview|vivaldi|g' \
-		usr/share/applications/${PN}.desktop \
+		usr/share/applications/${PN}-preview.desktop \
 		usr/share/xfce4/helpers/${PN}.desktop || die
 
 	mv usr/share/doc/${PN} usr/share/doc/${PF} || die
@@ -101,7 +101,7 @@ src_install() {
 pkg_postinst() {
        echo 
        elog "Welcome to Vivaldi Browser"
-       elog "This preview version vivaldi browser"
+       elog "This Technical Preview 4 version vivaldi browser"
        elog "Thanks open-overlay 2015 by Alex"
        echo 
 }
