@@ -30,7 +30,7 @@ RDEPEND="${PYTHON_DEPS}
 	>=dev-libs/libunique-1:1
         )
         gtk3? ( >=x11-libs/gtk+-3.0:3
-        x11-libs/libunique:3
+        dev-libs/libunique:3
         ) 	
         x11-libs/libX11:0
 	>=x11-libs/libXrandr-1.2:0
