@@ -120,7 +120,7 @@ src_prepare() {
 	sed -e 's:$localstatedir/run/:/run/:' -i configure || die
 
 	# Partially revert commit that breaks dhcpcd detection, bug #549970
-	epatch "${FILESDIR}"/${P}-configure-dhcpcd.patch
+	# epatch "${FILESDIR}"/${P}-configure-dhcpcd.patch
 
 	use vala && vala_src_prepare
 
