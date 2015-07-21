@@ -2,24 +2,15 @@
 
 EAPI=5
 
-if [[ ${PV} = 9999* ]]; then
-	EGIT_REPO_URI="git://anongit.freedesktop.org/git/wayland/${PN}"
-	GIT_ECLASS="git-r3"
-	EXPERIMENTAL="true"
-fi
 VIRTUALX_REQUIRED="test"
 RESTRICT="test"
 
-inherit autotools readme.gentoo toolchain-funcs virtualx $GIT_ECLASS
+inherit autotools toolchain-funcs virtualx
 
 DESCRIPTION="Wayland reference compositor"
 HOMEPAGE="http://wayland.freedesktop.org/"
 
-if [[ $PV = 9999* ]]; then
-	SRC_URI="${SRC_PATCHES}"
-else
-	SRC_URI="http://wayland.freedesktop.org/releases/${P}.tar.xz"
-fi
+SRC_URI="http://wayland.freedesktop.org/releases/${P}.tar.xz"
 
 LICENSE="MIT CC-BY-SA-3.0"
 SLOT="0"
@@ -96,7 +87,7 @@ DEPEND="${RDEPEND}
 "
 
 src_prepare() {
-	if [[ ${PV} = 9999* ]]; then
+if [[ ${PV} = 9999* ]]; then
 		eautoreconf
 	fi
 }
@@ -154,5 +145,4 @@ src_test() {
 src_install() {
 	default
 
-	readme.gentoo_src_install
 }
