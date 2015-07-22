@@ -3,13 +3,14 @@
 EAPI=5
 inherit multilib toolchain-funcs
 
+MY_PV=${PV/_rc/-rc}
 DESCRIPTION="Shows and sets processor power related values"
 HOMEPAGE="http://www.kernel.org/"
-SRC_URI="mirror://kernel/linux/kernel/v4.x/linux-${PV}.tar.xz"
+SRC_URI="mirror://kernel/linux/kernel/v4.x/testing/linux-${MY_PV}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="cpufreq_bench debug nls"
 
 # File collision w/ headers of the deprecated cpufrequtils
