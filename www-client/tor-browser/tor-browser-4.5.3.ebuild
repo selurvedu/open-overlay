@@ -85,6 +85,6 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	xdg-desktop-menu uninstall "${FILESDIR}"/${P}.desktop || die "Could not de-register a menu item!"
+	xdg-desktop-menu uninstall "${FILESDIR}"/${PN}.desktop || die "Could not de-register a menu item!"
 	return
 }

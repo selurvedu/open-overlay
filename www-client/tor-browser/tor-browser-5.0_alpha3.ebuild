@@ -9,9 +9,10 @@ inherit unpacker
 DESCRIPTION="The Tor Browser lets you use Tor on Windows, Mac OS X, or Linux without needing to install any software."
 HOMEPAGE="https://www.torproject.org"
 
+MY_PV=${PV/_alpha/a}
 SRC_URI="
-	amd64? ( https://dist.torproject.org/torbrowser/${PV}/${PN}-linux64-${PV}_en-US.tar.xz )
-	x86? (  https://dist.torproject.org/torbrowser/${PV}/${PN}-linux32-${PV}_en-US.tar.xz )
+	amd64? ( https://dist.torproject.org/torbrowser/${MY_PV}/${PN}-linux64-${MY_PV}_en-US.tar.xz )
+	x86? (  https://dist.torproject.org/torbrowser/${MY_PV}/${PN}-linux32-${MY_PV}_en-US.tar.xz )
 "
 RESTRICT="mirror"
 
@@ -85,6 +86,6 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	xdg-desktop-menu uninstall "${FILESDIR}"/${P}.desktop || die "Could not de-register a menu item!"
+	xdg-desktop-menu uninstall "${FILESDIR}"/${PN}.desktop || die "Could not de-register a menu item!"
 	return
 }
