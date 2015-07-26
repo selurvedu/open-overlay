@@ -3,7 +3,7 @@
 EAPI=5
 
 
-MOZ_FTP_URI="ftp://ftp.mozilla.org/pub/firefox/nightly/2015/07/2015-07-09-mozilla-aurora-debug/"
+MOZ_FTP_URI="ftp://ftp.mozilla.org/pub/firefox/nightly/2015/07/2015-07-26-mozilla-aurora-debug/"
 
 inherit eutils
 
