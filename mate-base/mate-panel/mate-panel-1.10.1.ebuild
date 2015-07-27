@@ -45,8 +45,8 @@ RDEPEND="
 	>=x11-libs/gtk+-2.19.7:2[introspection?]
 	>=media-libs/libcanberra-0.23:0[gtk]
         )
-        gtk3? ( >=x11-libs/gtk+-3.0:3[introspection?]
-        >=x11-libs/libwnck-3.4:3[introspection?]
+        gtk3? ( x11-libs/gtk+:3[introspection?]
+        x11-libs/libwnck:3[introspection?]
         media-libs/libcanberra[gtk3]
         )"
 DEPEND="${RDEPEND}

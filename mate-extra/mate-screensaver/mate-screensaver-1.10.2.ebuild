@@ -33,7 +33,7 @@ RDEPEND="
 	!gtk3? ( >=x11-libs/gdk-pixbuf-2.14:2
 	>=x11-libs/gtk+-2.14:2
         )
-        gtk3? ( >=x11-libs/gtk+-3.0:3 )
+        gtk3? ( x11-libs/gtk+:3 )
 	>=x11-libs/libX11-1:0
 	x11-libs/cairo:0
 	x11-libs/libXext:0

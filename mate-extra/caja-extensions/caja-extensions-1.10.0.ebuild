@@ -23,7 +23,7 @@ IUSE="gtk3 image-converter +open-terminal share ${SENDTO}"
 RDEPEND="!gtk3? ( >=x11-libs/gtk+-2.18:2
          x11-libs/gdk-pixbuf:2
         )
-        gtk3? ( >=x11-libs/gtk+-3.0:3 )
+        gtk3? ( x11-libs/gtk+:3 )
 	>=dev-libs/glib-2.26:2
 	>=mate-base/caja-1.8:0[gtk3?]
 	virtual/libintl:0

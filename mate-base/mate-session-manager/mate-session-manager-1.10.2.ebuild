@@ -47,7 +47,7 @@ RDEPEND=">=mate-base/mate-desktop-1.9:0[gtk3?]
         !gtk3? ( x11-libs/gdk-pixbuf:2
         >=x11-libs/gtk+-2.14:2
         )
-        gtk3? ( >=x11-libs/gtk+-3.0:3 )"
+        gtk3? ( x11-libs/gtk+:3 )"
 
 DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.40:*

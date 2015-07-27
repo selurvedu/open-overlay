@@ -26,7 +26,7 @@ RDEPEND="app-text/rarian:0
 	!gtk3? ( x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.14:2
         )
-        gtk3? ( >=x11-libs/gtk+-3.0:3 )
+        gtk3? ( x11-libs/gtk+:3 )
 	virtual/libintl:0
 	hddtemp? (
 		dbus? (

@@ -23,7 +23,7 @@ RDEPEND=">=dev-libs/glib-2.28:2
 	!gtk3? ( >=x11-libs/gtk+-2.24:2[introspection?]
 	x11-libs/gdk-pixbuf:2[introspection?]
 	)
-        gtk3? ( >x11-libs/gtk+-3.0:3[introspection?] )
+        gtk3? ( x11-libs/gtk+:3[introspection?] )
         virtual/libintl:0
 	introspection? ( >=dev-libs/gobject-introspection-0.6.2:0 )"
 

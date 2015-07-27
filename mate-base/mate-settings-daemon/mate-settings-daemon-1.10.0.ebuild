@@ -33,7 +33,7 @@ RDEPEND=">=dev-libs/dbus-glib-0.74:0
 		>=media-sound/pulseaudio-0.9.15:0
         )
 )
-        gtk3? ( >x11-libs/gtk+-3.0:3
+        gtk3? ( x11-libs/gtk+:3
         pulseaudio? (
            media-libs/libcanberra[gtk3]
            >=media-sound/pulseaudio-0.9.15:0

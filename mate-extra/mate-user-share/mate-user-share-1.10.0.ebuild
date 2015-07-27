@@ -29,7 +29,7 @@ RDEPEND=">=app-mobilephone/obex-data-server-0.4:0
 	>=dev-libs/libunique-1:1
 	media-libs/libcanberra:0[gtk]
         )
-        gtk3? ( >=x11-libs/gtk+-3.0:3 
+        gtk3? ( x11-libs/gtk+:3 
         dev-libs/libunique:3
         media-libs/libcanberra[gtk3]
         )	

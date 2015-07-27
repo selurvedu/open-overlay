@@ -39,9 +39,9 @@ RDEPEND="${PYTHON_DEPS}
 	>=x11-libs/libwnck-2.30:1
         x11-libs/gtksourceview:2.0
         )
-        gtk3? ( >=x11-libs/gtk+-3.0:3
+        gtk3? ( x11-libs/gtk+:3
         x11-libs/gtksourceview:3.0
-        >=x11-libs/libwnck-3.4:3
+        x11-libs/libwnck:3
         )
         upower?  ( || ( >=sys-power/upower-0.9.23 >=sys-power/upower-pm-utils-0.9.23 ) )
 	>=x11-libs/libnotify-0.7:0

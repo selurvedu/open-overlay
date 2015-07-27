@@ -32,7 +32,7 @@ RDEPEND="app-text/rarian:0
 	>=x11-libs/libwnck-2.5:1
 	>=dev-cpp/gtkmm-2.22:2.4
         )
-        gtk3? ( >=x11-libs/gtk+-3.0:3 
+        gtk3? ( x11-libs/gtk+:3 
         dev-cpp/gtkmm:3.0
         >=x11-libs/libwnck-3.4:3
         )

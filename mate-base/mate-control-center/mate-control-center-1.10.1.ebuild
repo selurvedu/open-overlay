@@ -28,7 +28,7 @@ RDEPEND="app-text/rarian:0
 	media-libs/libcanberra[gtk]
         )
         gtk3? ( dev-libs/libunique:3
-        >=x11-libs/gtk+-3.0:3
+        x11-libs/gtk+:3
 	media-libs/libcanberra[gtk]
         )
 	dev-libs/libxml2:2
