@@ -31,7 +31,7 @@ RDEPEND="
 	x11-libs/cairo:0
         >=x11-libs/gdk-pixbuf-2.4:2[jpeg?,tiff?]
         !gtk3? ( >=x11-libs/gtk+-2.18:2 )
-	gtk3? ( >=x11-libs/gtk+-3.0:3 )
+	gtk3? ( x11-libs/gtk+:3 )
         x11-libs/libX11:0
 	>=x11-misc/shared-mime-info-0.20:0
 	>=x11-themes/mate-icon-theme-1.6:0
