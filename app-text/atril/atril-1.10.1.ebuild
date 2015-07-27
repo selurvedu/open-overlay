@@ -50,7 +50,7 @@ RDEPEND=">=app-text/poppler-0.14:0=[cairo]
         !gtk3? ( x11-libs/gdk-pixbuf:2
         epub? ( >=app-text/libebook-0.1.2 net-libs/webkit-gtk:2 )
         >=x11-libs/gtk+-2.21.5:2[introspection?] )
-	gtk3? ( >=x11-libs/gtk+-3.0:3 
+	gtk3? ( x11-libs/gtk+:3 
         epub? ( >=app-text/libebook-0.1.2 net-libs/webkit-gtk:3 ) 
         )
         !!app-text/mate-document-viewer"

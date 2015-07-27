@@ -28,7 +28,7 @@ RDEPEND="dev-libs/glib:2
 		>=mate-base/mate-file-manager-1.6:0[introspection]
 	)
 	!gtk3? ( x11-libs/gtk+:2 )
-         gtk3? ( >=x11-libs/gtk+-3.0:3 )
+         gtk3? ( x11-libs/gtk+:3 )
 	${PYTHON_DEPS}"
 
 DEPEND="${RDEPEND}

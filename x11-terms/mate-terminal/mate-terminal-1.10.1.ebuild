@@ -26,7 +26,7 @@ RDEPEND="app-text/rarian:0
 	>=x11-libs/gtk+-2.18:2
 	>=x11-libs/vte-0.27.1:0
         )
-        gtk3? ( >=x11-libs/gtk+-3.0:3 x11-libs/vte:2.90 )
+        gtk3? ( x11-libs/gtk+:3 x11-libs/vte:2.90 )
 	x11-libs/libICE:0
 	x11-libs/libSM:0
 	x11-libs/libX11:0

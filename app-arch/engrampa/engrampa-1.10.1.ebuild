@@ -23,7 +23,7 @@ IUSE="gtk3 caja"
 #
 # ... thus we depend on Caja regardless of the Caja USE flag. Patches welcome.
 RDEPEND="!gtk3? ( >=x11-libs/gtk+-2.21.4:2 x11-libs/gdk-pixbuf:2 )
-          gtk3? ( >=x11-libs/gtk+-3.0:3 )
+          gtk3? ( x11-libs/gtk+:3 )
 	>=dev-libs/glib-2.25.5:2
 	>=dev-libs/json-glib-0.14:0
 	x11-libs/pango:0

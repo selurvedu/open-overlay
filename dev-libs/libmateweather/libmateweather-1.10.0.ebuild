@@ -28,7 +28,7 @@ RDEPEND=">=dev-libs/glib-2.13:2[${PYTHON_USEDEP}]
 	>=sys-libs/timezone-data-2010k:0
 	!gtk3? ( x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.11:2 )
-        gtk3? ( >=x11-libs/gtk+-3.0:3 )
+        gtk3? ( x11-libs/gtk+:3 )
 	virtual/libintl:0
 
 	python? (

@@ -36,7 +36,7 @@ RDEPEND="app-text/rarian:0
 	!gtk3? ( x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.19:2
 	>=x11-libs/gtksourceview-2.9.7:2.0 )
-        gtk3? ( >=x11-libs/gtk+-3.0:3 x11-libs/gtksourceview:3.0 )
+        gtk3? ( x11-libs/gtk+:3 x11-libs/gtksourceview:3.0 )
 	x11-libs/libICE:0
 	x11-libs/libX11:0
 	>=x11-libs/libSM-1.0
