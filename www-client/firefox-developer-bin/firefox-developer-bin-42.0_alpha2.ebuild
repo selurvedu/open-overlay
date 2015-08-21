@@ -3,15 +3,15 @@
 EAPI=5
 
 
-MOZ_FTP_URI="ftp://ftp.mozilla.org/pub/firefox/nightly/2015/07/2015-07-26-mozilla-inbound-debug/"
+MOZ_ARCHIVE_URI="http://archive.mozilla.org/pub/firefox/nightly/2015/08/2015-08-19-00-40-06-mozilla-aurora/"
 
 inherit eutils
 
 DESCRIPTION="Firefox Developer Edition"
 HOMEPAGE="https://www.mozilla.org/en-US/firefox/developer/"
 SRC_URI="${SRC_URI}
-	amd64? ( ${MOZ_FTP_URI}/firefox-42.0a1.en-US.debug-linux-x86_64.tar.bz2 -> ${P}-x86_64.tar.bz2 )
-        x86? ( ${MOZ_FTP_URI}/firefox-42.0a1.en-US.debug-linux-i686.tar.bz2  -> ${P}-i686.tar.bz2 )"
+	amd64? ( ${MOZ_ARCHIVE_URI}/firefox-42.0a2.en-US.linux-x86_64.tar.bz2 -> ${P}-x86_64.tar.bz2 )
+        x86? ( ${MOZ_ARCHIVE_URI}/firefox-42.0a2.en-US.linux-i686.tar.bz2  -> ${P}-i686.tar.bz2 )"
 
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 SLOT="0"
@@ -45,7 +45,7 @@ RDEPEND="dev-libs/atk
 "
 QA_PREBUILT="
 	opt/${PN}/*.so
-	opt/${PN}/firefox-bin 
+	opt/${PN}/firefox-bin
         opt/${PN}/firefox
 	opt/${PN}/${PN}
 	opt/${PN}/crashreporter
@@ -76,7 +76,7 @@ src_install() {
 		"${ED}/usr/share/applications/${PN}.desktop" || die
 
 
- 	dodir /opt
+	dodir /opt
 	mv "${S}" "${D}/opt/${PN}"
 
 	dodir /usr/bin
