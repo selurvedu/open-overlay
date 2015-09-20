@@ -11,14 +11,18 @@ RESTRICT="strip"
 QA_TEXTRELS="opt/${P}/bin/libbreakgen.so"
 DESCRIPTION="IntelliJ IDEA is an intelligent Java IDE (Ultimate Edition)"
 HOMEPAGE="http://jetbrains.com/idea/"
-SRC_URI="http://download-cf.jetbrains.com/${MY_PN}/${MY_PN}IU-142.3371.3.tar.gz"
+SRC_URI="http://download-cf.jetbrains.com/${MY_PN}/${MY_PN}IU-142.4859.6.tar.gz"
 LICENSE="Apache-2.0"
 IUSE=""
 KEYWORDS="~amd64 ~x86"
-S="${WORKDIR}/${MY_PN}-IU-142.3371.3"
+S="${WORKDIR}/${MY_PN}-IU-142.4859.6"
 
+pkg_postinst() {
+               echo 
+               echo "This is EAP Intellij Idea 15"
+               echo
+}
 src_install() {
-
 local dir="/opt/${PN}"
 insinto "${dir}"
 doins -r *

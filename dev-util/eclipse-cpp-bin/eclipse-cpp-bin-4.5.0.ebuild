@@ -24,7 +24,7 @@ IUSE=""
 
 RDEPEND=">=virtual/jdk-1.6
 	 x11-libs/gtk+:2
-         >=sys-devel/gcc-4.8.3"
+         >=sys-devel/gcc-4.8.5"
 
 S=${WORKDIR}/eclipse
 

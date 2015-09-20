@@ -7,7 +7,7 @@ GCONF_DEBUG="no"
 inherit gnome2 versionator
 
 MATE_BRANCH="$(get_version_component_range 1-2)"
-GTK_VERSION="gtk3.16"
+GTK_VERSION="gtk3.18"
 
 SRC_URI="http://pub.mate-desktop.org/releases/${MATE_BRANCH}/${PN}-${GTK_VERSION}-${PV}.tar.xz"
 DESCRIPTION="A set of MATE themes, with sets for users with limited or low vision"

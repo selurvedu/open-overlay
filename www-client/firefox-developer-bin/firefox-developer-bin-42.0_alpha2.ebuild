@@ -3,15 +3,15 @@
 EAPI=5
 
 
-MOZ_ARCHIVE_URI="http://archive.mozilla.org/pub/firefox/nightly/2015/08/2015-08-19-00-40-06-mozilla-aurora/"
+MOZ_HTTP_URI="http://archive.mozilla.org/pub/firefox/nightly/2015/09/2015-09-20-00-40-18-mozilla-aurora/"
 
 inherit eutils
 
 DESCRIPTION="Firefox Developer Edition"
 HOMEPAGE="https://www.mozilla.org/en-US/firefox/developer/"
 SRC_URI="${SRC_URI}
-	amd64? ( ${MOZ_ARCHIVE_URI}/firefox-42.0a2.en-US.linux-x86_64.tar.bz2 -> ${P}-x86_64.tar.bz2 )
-        x86? ( ${MOZ_ARCHIVE_URI}/firefox-42.0a2.en-US.linux-i686.tar.bz2  -> ${P}-i686.tar.bz2 )"
+	amd64? ( ${MOZ_HTTP_URI}/firefox-42.0a2.en-US.linux-x86_64.tar.bz2 -> ${P}-x86_64.tar.bz2 )
+        x86? ( ${MOZ_HTTP_URI}/firefox-42.0a2.en-US.linux-i686.tar.bz2  -> ${P}-i686.tar.bz2 )"
 
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 SLOT="0"
