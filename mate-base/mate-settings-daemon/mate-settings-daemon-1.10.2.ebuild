@@ -65,12 +65,6 @@ DEPEND="${RDEPEND}
 	x11-proto/xproto:0"
 
 src_prepare() {
-	# More network filesystems not to monitor, upstream bug #606421
-	# epatch "${FILESDIR}/${PN}-1.4.0-netfs-monitor.patch"
-
-	# mouse: Use event driven mode for syndaemon
-	epatch "${FILESDIR}/${PN}-1.2.0-syndaemon-mode.patch"
-
 	gnome2_src_prepare
 }
 

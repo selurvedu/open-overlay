@@ -13,20 +13,18 @@ te tr uk vi zh-CN zh-TW)
 
 # Convert the ebuild version to the upstream mozilla version, used by mozlinguas
 MOZ_PV="${PV/_beta/b}" # Handle beta for SRC_URI
+MOZ_PV="${MOZ_PV/_rc/rc}" # Handle rc for SRC_URI
 MOZ_PN="${PN/-bin}"
 MOZ_P="${MOZ_PN}-${MOZ_PV}"
 
-# Upstream ftp release URI that's used by mozlinguas.eclass
-# We don't use the http mirror because it deletes old tarballs.
-MOZ_FTP_URI="ftp://ftp.mozilla.org/pub/mozilla.org/${MOZ_PN}/releases/"
+MOZ_HTTP_URI="http://archive.mozilla.org/pub/mozilla.org/${MOZ_PN}/releases/"
 
 inherit eutils multilib pax-utils fdo-mime gnome2-utils mozlinguas nsplugins
 
 DESCRIPTION="Firefox Web Browser"
-MOZ_FTP_URI="ftp://ftp.mozilla.org/pub/mozilla.org/${MOZ_PN}/releases"
 SRC_URI="${SRC_URI}
-	amd64? ( ${MOZ_FTP_URI}/${MOZ_PV}/linux-x86_64/en-US/${MOZ_P}.tar.bz2 -> ${PN}_x86_64-${PV}.tar.bz2 )
-	x86? ( ${MOZ_FTP_URI}/${MOZ_PV}/linux-i686/en-US/${MOZ_P}.tar.bz2 -> ${PN}_i686-${PV}.tar.bz2 )"
+	amd64? ( ${MOZ_HTTP_URI%/}/${MOZ_PV}/linux-x86_64/en-US/${MOZ_P}.tar.bz2 -> ${PN}_x86_64-${PV}.tar.bz2 )
+	x86? ( ${MOZ_HTTP_URI%/}/${MOZ_PV}/linux-i686/en-US/${MOZ_P}.tar.bz2 -> ${PN}_i686-${PV}.tar.bz2 )"
 HOMEPAGE="http://www.mozilla.com/firefox"
 RESTRICT="strip mirror"
 
@@ -45,7 +43,7 @@ RDEPEND="dev-libs/atk
 	>=media-libs/freetype-2.4.10
 	>=x11-libs/cairo-1.10[X]
 	x11-libs/gdk-pixbuf
-	>=x11-libs/gtk+-2.14:2
+	>=x11-libs/gtk+-2.18:2
 	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
@@ -93,28 +91,29 @@ src_install() {
 		newins "${icon_path}/default${size}.png" "${icon}.png" || die
 	done
 	# The 128x128 icon has a different name
-	insinto "/usr/share/icons/hicolor/128x128/apps"
+	insinto /usr/share/icons/hicolor/128x128/apps
 	newins "${icon_path}/../../../icons/mozicon128.png" "${icon}.png" || die
 	# Install a 48x48 icon into /usr/share/pixmaps for legacy DEs
 	newicon "${S}"/browser/chrome/icons/default/default48.png ${PN}.png
 	domenu "${FILESDIR}"/${PN}.desktop
 	sed -i -e "s:@NAME@:${name}:" -e "s:@ICON@:${icon}:" \
-		"${ED}/usr/share/applications/${PN}.desktop" || die
+		"${ED}usr/share/applications/${PN}.desktop" || die
 
 	# Add StartupNotify=true bug 237317
 	if use startup-notification; then
-		echo "StartupNotify=true" >> "${D}"/usr/share/applications/${PN}.desktop
+		echo "StartupNotify=true" >> "${ED}"usr/share/applications/${PN}.desktop
 	fi
 
 	# Install firefox in /opt
 	dodir ${MOZILLA_FIVE_HOME%/*}
-	mv "${S}" "${D}"${MOZILLA_FIVE_HOME} || die
+	mv "${S}" "${ED}"${MOZILLA_FIVE_HOME} || die
 
 	# Fix prefs that make no sense for a system-wide install
 	insinto ${MOZILLA_FIVE_HOME}/defaults/pref/
 	doins "${FILESDIR}"/local-settings.js
 	# Copy preferences file so we can do a simple rename.
-	cp "${FILESDIR}"/all-gentoo-1.js  "${D}"${MOZILLA_FIVE_HOME}/all-gentoo.js
+	cp "${FILESDIR}"/all-gentoo-1.js \
+		"${ED}"${MOZILLA_FIVE_HOME}/all-gentoo.js || die
 
 	# Install language packs
 	mozlinguas_src_install
@@ -123,13 +122,13 @@ src_install() {
 	if [[ -n ${LANG} && ${LANG} != "en" ]]; then
 		elog "Setting default locale to ${LANG}"
 		echo "pref(\"general.useragent.locale\", \"${LANG}\");" \
-			>> "${D}${MOZILLA_FIVE_HOME}"/defaults/pref/${PN}-prefs.js || \
+			>> "${ED}${MOZILLA_FIVE_HOME}"/defaults/pref/${PN}-prefs.js || \
 			die "sed failed to change locale"
 	fi
 
 	# Create /usr/bin/firefox-bin
 	dodir /usr/bin/
-	cat <<-EOF >"${D}"/usr/bin/${PN}
+	cat <<-EOF >"${ED}"usr/bin/${PN}
 	#!/bin/sh
 	unset LD_PRELOAD
 	LD_LIBRARY_PATH="/opt/firefox/"
@@ -147,7 +146,7 @@ src_install() {
 	share_plugins_dir
 
 	# Required in order to use plugins and even run firefox on hardened.
-	pax-mark mr "${ED}"/${MOZILLA_FIVE_HOME}/{firefox,firefox-bin,plugin-container}
+	pax-mark mr "${ED}"${MOZILLA_FIVE_HOME}/{firefox,firefox-bin,plugin-container}
 }
 
 pkg_preinst() {

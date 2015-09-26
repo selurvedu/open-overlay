@@ -90,7 +90,7 @@ DEPEND="${RDEPEND}
 	>=dev-util/gperf-3.0.1
 	>=sys-devel/bison-2.4.3
 	>=sys-devel/flex-2.5.34
-	|| ( >=sys-devel/gcc-4.7 >=sys-devel/clang-3.3 )
+	|| ( >=sys-devel/gcc-4.9.3 >=sys-devel/clang-3.3 )
 	sys-devel/gettext
 	virtual/pkgconfig
 

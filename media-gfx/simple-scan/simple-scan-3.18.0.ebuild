@@ -33,7 +33,8 @@ RDEPEND="${COMMON_DEPEND}
 	x11-themes/gnome-icon-theme
 "
 DEPEND="${COMMON_DEPEND}
-	app-text/yelp-tools
+	>=gnome-extra/gnome-packagekit-3.12.2 
+        app-text/yelp-tools
 	>=dev-util/intltool-0.35.0
 	virtual/pkgconfig
 "
