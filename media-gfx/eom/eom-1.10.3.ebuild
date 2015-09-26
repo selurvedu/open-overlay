@@ -21,7 +21,6 @@ IUSE="X dbus exif jpeg lcms python svg tiff xmp gtk3"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-LIBS="|X11"
 RDEPEND="
 	dev-libs/atk:0
 	>=dev-libs/glib-2.25.9:2
