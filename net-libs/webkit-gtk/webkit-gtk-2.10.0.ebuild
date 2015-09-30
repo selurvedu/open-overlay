@@ -1,6 +1,7 @@
 # Copyright open-overlay 2015 by Alex
 
 EAPI="5"
+CMAKE_MAKEFILE_GENERATOR="ninja"
 GCONF_DEBUG="no"
 PYTHON_COMPAT=( python2_7 )
 
@@ -29,7 +30,7 @@ REQUIRED_USE="
 # Aqua support in gtk3 is untested
 # gtk2 is needed for plugin process support, should we add a USE flag to configure this?
 RDEPEND="
-	>=dev-libs/hyphen-2.8.6
+        >=dev-libs/hyphen-2.8.6
         dev-db/sqlite:3=
 	>=dev-libs/glib-2.36:2
 	>=dev-libs/icu-3.8.1-r1:=
@@ -77,7 +78,7 @@ RDEPEND="
 # Need real bison, not yacc
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
-	>=dev-lang/perl-5.10
+        >=dev-lang/perl-5.10
 	|| (
 		virtual/rubygems[ruby_targets_ruby20]
 		virtual/rubygems[ruby_targets_ruby21]
@@ -90,7 +91,7 @@ DEPEND="${RDEPEND}
 	>=dev-util/gperf-3.0.1
 	>=sys-devel/bison-2.4.3
 	>=sys-devel/flex-2.5.34
-	|| ( >=sys-devel/gcc-4.9.3 >=sys-devel/clang-3.3 )
+	|| ( >=sys-devel/gcc-4.9.3 >=sys-devel/clang-3.7 )
 	sys-devel/gettext
 	virtual/pkgconfig
 
@@ -115,7 +116,7 @@ pkg_pretend() {
 	fi
 
 	if ! test-flag-CXX -std=c++11; then
-		die "You need at least GCC 4.7.x or Clang >= 3.3 for C++11-specific compiler flags"
+		die "You need at least GCC 4.9.x or Clang >= 3.7 for C++11-specific compiler flags"
 	fi
 }
 
