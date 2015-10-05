@@ -2,11 +2,13 @@
 
 EAPI="5"
 
-inherit eutils
+inherit eutils versionator
+
+MY_PV="$(get_version_component_range 1-3)"
 
 DESCRIPTION="PyCharm"
 HOMEPAGE="www.jetbrains.com/pycharm/"
-SRC_URI="http://download-cf.jetbrains.com/python/${P}.tar.gz"
+SRC_URI="http://download-cf.jetbrains.com/python/${PN}-${MY_PV}.tar.gz"
 
 LICENSE="Apache-2.0 BSD CDDL MIT-with-advertising"
 KEYWORDS="x86 amd64"
@@ -16,8 +18,10 @@ RDEPEND="${DEPEND}"
 
 SLOT="0"
 
-S="${WORKDIR}/${P}"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
+QA_PRESTRIPPED="opt/pycharm-community/lib/libpty/linux/x86_64/libpty.so
+                opt/pycharm-community/lib/libpty/linux/x86/libpty.so"
 src_install()
 {	
 	# copy files

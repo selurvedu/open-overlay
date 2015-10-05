@@ -4,7 +4,7 @@ EAPI=5
 
 inherit eutils versionator
 
-SR=R
+SR=1
 RNAME="mars"
 
 
