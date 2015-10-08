@@ -4,10 +4,9 @@ EAPI=5
 inherit eutils versionator
 
 SLOT="0"
-RDEPEND=">=virtual/jdk-1.7
-        !dev-util/idea-community"
+RDEPEND=">=virtual/jdk-1.7"
+
 MY_VERSION_STRING="$(get_version_component_range 4-6)"
-MY_STRING="15-PublicPreview"
 MY_PV="$(get_version_component_range 1-3)"
 MY_PN="idea"
 
@@ -35,13 +34,13 @@ QA_WX_LOAD="
 	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/solaris/x86/libnative_misc.so
 	opt/${PN}-${MY_PV}/plugins/tfsIntegration/lib/native/solaris/x86/libnative_synchronization.so"
 
-DESCRIPTION="IntelliJ IDEA is an intelligent Java IDE (Ultimate Edition)"
+DESCRIPTION="IntelliJ IDEA is an intelligent Java IDE (Community Edition)"
 HOMEPAGE="http://jetbrains.com/idea/"
-SRC_URI="https://d1opms6zj7jotq.cloudfront.net/${MY_PN}/${MY_PN}IU-${MY_STRING}.tar.gz"
+SRC_URI="https://d1opms6zj7jotq.cloudfront.net/${MY_PN}/${MY_PN}IC-${MY_VERSION_STRING}.tar.gz"
 LICENSE="Apache-2.0"
 IUSE=""
 KEYWORDS="~amd64 ~x86"
-S="${WORKDIR}/${MY_PN}-IU-${MY_VERSION_STRING}"
+S="${WORKDIR}/${MY_PN}-IC-${MY_VERSION_STRING}"
 
 src_prepare() {
 	if ! use amd64; then
@@ -62,20 +61,22 @@ src_prepare() {
 }
 
 pkg_postinst() {
-               echo 
-               echo "This is EAP Intellij Idea 15"
-               echo
+                echo 
+                echo "This is EAP Intellij Idea 15"
+                echo        
 }
 src_install() {
-local dir="/opt/${PN}-${MY_PV}"
-insinto "${dir}"
-doins -r *
-fperms 755 "${dir}/bin/${MY_PN}.sh" "${dir}/bin/fsnotifier" "${dir}/bin/fsnotifier64"
-newicon "bin/idea.png" "${PN}.png"
-make_wrapper ${PN} ${dir}/bin/${MY_PN}.sh
- # recommended by: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
+	local dir="/opt/${PN}-${MY_PV}"
+
+	insinto "${dir}"
+	doins -r *
+	fperms 755 "${dir}/bin/${MY_PN}.sh" "${dir}/bin/fsnotifier" "${dir}/bin/fsnotifier64"
+
+	newicon "bin/idea.png" "${PN}.png"
+	make_wrapper ${PN} ${dir}/bin/${MY_PN}.sh
+        # recommended by: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
 	mkdir -p "${D}/etc/sysctl.d/"
 	echo "fs.inotify.max_user_watches = 524288" > "${D}/etc/sysctl.d/30-idea-inotify-watches.conf"
 
-make_desktop_entry ${PN} "IntelliJ IDEA(Ultimate Edition)" ${PN} "Development;IDE"
+	make_desktop_entry ${PN} "IntelliJ IDEA(Community Edition)" ${PN} "Development;IDE"
 }
