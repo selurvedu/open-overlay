@@ -2,9 +2,9 @@
 
 EAPI="5"
 
-inherit eutils
+inherit eutils versionator
 
-MY_PV="12.0.2"
+MY_PV="$(get_version_component_range 1-3)"
 
 DESCRIPTION="Lightworks is the fastest, most accessible and focused NLE in the industry"
 HOMEPAGE="http://www.lwks.com/"
