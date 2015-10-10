@@ -12,7 +12,7 @@ SRC_URI="http://www.lwks.com/dmpub/lwks-${MY_PV}-amd64.deb"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 RESTRICT=""
 IUSE=""
 
