@@ -47,6 +47,11 @@ RDEPEND=">=virtual/jdk-1.7
 	>=x11-libs/libxshmfence-1.1[abi_x86_32(-)]"
 S=${WORKDIR}/${PN}
 
+pkg_postinst() {
+        echo 
+        elog "This is delevelopment version Android Studio 1.5 (preview 1)"
+        echo 
+}
 src_install() {
 	local dir="/opt/${PN}"
 
