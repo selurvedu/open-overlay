@@ -3,7 +3,7 @@
 EAPI="5"
 
 MY_P=${P/s/S}
-SRC_URI="http://github.com/torvalds/${PN}/archive/master.tar.gz -> ${P}.tar.gz"
+SRC_URI="http://subsurface.hohndel.org/downloads/${MY_P}.tgz"
 KEYWORDS="~amd64 ~x86"
 LIBDC_V="0.4.2"
 
@@ -40,8 +40,8 @@ DEPEND="${RDEPEND}
 DOCS="README"
 
 src_unpack() {
-	unpack ${A} 
-        mv "${PN}-master" "${P}"
+         unpack ${A}
+         mv ${MY_P}* ${P} || die "failed to mv the files to ${P}"
 }
 
 rm_trans() {
