@@ -21,7 +21,7 @@ EGIT_REPO_URI="git://github.com/torvalds/linux.git"
 KEYWORDS=""
 IUSE=""
 
-K_EXTRAEINFO="GNU/Linux Kernel"
+K_EXTRAEINFO="Live git version Linux Kernel"
 
 pkg_postinst() {
 	postinst_sources
