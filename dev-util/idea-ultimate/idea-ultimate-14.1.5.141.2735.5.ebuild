@@ -20,7 +20,7 @@ QA_PRESTRIPPED="opt/${PN}-${MY_PV}/lib/libpty/linux/x86/libpty.so
 
 DESCRIPTION="IntelliJ IDEA is an intelligent Java IDE (Ultimate Edition)"
 HOMEPAGE="http://jetbrains.com/idea/"
-SRC_URI="http://download-cf.jetbrains.com/${MY_PN}/${MY_PN}IU-${MY_PV}.tar.gz"
+SRC_URI="http://download.jetbrains.com/${MY_PN}/${MY_PN}IU-${MY_PV}.tar.gz"
 LICENSE="Apache-2.0"
 IUSE=""
 KEYWORDS="amd64 x86"
