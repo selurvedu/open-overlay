@@ -22,7 +22,7 @@ RDEPEND="
 	>=mate-base/mate-panel-1.11:0[gtk3?]
 	>=mate-base/mate-session-manager-1.11:0[gtk3?]
 	>=mate-base/mate-settings-daemon-1.11:0[gtk3?]
-	>=x11-wm/marco-1.11:0[gtk3?]
+	>=x11-wm/marco-1.10:0[gtk3?]
 	base? (
 		>=mate-base/caja-1.11:0[gtk3?]
 		>=mate-base/mate-applets-1.11:0[gtk3?]
