@@ -140,9 +140,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# Fix backgrounds path as cinnamon doesn't provide them
-	# https://github.com/linuxmint/Cinnamon/issues/3575
-	epatch "${FILESDIR}"/${PN}-2.4.5-background.patch
 
 	# Fix automagic gnome-bluetooth dep, bug #398145
 	epatch "${FILESDIR}"/${PN}-2.2.6-automagic-gnome-bluetooth.patch
@@ -150,17 +147,7 @@ src_prepare() {
 	# Optional NetworkManager, bug #488684
 	epatch "${FILESDIR}"/${PN}-2.6.7-optional-networkmanager.patch
 
-	# Use wheel group instead of sudo (from Fedora/Arch)
-	# https://github.com/linuxmint/Cinnamon/issues/3576
-	epatch "${FILESDIR}"/${PN}-2.6.7-set-wheel.patch
 
-	# Fix GNOME 3.14 support (from Fedora/Arch)
-	# https://github.com/linuxmint/Cinnamon/issues/3577
-	epatch "${FILESDIR}"/${PN}-2.4.5-gnome-3.14.patch
-
-	# Fix build with clutter[-gtk]
-	# https://github.com/linuxmint/Cinnamon/pull/4600
-	epatch "${FILESDIR}"/${PN}-2.6.13-test-recorder-includes.patch
 
 	# Use pkexec instead of gksu (from Arch)
 	# https://github.com/linuxmint/Cinnamon/issues/3565
@@ -175,12 +162,7 @@ src_prepare() {
 	sed -e "s:/usr/lib/:/usr/$(get_libdir)/:" \
 		-e 's:"/usr/lib":"/usr/'"$(get_libdir)"'":' \
 		-i files/usr/share/polkit-1/actions/org.cinnamon.settings-users.policy \
-		-i files/usr/lib/*/*.py \
-		-i files/usr/lib/*/*/*.py \
 		-i files/usr/bin/* || die "sed failed"
-	if [[ "$(get_libdir)" != lib ]]; then
-		mv files/usr/lib "files/usr/$(get_libdir)" || die "mv failed"
-	fi
 
 	if ! use networkmanager; then
 		rm -rv files/usr/share/cinnamon/applets/network@cinnamon.org || die
