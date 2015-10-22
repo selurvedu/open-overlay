@@ -66,7 +66,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg-desktop-menu install "${FILESDIR}"/${P}.desktop || die "Could not register a menu item!"
+	xdg-desktop-menu install "${FILESDIR}"/${PN}.desktop || die "Could not register a menu item!"
 	if [ -d /opt/${PN} ]; then
 		chown `logname` -R /opt/${PN}/
 	fi
