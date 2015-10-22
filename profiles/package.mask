@@ -28,7 +28,7 @@
 =mate-extra/caja-extensions-1.11.0 
 =app-text/atril-1.11.0 
 =media-gfx/eom-1.11.0 
-=mate-extra/mate-screensaver-1.11.0
+=mate-extra/mate-screensaver-1.11.1
 
 
 
