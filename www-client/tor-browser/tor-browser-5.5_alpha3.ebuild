@@ -43,7 +43,7 @@ src_install() {
 	doexe ${S}/${PN}/Browser/start-tor-browser
 	doexe ${S}/${PN}/Browser/execdesktop
 	doexe ${S}/${PN}/Browser/firefox
-	doexe ${S}/${PN}/Browser/mozilla-xremote-client
+#	doexe ${S}/${PN}/Browser/mozilla-xremote-client
 	doexe ${S}/${PN}/Browser/plugin-container
 	doexe ${S}/${PN}/Browser/run-mozilla.sh
 	doexe ${S}/${PN}/Browser/updater
