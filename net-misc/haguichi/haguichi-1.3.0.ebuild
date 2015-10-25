@@ -7,7 +7,7 @@ DESCRIPTION="Haguichi provides a user friendly GUI to control the Hamachi client
 LICENSE="GPLv3"
 HOMEPAGE="https://www.haguichi.net/"
 SLOT="0"
-KEYWORDS="~amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 SRC_URI="https://launchpadlibrarian.net/214304354/${P}.tar.xz"
 
@@ -27,4 +27,8 @@ src_prepare() {
 src_configure() {
         local mycmakeargs=( .. -DCMAKE_INSTALL_PREFIX=/usr )
         cmake-utils_src_configure          
+}
+
+src_install() { 
+                  doexe "/usr/bin/haguichi"
 }
