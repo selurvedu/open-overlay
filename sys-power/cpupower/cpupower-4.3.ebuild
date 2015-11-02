@@ -3,10 +3,10 @@
 EAPI=5
 inherit multilib toolchain-funcs
 
-MY_PV=${PV/_rc/-rc}
+#MY_PV=${PV/_rc/-rc}
 DESCRIPTION="Shows and sets processor power related values"
 HOMEPAGE="http://www.kernel.org/"
-SRC_URI="mirror://kernel/linux/kernel/v4.x/testing/linux-${MY_PV}.tar.xz"
+SRC_URI="mirror://kernel/linux/kernel/v4.x/testing/linux-${PV}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
