@@ -3,9 +3,9 @@
 EAPI=5
 
 inherit eutils versionator
- 
-MY_PV="$(get_version_component_range 1-3)"
-
+MY_PN=${PN/-professional/} 
+MY_PV="$(get_version_component_range 1-2)"
+MY_STRING_VERSION="$(get_version_component_range 4-5)"
 DESCRIPTION="PyCharm"
 HOMEPAGE="http://www.jetbrains.com/pycharm/"
 SRC_URI="http://download-cf.jetbrains.com/python/${PN}-${MY_PV}.tar.gz"
@@ -23,26 +23,22 @@ S="${WORKDIR}/${PN}-${MY_PV}"
 QA_PRESTRIPPED="opt/pycharm-community/lib/libpty/linux/x86_64/libpty.so
                 opt/pycharm-community/lib/libpty/linux/x86/libpty.so"
 
+#pkg_postinst() {
+#               echo 
+#               echo "This is EAP Pycharm 5"
+#               echo        
+#}
 src_install()
 {	
 	# copy files
   dodir /opt/${PN}
 	insinto /opt/${PN}
 	doins -r *
-	
-  # fix perms
-  fperms a+x /opt/${PN}/bin/pycharm.sh || die "fperms failed"
-	fperms a+x /opt/${PN}/bin/fsnotifier || die "fperms failed"
-	fperms a+x /opt/${PN}/bin/fsnotifier64 || die "fperms failed"
-	fperms a+x /opt/${PN}/bin/inspect.sh || die "fperms failed"
-	
-  # symlink
-  dosym /opt/${PN}/bin/pycharm.sh /usr/bin/${PN}
+fperms a+x /opt/${PN}/bin/{pycharm.sh,fsnotifier{,64},inspect.sh}
 
-  # desktop entry
-	mv "bin/pycharm.png" "bin/${PN}.png"
-  doicon "bin/${PN}.png"
-	make_desktop_entry ${PN} "PyCharm (Professional)" /opt/${PN}/bin/${PN}.png
+	dosym /opt/${PN}/bin/pycharm.sh /usr/bin/${PN}
+	newicon "bin/${MY_PN}.png" ${PN}.png
+	make_desktop_entry ${PN} "${PN}" "${PN}"	
 }
 
 
