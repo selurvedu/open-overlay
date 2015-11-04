@@ -24,9 +24,10 @@ if [[ ${MOZ_ESR} == 1 ]]; then
 fi
 
 # Patch version
-PATCH="${PN}-40.0-patches-0.01"
+PATCH="${PN}-42.0-patches-01b2"
 MOZ_HTTP_URI="http://archive.mozilla.org/pub/${PN}/releases"
 
+MOZCONFIG_OPTIONAL_GTK3=1
 MOZCONFIG_OPTIONAL_WIFI=1
 MOZCONFIG_OPTIONAL_JIT="enabled"
 

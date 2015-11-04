@@ -10,10 +10,10 @@ inherit chromium multilib unpacker toolchain-funcs
 
 DESCRIPTION="A new browser for our friends"
 HOMEPAGE="http://vivaldi.com/"
-RNAME=vivaldi_TP4
+RNAME=vivaldi-beta
 SRC_URI="
-	amd64? ( ${HOMEPAGE}/download/${RNAME}.1.0.219.50-1_amd64.deb -> ${P}-amd64.deb )
-	x86? ( ${HOMEPAGE}/download/${RNAME}.1.0.219.50-1_i386.deb -> ${P}-i386.deb )
+	amd64? ( ${HOMEPAGE}/download/${RNAME}_1.0.303.52-4_amd64.deb -> ${P}-amd64.deb )
+	x86? ( ${HOMEPAGE}/download/${RNAME}_1.0.303.52-4_i386.deb -> ${P}-i386.deb )
 "
 
 LICENSE="Vivaldi"
