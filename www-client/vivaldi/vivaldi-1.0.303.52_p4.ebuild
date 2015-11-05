@@ -2,18 +2,18 @@
 
 EAPI=5
 CHROMIUM_LANGS="
-	 am ar bg bn ca cs da de el en_GB en_US es_419 es et fa fil fi fr gu he hi
-	 hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt_BR pt_PT ro ru sk sl sr sv
-	 sw ta te th tr uk vi zh_CN zh_TW
+	am ar bg bn ca cs da de el en_GB en_US es_419 es et fa fil fi fr gu he hi
+	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt_BR pt_PT ro ru sk sl sr sv
+	sw ta te th tr uk vi zh_CN zh_TW
 "
-inherit chromium multilib unpacker toolchain-funcs
+inherit chromium eutils multilib unpacker toolchain-funcs
 
 DESCRIPTION="A new browser for our friends"
 HOMEPAGE="http://vivaldi.com/"
-RNAME=vivaldi-beta
+VIVALDI_BASE_URI="${HOMEPAGE}download/${PN}-beta_${PV/_p/-}_"
 SRC_URI="
-	amd64? ( ${HOMEPAGE}/download/${RNAME}_1.0.303.52-4_amd64.deb -> ${P}-amd64.deb )
-	x86? ( ${HOMEPAGE}/download/${RNAME}_1.0.303.52-4_i386.deb -> ${P}-i386.deb )
+	amd64? ( ${VIVALDI_BASE_URI}amd64.deb -> ${P}-amd64.deb )
+	x86? ( ${VIVALDI_BASE_URI}i386.deb -> ${P}-i386.deb )
 "
 
 LICENSE="Vivaldi"
@@ -38,7 +38,6 @@ RDEPEND="
 	net-print/cups
 	sys-apps/dbus
 	sys-libs/libcap
-	virtual/libudev
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:2
@@ -58,20 +57,31 @@ RDEPEND="
 
 QA_PREBUILT="*"
 S=${WORKDIR}
-VIVALDI_HOME="opt/${PN}"
+VIVALDI_HOME="opt/${PN}-beta"
 
 src_unpack() {
 	unpack_deb ${A}
 }
 
 src_prepare() {
-	sed -i \
-		-e 's|vivaldi-preview|vivaldi|g' \
-		usr/share/applications/${PN}-preview.desktop \
-		usr/share/xfce4/helpers/${PN}.desktop || die
+	epatch "${FILESDIR}"/${P}-flash.patch
 
-	mv usr/share/doc/${PN} usr/share/doc/${PF} || die
-	rm usr/bin/${PN}-preview || die
+	sed -i \
+		-e "s|@LIBDIR@|$(get_libdir)|g" \
+		opt/vivaldi-beta/vivaldi-beta || die
+
+	sed -i \
+		-e 's|vivaldi-beta|vivaldi|g' \
+		usr/share/applications/${PN}-beta.desktop \
+		usr/share/xfce4/helpers/${PN}-beta.desktop || die
+
+	mv usr/share/doc/${PN}-beta usr/share/doc/${PF} || die
+
+	rm etc/cron.daily/${PN}-beta || die
+	rmdir etc/cron.daily/ || die
+	rmdir etc/ || die
+
+	rm usr/bin/${PN}-beta || die
 	rm _gpgbuilder || die
 
 	local c d
@@ -90,10 +100,7 @@ src_prepare() {
 
 src_install() {
 	mv * "${D}" || die
-	dosym /${VIVALDI_HOME}/${PN} /usr/bin/${PN}
-
-	dodir /${VIVALDI_HOME}/lib
-	dosym /usr/$(get_libdir)/libudev.so /${VIVALDI_HOME}/lib/libudev.so.0
+	dosym /${VIVALDI_HOME}/${PN}-beta /usr/bin/${PN}
 
 	fperms 4711 /${VIVALDI_HOME}/${PN}-sandbox
 }
@@ -101,7 +108,7 @@ src_install() {
 pkg_postinst() {
        echo 
        elog "Welcome to Vivaldi Browser"
-       elog "This Technical Preview 4 version vivaldi browser"
+       elog "This Beta version Vivaldi browser"
        elog "Thanks open-overlay 2015 by Alex"
        echo 
 }

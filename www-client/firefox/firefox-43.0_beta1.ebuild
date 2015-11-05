@@ -24,7 +24,7 @@ if [[ ${MOZ_ESR} == 1 ]]; then
 fi
 
 # Patch version
-PATCH="${PN}-42.0-patches-01b2"
+PATCH="${PN}-42.0-patches-02"
 MOZ_HTTP_URI="http://archive.mozilla.org/pub/${PN}/releases"
 
 MOZCONFIG_OPTIONAL_GTK3=1
@@ -137,10 +137,7 @@ src_prepare() {
 	# Apply our patches
 	EPATCH_SUFFIX="patch" \
 	EPATCH_FORCE="yes" \
-	EPATCH_EXCLUDE="5002_avoid_spurious_run_items_in_application_handlers.patch" \
-	epatch "${WORKDIR}/firefox"
-	epatch "${FILESDIR}"/${PN}-38-dont-hardcode-libc-soname.patch #557956
-	epatch "${FILESDIR}"/5002_avoid_spurious_run_items_in_application_handlers.patch
+        epatch "${WORKDIR}/firefox"
 
 	# Allow user to apply any additional patches without modifing ebuild
 	epatch_user
