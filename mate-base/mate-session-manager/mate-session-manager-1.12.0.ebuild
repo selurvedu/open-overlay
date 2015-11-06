@@ -58,10 +58,6 @@ DEPEND="${RDEPEND}
 	!<gnome-base/gdm-2.20.4"
 
 src_prepare() {
-	# Add "session saving" button back,
-	# see https://bugzilla.gnome.org/show_bug.cgi?id=575544
-	epatch "${FILESDIR}"/${P}-save-session-ui.patch
-
 	eautoreconf
 	gnome2_src_prepare
 }
