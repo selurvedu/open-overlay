@@ -7,7 +7,7 @@ GNOME2_LA_PUNT="yes"
 
 inherit autotools eutils gnome2 python-single-r1 linux-info user versionator
 
-MATE_BRANCH="1.10"
+MATE_BRANCH="1.12"
 
 SRC_URI="http://pub.mate-desktop.org/releases/${MATE_BRANCH}/${P}.tar.xz"
 DESCRIPTION="Store, Sync and Share Files Online"
