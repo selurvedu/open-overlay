@@ -68,7 +68,6 @@ src_configure() {
         use !gtk3 && myconf="${myconf} --with-gtk=2.0"
 	gnome2_src_configure \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
-		--with-default-wm=mate-wm \
 		$(use_enable ipv6) \
 		$(use_with systemd) \
 		$(use_enable upower) \
