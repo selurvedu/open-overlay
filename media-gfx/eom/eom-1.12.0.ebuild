@@ -61,6 +61,8 @@ pkg_setup() {
 }
 
 src_configure() {
+        use x86 && append-ldflags "-|X11"
+        use amd64 && appednd-ldflags "-|X11"
         local myconf
         use gtk3 && myconf="${myconf} --with-gtk=3.0"
         use !gtk3 && myconf="${myconf} --with-gtk=2.0"
