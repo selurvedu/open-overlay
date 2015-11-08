@@ -142,9 +142,9 @@ src_configure() {
 	# Respect CC, otherwise fails on prefix #395875
 	tc-export CC
         # Add ldflags bug issue https://github.com/pantera31752/open-overlay/issues/23
-        use x86 && append-ldflags "-|dl" 
+        use x86 && append-ldflags "-ldl" 
         # Add ldflags bug issue https://github.com/pantera31752/open-overlay/issues/23
-        use amd64 && append-ldflags "-|dl"        
+        use amd64 && append-ldflags "-ldl"        
 
 	# Arches without JIT support also need this to really disable it in all places
 	use jit || append-cppflags -DENABLE_JIT=0 -DENABLE_YARR_JIT=0 -DENABLE_ASSEMBLER=0
