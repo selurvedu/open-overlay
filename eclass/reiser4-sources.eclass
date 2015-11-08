@@ -50,7 +50,7 @@ else
 fi
 
 : ${REISER4_PATCH_URL:=${REISER4_PATCH_URL:-"http://sourceforge.net/projects/reiser4"}} # Patchset url
-: ${REISER4_PATCH_INFO:=${REISER4_PATCH_INFO:-"${YELLOW}ReiserFS v4 version ${GREEN}${REISER4_PATCH_VER}${YELLOW} from ${GREEN}${REISER4_PATCH_URL}${NORMAL}"}}
+: ${REISER4_PATCH_INFO:=${REISER4_PATCH_INFO:-"ReiserFS v4 version {REISER4_PATCH_VER} from ${REISER4_PATCH_URL}"}}
 
 debug-print "${FUNC}: REISER4_PATCH_VER=${REISER4_PATCH_VER}"
 	debug-print "${FUNC}: REISER4_PATCH_SRC=${REISER4_PATCH_SRC}"
