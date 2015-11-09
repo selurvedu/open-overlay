@@ -5,7 +5,7 @@ EAPI="5"
 inherit java-pkg-2
 
 DESCRIPTION="Desktop/Android/BlackBerry/iOS/HTML5 Java game development framework"
-HOMEPAGE="Desktop/Android/BlackBerry/iOS/HTML5 Java game development framework"
+HOMEPAGE="https://libgdx.badlogicgames.com/"
 SRC_URI="https://libgdx.badlogicgames.com/nightlies/dist/gdx-setup.jar"
 
 LICENSE="Apache-2.0"
