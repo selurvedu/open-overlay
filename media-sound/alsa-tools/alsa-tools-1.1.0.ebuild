@@ -17,6 +17,7 @@ alsa_cards_emu10k1 alsa_cards_emu10k1x alsa_cards_ice1712
 alsa_cards_rme32 alsa_cards_rme96 alsa_cards_sscape alsa_cards_pcxhr"
 
 COMMON_DEPEND=">=media-libs/alsa-lib-${PV}
+        !media-sound/alsa-tools:0.9
 	>=dev-python/pyalsa-1.0.26
 	fltk? ( >=x11-libs/fltk-1.3.0:1 )
 	gtk? (
