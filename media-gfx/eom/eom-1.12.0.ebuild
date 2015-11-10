@@ -3,7 +3,7 @@
 EAPI="5"
 
 GCONF_DEBUG="yes"
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit gnome2 python-single-r1 versionator
 

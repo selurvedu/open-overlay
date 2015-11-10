@@ -8,7 +8,7 @@ PLOCALES=" \
 	kn ko lt lv mk ml mr ms nb nds nl nn oc pa pl pt_BR pt ro ru si sk sl \
 	sq sr sv ta te th tr uk ur vi zh_CN zh_HK zh_TW"
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit eutils gnome2-utils python-single-r1 l10n
 
