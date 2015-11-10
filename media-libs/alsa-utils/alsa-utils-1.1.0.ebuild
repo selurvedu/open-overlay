@@ -8,7 +8,7 @@ HOMEPAGE="http://www.alsa-project.org/"
 SRC_URI="mirror://alsaproject/utils/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-SLOT="1.1"
+SLOT="0.9"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86"
 IUSE="doc +libsamplerate +ncurses nls selinux"
 

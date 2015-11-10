@@ -8,7 +8,7 @@ HOMEPAGE="http://www.alsa-project.org/"
 SRC_URI="mirror://alsaproject/tools/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-SLOT="1.1"
+SLOT="0.9"
 KEYWORDS="~amd64 ~mips ~ppc ~ppc64 ~sparc ~x86"
 
 IUSE="fltk gtk alsa_cards_hdsp alsa_cards_hdspm alsa_cards_mixart
