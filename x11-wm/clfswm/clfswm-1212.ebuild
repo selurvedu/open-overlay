@@ -50,4 +50,5 @@ pkg_postinst() {
 	elog "The current lisp-implementation clfswm used is sbcl"
 	elog "If you want to use different lisp-implementations"
 	elog "change the script '/usr/bin/clfswm'."
+        elog "Thanks open-overlay 2015 by Alex"
 }

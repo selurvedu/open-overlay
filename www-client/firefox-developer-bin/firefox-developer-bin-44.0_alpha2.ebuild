@@ -3,7 +3,7 @@
 EAPI=5
 
 
-MOZ_HTTP_URI="http://archive.mozilla.org/pub/firefox/nightly/2015/11/2015-11-10-00-40-43-mozilla-aurora"
+MOZ_HTTP_URI="http://archive.mozilla.org/pub/firefox/nightly/2015/11/2015-11-11-00-40-55-mozilla-aurora"
 
 inherit eutils
 
