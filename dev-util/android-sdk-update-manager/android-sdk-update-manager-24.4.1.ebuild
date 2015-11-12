@@ -16,21 +16,14 @@ LICENSE="android"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+
 DEPEND="app-arch/tar
 		app-arch/gzip"
-RDEPEND=">=virtual/jdk-1.6
+RDEPEND=">=virtual/jdk-1.5
 	>=dev-java/ant-core-1.6.5
 	|| ( dev-java/swt:3.7[cairo] dev-java/swt:3.6[cairo] )
-	|| (
-		(
-			>=x11-libs/gtk+-2.24.23-r2:2[abi_x86_32(-)]
-		)
-		amd64? (
-			app-emulation/emul-linux-x86-gtklibs[-abi_x86_32(-)]
-		)
-	)
+	sys-libs/zlib[abi_x86_32(-)]
 "
-
 ANDROID_SDK_DIR="/opt/${PN}"
 QA_FLAGS_IGNORED_x86="
 	${ANDROID_SDK_DIR/\/}/tools/emulator
