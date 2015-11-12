@@ -49,7 +49,7 @@ S=${WORKDIR}/${PN}
 
 pkg_postinst() {
         echo 
-        elog "This is delevelopment version Android Studio 1.5 (preview 2)"
+        elog "This is delevelopment version Android Studio 1.5 (RC1)"
         echo 
 }
 src_install() {
