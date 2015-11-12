@@ -19,8 +19,8 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="app-arch/tar
 		app-arch/gzip"
-RDEPEND=">=virtual/jdk-1.5
-	>=dev-java/ant-core-1.6.5
+RDEPEND=">=virtual/jdk-1.6
+	>=dev-java/ant-core-1.9.2
 	|| ( dev-java/swt:3.7[cairo] dev-java/swt:3.6[cairo] )
 	sys-libs/zlib[abi_x86_32(-)]
 "
