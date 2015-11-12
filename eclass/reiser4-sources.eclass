@@ -35,17 +35,15 @@ reiser4-sources_init_variables () {
 debug-print-function ${FUNC} "$@"
 
 
-local KVer="3"
-
 : ${REISER4_PATCH_VER:=${REISER4_PATCH_VER:-"${PV}"}} # Patchset version
 
-if [ "x3" = "x${KVer}" ] ; then
+if [[ "${PV}" == "$3.19.5" ]]; then
 
-: ${REISER4_PATCH_SRC:=${REISER4_PATCH_SRC-"mirror://sourceforge/project/reiser4/reiser4-for-linux-3.x/reiser4-for-${REISER4_PATCH_VER}.patch.gz"}} # Patchset sources url
+: ${REISER4_PATCH_SRC:=${REISER4_PATCH_SRC-"mirror://sourceforge/project/reiser4/reiser4-for-linux-3.x/reiser4-for-${REISER4_PATCH_VER}.patch.gz"}} # Patchset sources url for kernel-3.x
 
 else
 
-: ${REISER4_PATCH_SRC:=${REISER4_PATCH_SRC-"mirror://sourceforge/project/reiser4/reiser4-for-linux-4.x/reiser4-for-${REISER4_PATCH_VER}.patch.gz"}} # Patchset sources url
+: ${REISER4_PATCH_SRC:=${REISER4_PATCH_SRC-"mirror://sourceforge/project/reiser4/reiser4-for-linux-4.x/reiser4-for-${REISER4_PATCH_VER}.patch.gz"}} # Patchset sources url for kernel 4.x 
 
 fi
 
