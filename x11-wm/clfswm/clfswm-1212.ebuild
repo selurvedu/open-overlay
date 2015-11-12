@@ -2,7 +2,7 @@
 
 EAPI=5
 
-inherit eutils multilib common-lisp-3
+inherit eutils multilib common-lisp-3 
 
 DESCRIPTION="100% Common Lisp X11 window manager (based on Tinywm and Stumpwm)"
 HOMEPAGE="http://common-lisp.net/project/clfswm"
@@ -34,7 +34,7 @@ src_install() {
 	doins -r contrib
 
 	insinto /usr/share/xsessions
-	doins clfswm-session.desktop
+ 	doins clfswm-session.desktop
 
 
 	doman clfswm.1
